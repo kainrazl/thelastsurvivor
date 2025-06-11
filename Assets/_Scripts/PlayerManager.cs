@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
@@ -132,16 +133,19 @@ public class PlayerManager : MonoBehaviour
 
     public void ShootBullet()
     {
-        GameObject bullet = BulletPool.instance.GetBullet();
-
-        if (bullet != null)
+        if (!isPaused)
         {
-            shoot.Play();
-            bullet.transform.position = bulletSpawner.position;
-            bullet.SetActive(true);
-            shot = bullet.GetComponent<Bullet>();
+            GameObject bullet = BulletPool.instance.GetBullet();
 
-            shot.SetBulletDirection(bulletDirection);
+            if (bullet != null)
+            {
+                shoot.Play();
+                bullet.transform.position = bulletSpawner.position;
+                bullet.SetActive(true);
+                shot = bullet.GetComponent<Bullet>();
+
+                shot.SetBulletDirection(bulletDirection);
+            }
         }
     }
 
@@ -179,10 +183,11 @@ public class PlayerManager : MonoBehaviour
     private IEnumerator TakeDamage()
     {
         canTakeDamage = false;
-
+        playerAnim.SetTrigger("isHurt");
+        
         //enter
         WaitForSeconds waiting = new WaitForSeconds(2);
-        playerAnim.SetTrigger("isHurt");
+        //animation
         ph.UpdateHealth(0.1f, true);
         yield return waiting;
         //end

@@ -154,7 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef58c15e1d55994c91ade2ffb21bab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 0
+  currentPoints: 0
+  maxPoints: 0
   textPoints: {fileID: 0}
 --- !u!50 &6208729643602219424
 Rigidbody2D:
@@ -190,6 +191,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: 0.44}
-  m_Size: {x: 0.37, y: 0.0001}
+  m_Offset: {x: -0.050000012, y: 0.65414363}
+  m_Size: {x: 0.42212903, y: 1.1586851}
   m_Direction: 0

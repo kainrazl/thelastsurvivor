@@ -296,6 +296,17 @@ public partial class @GameActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""27652ae5-3a93-4a97-8233-c2619bf492c2"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""d8905d21-9320-45fc-8999-622aac0dd1f0"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -309,17 +320,6 @@ public partial class @GameActions : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""b8ba4969-5f54-4bb4-af95-f55fedc97dc8"",
                     ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0e8ac42f-f12c-4230-a7ce-d53d301112cb"",
-                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

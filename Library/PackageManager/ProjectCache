@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638150571851084034
-    m_Hash: 3112695274
+      ticks: 638852035989475232
+    m_Hash: 1294503203
   m_LockFileStatus:
     m_FilePath: E:/UNIAT/Unity/MotoresGraficosIII/Parcial_1/TheLastSurvivor/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638150571851582678
-    m_Hash: 681729656
+      ticks: 638852035994439578
+    m_Hash: 2956323611
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,220 @@ m_LocalPackages:
 m_ProjectPath: E:/UNIAT/Unity/MotoresGraficosIII/Parcial_1/TheLastSurvivor/Packages
 m_EditorVersion: 2021.3.3f1 (af2e63e8f9bd)
 m_ResolvedPackages:
+- packageId: com.unity.adaptiveperformance.google.android@1.3.1
+  testable: 0
+  isDirectDependency: 1
+  version: 1.3.1
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.adaptiveperformance.google.android@1.3.1
+  assetPath: Packages/com.unity.adaptiveperformance.google.android
+  name: com.unity.adaptiveperformance.google.android
+  displayName: Adaptive Performance Android
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: "The Adaptive Performance Android package provides the Adaptive Performance
+    subsystem for Android platforms and works in combination with Adaptive Performance.
+    \n\nBy installing this package, you agree to the terms and conditions of the
+    Unity End User License Agreement found under \"View licenses\" above."
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.0-pre.2
+    - 1.0.0-pre.3
+    - 1.0.0-pre.4
+    - 1.0.0
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2
+    - 1.2.0
+    - 1.2.1
+    - 1.3.1
+    - 5.1.2
+    - 5.1.3
+    - 5.1.4
+    compatible:
+    - 1.2.0
+    - 1.2.1
+    - 1.3.1
+    verified: 
+  dependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.1.0
+  resolvedDependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.1.0
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - google
+  - ap
+  - provider
+  - subsystem
+  - gamesdk
+  - VRR
+  - indexer
+  - scaler
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 638477276410000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.google.android@1.3/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.google.android.git
+    revision: 05f04f0f1a246418bf6f0993078d5bce417363d0
+    path: 
+  unityLifecycle:
+    version: 
+    nextVersion: 
+- packageId: com.unity.adaptiveperformance.samsung.android@5.0.0
+  testable: 0
+  isDirectDependency: 1
+  version: 5.0.0
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.adaptiveperformance.samsung.android@5.0.0
+  assetPath: Packages/com.unity.adaptiveperformance.samsung.android
+  name: com.unity.adaptiveperformance.samsung.android
+  displayName: Adaptive Performance Samsung Android
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: "The Adaptive Performance Samsung (Android) package provides the Adaptive
+    Performance subsystem for Samsung Android platforms and works in combination
+    with Adaptive Performance. \n\nBy installing this package, you agree to the terms
+    and conditions of the Samsung GameSDK End User License Agreement found under
+    \"View licenses\" above."
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.2.0-preview.1
+    - 1.0.0
+    - 1.0.1
+    - 1.0.2-preview.1
+    - 1.1.0-preview.2
+    - 1.1.0
+    - 1.1.1
+    - 1.1.2
+    - 1.1.3
+    - 1.1.4
+    - 1.1.6
+    - 1.1.9
+    - 1.1.10
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 2.0.0-preview.4
+    - 2.0.0-preview.7
+    - 2.0.0-preview.8
+    - 2.0.0-preview.9
+    - 2.0.0-preview.10
+    - 2.0.0-preview.11
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.1
+    - 2.2.2
+    - 2.2.4
+    - 2.2.5
+    - 3.0.0-pre.2
+    - 3.0.0
+    - 3.0.1
+    - 3.0.3
+    - 3.0.4
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0
+    compatible:
+    - 3.0.1
+    - 3.0.3
+    - 3.0.4
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0
+    verified: 3.0.4
+  dependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.0.0
+  resolvedDependencies:
+  - name: com.unity.adaptiveperformance
+    version: 5.1.0
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - samsung
+  - ap
+  - provider
+  - subsystem
+  - gamesdk
+  - VRR
+  - indexer
+  - scaler
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 638158713650000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance.samsung.android@5.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.samsung.android.git
+    revision: 11a249c3a7df60f3bfff228fa7f1496991f40dfb
+    path: 
+  unityLifecycle:
+    version: 3.0.1
+    nextVersion: 
 - packageId: com.unity.collab-proxy@1.15.16
   testable: 0
   isDirectDependency: 1
@@ -35,7 +249,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: Editor
+  category: 
   type: asset
   description: The Version Control package gives you the ability to use either Collaborate
     or Plastic SCM for Unity (beta) in the Unity editor. To use Plastic SCM for Unity
@@ -108,9 +322,22 @@ m_ResolvedPackages:
     - 2.0.1
     - 2.0.3
     - 2.0.4
+    - 2.0.5
+    - 2.0.7
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
+    - 2.1.0
+    - 2.2.0
+    - 2.3.1
+    - 2.4.3
+    - 2.4.4
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
+    - 2.7.1
+    - 2.8.1
+    - 2.8.2
     compatible:
     - 1.15.16
     - 1.15.17
@@ -131,9 +358,22 @@ m_ResolvedPackages:
     - 2.0.1
     - 2.0.3
     - 2.0.4
+    - 2.0.5
+    - 2.0.7
     - 2.1.0-preview.3
     - 2.1.0-preview.5
     - 2.1.0-preview.6
+    - 2.1.0
+    - 2.2.0
+    - 2.3.1
+    - 2.4.3
+    - 2.4.4
+    - 2.5.1
+    - 2.5.2
+    - 2.6.0
+    - 2.7.1
+    - 2.8.1
+    - 2.8.2
     verified: 1.15.18
   dependencies:
   - name: com.unity.services.core
@@ -141,11 +381,11 @@ m_ResolvedPackages:
   resolvedDependencies:
   - name: com.unity.services.core
     version: 1.3.1
-  - name: com.unity.modules.unitywebrequest
+  - name: com.unity.modules.androidjni
     version: 1.0.0
   - name: com.unity.nuget.newtonsoft-json
     version: 3.0.2
-  - name: com.unity.modules.androidjni
+  - name: com.unity.modules.unitywebrequest
     version: 1.0.0
   keywords:
   - backup
@@ -229,10 +469,12 @@ m_ResolvedPackages:
     version: 7.0.5
   - name: com.unity.2d.common
     version: 6.0.3
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.6.5
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -243,8 +485,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.uielementsnative
     version: 1.0.0
-  - name: com.unity.burst
-    version: 1.6.5
   - name: com.unity.modules.animation
     version: 1.0.0
   - name: com.unity.2d.pixel-perfect
@@ -261,9 +501,73 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.2d.tilemap.extras
     version: 2.2.2
+  - name: com.unity.ugui
+    version: 1.0.0
   - name: com.unity.modules.tilemap
     version: 1.0.0
-  - name: com.unity.ugui
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 1.0.0
+    nextVersion: 
+- packageId: com.unity.feature.mobile@1.0.0
+  testable: 0
+  isDirectDependency: 1
+  version: 1.0.0
+  source: 2
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.feature.mobile@1.0.0
+  assetPath: Packages/com.unity.feature.mobile
+  name: com.unity.feature.mobile
+  displayName: Mobile
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: feature
+  description: Optimize your apps for mobile devices and provide a performant experience
+    for your users. Includes utilities for debugging on device and support for notifications.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.0
+    compatible:
+    - 1.0.0
+    verified: 1.0.0
+  dependencies:
+  - name: com.unity.mobile.android-logcat
+    version: default
+  - name: com.unity.adaptiveperformance
+    version: default
+  - name: com.unity.mobile.notifications
+    version: default
+  resolvedDependencies:
+  - name: com.unity.mobile.android-logcat
+    version: 1.3.2
+  - name: com.unity.adaptiveperformance
+    version: 5.1.0
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  - name: com.unity.mobile.notifications
+    version: 2.0.1
+  - name: com.unity.modules.androidjni
     version: 1.0.0
   keywords: []
   registry:
@@ -344,6 +648,16 @@ m_ResolvedPackages:
     - 3.0.18
     - 3.0.20
     - 3.0.21
+    - 3.0.22
+    - 3.0.24
+    - 3.0.25
+    - 3.0.26
+    - 3.0.27
+    - 3.0.28
+    - 3.0.31
+    - 3.0.34
+    - 3.0.35
+    - 3.0.36
     compatible:
     - 3.0.14
     - 3.0.15
@@ -352,7 +666,17 @@ m_ResolvedPackages:
     - 3.0.18
     - 3.0.20
     - 3.0.21
-    verified: 3.0.21
+    - 3.0.22
+    - 3.0.24
+    - 3.0.25
+    - 3.0.26
+    - 3.0.27
+    - 3.0.28
+    - 3.0.31
+    - 3.0.34
+    - 3.0.35
+    - 3.0.36
+    verified: 3.0.36
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
@@ -423,12 +747,20 @@ m_ResolvedPackages:
     - 2.0.16
     - 2.0.17
     - 2.0.18
+    - 2.0.20
+    - 2.0.21
+    - 2.0.22
+    - 2.0.23
     compatible:
     - 2.0.15
     - 2.0.16
     - 2.0.17
     - 2.0.18
-    verified: 2.0.18
+    - 2.0.20
+    - 2.0.21
+    - 2.0.22
+    - 2.0.23
+    verified: 2.0.23
   dependencies:
   - name: com.unity.test-framework
     version: 1.1.9
@@ -582,6 +914,23 @@ m_ResolvedPackages:
     - 1.4.4
     - 1.5.0
     - 1.5.1
+    - 1.6.1
+    - 1.6.3
+    - 1.7.0
+    - 1.8.0-pre.1
+    - 1.8.0-pre.2
+    - 1.8.0
+    - 1.8.1
+    - 1.8.2
+    - 1.9.0
+    - 1.10.0
+    - 1.11.0
+    - 1.11.1
+    - 1.11.2
+    - 1.12.0
+    - 1.13.0
+    - 1.13.1
+    - 1.14.0
     compatible:
     - 1.3.0
     - 1.4.1
@@ -590,6 +939,23 @@ m_ResolvedPackages:
     - 1.4.4
     - 1.5.0
     - 1.5.1
+    - 1.6.1
+    - 1.6.3
+    - 1.7.0
+    - 1.8.0-pre.1
+    - 1.8.0-pre.2
+    - 1.8.0
+    - 1.8.1
+    - 1.8.2
+    - 1.9.0
+    - 1.10.0
+    - 1.11.0
+    - 1.11.1
+    - 1.11.2
+    - 1.12.0
+    - 1.13.0
+    - 1.13.1
+    - 1.14.0
     verified: 1.3.0
   dependencies:
   - name: com.unity.modules.uielements
@@ -647,7 +1013,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: Unity Test Framework
+  category: 
   type: asset
   description: Test framework for running Edit mode and Play mode tests in Unity.
   status: 4
@@ -693,6 +1059,17 @@ m_ResolvedPackages:
     - 1.3.2
     - 1.3.3
     - 1.3.4
+    - 1.3.5
+    - 1.3.7
+    - 1.3.8
+    - 1.3.9
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 1.4.5
+    - 1.4.6
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -705,6 +1082,17 @@ m_ResolvedPackages:
     - 1.3.2
     - 1.3.3
     - 1.3.4
+    - 1.3.5
+    - 1.3.7
+    - 1.3.8
+    - 1.3.9
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 1.4.5
+    - 1.4.6
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -760,7 +1148,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: Text Rendering
+  category: 
   type: asset
   description: 'TextMeshPro is the ultimate text solution for Unity. It''s the perfect
     replacement for Unity''s UI Text and the legacy Text Mesh.
@@ -866,19 +1254,41 @@ m_ResolvedPackages:
     - 3.0.4
     - 3.0.5
     - 3.0.6
+    - 3.0.7
+    - 3.0.8
+    - 3.0.9
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
     - 3.2.0-pre.4
+    - 3.2.0-pre.5
+    - 3.2.0-pre.6
+    - 3.2.0-pre.7
+    - 3.2.0-pre.8
+    - 3.2.0-pre.9
+    - 3.2.0-pre.10
+    - 3.2.0-pre.11
+    - 3.2.0-pre.12
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
     - 3.0.6
+    - 3.0.7
+    - 3.0.8
+    - 3.0.9
     - 3.2.0-pre.1
     - 3.2.0-pre.2
     - 3.2.0-pre.3
     - 3.2.0-pre.4
-    verified: 3.0.6
+    - 3.2.0-pre.5
+    - 3.2.0-pre.6
+    - 3.2.0-pre.7
+    - 3.2.0-pre.8
+    - 3.2.0-pre.9
+    - 3.2.0-pre.10
+    - 3.2.0-pre.11
+    - 3.2.0-pre.12
+    verified: 3.0.9
   dependencies:
   - name: com.unity.ugui
     version: 1.0.0
@@ -1012,9 +1422,18 @@ m_ResolvedPackages:
     - 1.7.2
     - 1.7.3
     - 1.7.4
+    - 1.7.5
+    - 1.7.6
+    - 1.7.7
     - 1.8.0
     - 1.8.1
     - 1.8.2
+    - 1.8.3
+    - 1.8.4
+    - 1.8.5
+    - 1.8.6
+    - 1.8.7
+    - 1.8.8
     compatible:
     - 1.6.4
     - 1.6.5
@@ -1025,23 +1444,32 @@ m_ResolvedPackages:
     - 1.7.2
     - 1.7.3
     - 1.7.4
+    - 1.7.5
+    - 1.7.6
+    - 1.7.7
     - 1.8.0
     - 1.8.1
     - 1.8.2
+    - 1.8.3
+    - 1.8.4
+    - 1.8.5
+    - 1.8.6
+    - 1.8.7
+    - 1.8.8
     verified: 1.6.5
   dependencies:
+  - name: com.unity.modules.audio
+    version: 1.0.0
   - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.particlesystem
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.director
-    version: 1.0.0
   - name: com.unity.modules.audio
+    version: 1.0.0
+  - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -1098,6 +1526,8 @@ m_ResolvedPackages:
     all:
     - 1.0.0
     - 3.0.0-exp.1
+    - 3.0.0-exp.3
+    - 3.0.0-exp.4
     compatible:
     - 1.0.0
     verified: 1.0.0
@@ -1184,11 +1614,25 @@ m_ResolvedPackages:
     - 1.7.8
     - 1.8.0-pre.1
     - 1.8.0
+    - 1.9.0
+    - 1.9.1
+    - 1.9.2
+    - 1.9.4
+    - 1.9.5
+    - 1.9.6
+    - 1.9.7
     compatible:
     - 1.7.6
     - 1.7.7
     - 1.7.8
     - 1.8.0
+    - 1.9.0
+    - 1.9.1
+    - 1.9.2
+    - 1.9.4
+    - 1.9.5
+    - 1.9.6
+    - 1.9.7
     verified: 1.7.8
   dependencies:
   - name: com.unity.ugui
@@ -2978,7 +3422,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: Libraries
+  category: 
   type: asset
   description: Custom version of the nunit package build to work with Unity. Used
     by the Unity Test Framework.
@@ -2994,10 +3438,14 @@ m_ResolvedPackages:
     - 1.0.6
     - 2.0.2
     - 2.0.3
+    - 2.0.4
+    - 2.0.5
     compatible:
     - 1.0.6
     - 2.0.2
     - 2.0.3
+    - 2.0.4
+    - 2.0.5
     verified: 1.0.6
   dependencies: []
   resolvedDependencies: []
@@ -3025,6 +3473,202 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.0.6
     nextVersion: 
+- packageId: com.unity.mobile.android-logcat@1.3.2
+  testable: 0
+  isDirectDependency: 0
+  version: 1.3.2
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.mobile.android-logcat@1.3.2
+  assetPath: Packages/com.unity.mobile.android-logcat
+  name: com.unity.mobile.android-logcat
+  displayName: Android Logcat
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: "Android Logcat package provides support for:\n - Android log messages\n
+    - Android application memory statistics\n - Android Screen Capture\n - Android
+    Screen Recorder\n - Stacktrace Utility\n\nClick the 'View documentation' link
+    above for more information.\n\nThe window can be accessed in Unity Editor via
+    'Window > Analysis > Android Logcat', or simply by pressing 'Alt+6' on Windows
+    or 'Option+6' on macOS. \n\nMake sure to have Android module loaded and switch
+    to Android build target in 'Build Settings' window if the menu doesn't exist."
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.1.5-preview
+    - 0.2.7-preview
+    - 1.0.0
+    - 1.0.1-preview
+    - 1.0.3-preview
+    - 1.1.0
+    - 1.1.1
+    - 1.2.0-preview
+    - 1.2.0
+    - 1.2.1
+    - 1.2.2
+    - 1.2.3
+    - 1.3.2
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 1.4.5
+    compatible:
+    - 1.3.2
+    - 1.4.0
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 1.4.5
+    verified: 1.3.2
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - Mobile
+  - Android
+  - Logcat
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 637859722170000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.mobile.logcat.git
+    revision: 3ac2137ceeb55e2f8b7e4ce15c940a7257591fd8
+    path: 
+  unityLifecycle:
+    version: 1.3.2
+    nextVersion: 
+- packageId: com.unity.mobile.notifications@2.0.1
+  testable: 0
+  isDirectDependency: 0
+  version: 2.0.1
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.mobile.notifications@2.0.1
+  assetPath: Packages/com.unity.mobile.notifications
+  name: com.unity.mobile.notifications
+  displayName: Mobile Notifications
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 'Mobile Notifications package adds support for scheduling local repeatable
+    or one-time notifications on iOS and Android.
+
+
+    Requires iOS 10 and Android
+    4.4 or above.'
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.0-preview.4
+    - 1.0.0-preview.5
+    - 1.0.0-preview.7
+    - 1.0.0-preview.8
+    - 1.0.0-preview.9
+    - 1.0.0-preview.10
+    - 1.0.0-preview.13
+    - 1.0.0-preview.17
+    - 1.0.0-preview.21
+    - 1.0.0-preview.23
+    - 1.0.2
+    - 1.0.3-preview
+    - 1.0.3-preview.3
+    - 1.0.3-preview.4
+    - 1.0.3-preview.5
+    - 1.0.3-preview.6
+    - 1.0.3
+    - 1.0.4-preview.1
+    - 1.0.4-preview.2
+    - 1.0.4-preview.3
+    - 1.0.4-preview.4
+    - 1.0.4-preview.5
+    - 1.0.4-preview.6
+    - 1.0.4-preview.9
+    - 1.1.0-preview
+    - 1.2.0-preview
+    - 1.2.1-preview
+    - 1.3.0
+    - 1.3.2
+    - 1.4.1
+    - 1.4.2
+    - 1.4.3
+    - 1.4.4
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.0
+    - 2.2.1
+    - 2.2.2
+    - 2.3.0
+    - 2.3.1
+    - 2.3.2
+    - 2.4.0
+    - 2.4.1
+    compatible:
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.0
+    - 2.2.1
+    - 2.2.2
+    - 2.3.0
+    - 2.3.1
+    - 2.3.2
+    - 2.4.0
+    - 2.4.1
+    verified: 2.0.2
+  dependencies:
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.modules.androidjni
+    version: 1.0.0
+  keywords:
+  - Android
+  - iOS
+  - Notifications
+  - Mobile
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 637865594870000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/com.unity.mobile.notifications.git
+    revision: fe3150a4480280d987cc8e2a37155782d5a75dc4
+    path: 
+  unityLifecycle:
+    version: 2.0.1
+    nextVersion: 
 - packageId: com.unity.2d.animation@7.0.5
   testable: 0
   isDirectDependency: 0
@@ -3038,7 +3682,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: 2D
+  category: 
   type: asset
   description: 2D Animation provides all the necessary tooling and runtime components
     for skeletal animation using Sprites.
@@ -3140,6 +3784,13 @@ m_ResolvedPackages:
     - 7.0.8
     - 7.0.9
     - 7.0.10
+    - 7.0.11
+    - 7.0.12
+    - 7.0.13
+    - 7.1.0
+    - 7.1.1
+    - 7.1.2
+    - 7.2.0
     - 8.0.0-pre.3
     - 8.0.0-pre.4
     - 8.0.0
@@ -3153,9 +3804,28 @@ m_ResolvedPackages:
     - 9.0.0
     - 9.0.1
     - 9.0.2
+    - 9.0.3
+    - 9.0.4
+    - 9.1.0
+    - 9.1.1
+    - 9.1.2
+    - 9.1.3
+    - 9.2.0
+    - 9.2.1
     - 10.0.0-pre.1
     - 10.0.0-pre.2
     - 10.0.0
+    - 10.0.1
+    - 10.0.2
+    - 10.0.3
+    - 10.1.0
+    - 10.1.1
+    - 10.1.2
+    - 10.1.3
+    - 10.1.4
+    - 10.2.0
+    - 11.0.0
+    - 12.0.0
     compatible:
     - 7.0.5
     - 7.0.6
@@ -3163,7 +3833,14 @@ m_ResolvedPackages:
     - 7.0.8
     - 7.0.9
     - 7.0.10
-    verified: 7.0.10
+    - 7.0.11
+    - 7.0.12
+    - 7.0.13
+    - 7.1.0
+    - 7.1.1
+    - 7.1.2
+    - 7.2.0
+    verified: 7.0.13
   dependencies:
   - name: com.unity.2d.common
     version: 6.0.3
@@ -3176,10 +3853,12 @@ m_ResolvedPackages:
   resolvedDependencies:
   - name: com.unity.2d.common
     version: 6.0.3
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.6.5
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -3190,8 +3869,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.uielementsnative
     version: 1.0.0
-  - name: com.unity.burst
-    version: 1.6.5
   - name: com.unity.modules.animation
     version: 1.0.0
   keywords:
@@ -3263,10 +3940,12 @@ m_ResolvedPackages:
     - 5.0.1
     - 5.0.2
     - 5.0.3
+    - 5.1.0
     compatible:
     - 5.0.1
     - 5.0.2
     - 5.0.3
+    - 5.1.0
     verified: 5.0.3
   dependencies: []
   resolvedDependencies: []
@@ -3308,7 +3987,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: 2D
+  category: 
   type: asset
   description: A ScriptedImporter for importing Adobe Photoshop PSB (Photoshop Big)
     file format. The ScriptedImporter is currently targeted for users who wants to
@@ -3374,6 +4053,9 @@ m_ResolvedPackages:
     - 6.0.5
     - 6.0.6
     - 6.0.7
+    - 6.0.8
+    - 6.0.9
+    - 6.1.0
     - 7.0.0-pre.3
     - 7.0.0-pre.4
     - 7.0.0
@@ -3385,32 +4067,47 @@ m_ResolvedPackages:
     - 8.0.0
     - 8.0.1
     - 8.0.2
+    - 8.0.3
+    - 8.0.4
+    - 8.0.5
+    - 8.1.0
+    - 8.1.1
     - 9.0.0-pre.1
     - 9.0.0-pre.2
     - 9.0.0
+    - 9.0.1
+    - 9.0.2
+    - 9.0.3
+    - 10.0.0
+    - 10.1.0
+    - 10.1.1
+    - 11.0.0
     compatible:
     - 6.0.3
     - 6.0.4
     - 6.0.5
     - 6.0.6
     - 6.0.7
-    verified: 6.0.7
+    - 6.0.8
+    - 6.0.9
+    - 6.1.0
+    verified: 6.0.9
   dependencies:
+  - name: com.unity.2d.common
+    version: 6.0.3
+  - name: com.unity.2d.sprite
+    version: 1.0.0
   - name: com.unity.2d.animation
     version: 7.0.4
-  - name: com.unity.2d.common
-    version: 6.0.3
-  - name: com.unity.2d.sprite
-    version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.2d.animation
-    version: 7.0.5
   - name: com.unity.2d.common
     version: 6.0.3
-  - name: com.unity.2d.sprite
-    version: 1.0.0
+  - name: com.unity.burst
+    version: 1.6.5
   - name: com.unity.mathematics
     version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
   - name: com.unity.modules.uielements
     version: 1.0.0
   - name: com.unity.modules.ui
@@ -3421,8 +4118,8 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.uielementsnative
     version: 1.0.0
-  - name: com.unity.burst
-    version: 1.6.5
+  - name: com.unity.2d.animation
+    version: 7.0.5
   - name: com.unity.modules.animation
     version: 1.0.0
   keywords:
@@ -3513,7 +4210,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: 2D
+  category: 
   type: asset
   description: SpriteShape Runtime & Editor Package contains the tooling and the
     runtime component that allows you to create very organic looking spline based
@@ -3591,6 +4288,7 @@ m_ResolvedPackages:
     - 7.0.5
     - 7.0.6
     - 7.0.7
+    - 7.1.0
     - 8.0.0-pre.4
     - 8.0.0-pre.5
     - 8.0.0
@@ -3599,29 +4297,49 @@ m_ResolvedPackages:
     - 9.0.0
     - 9.0.1
     - 9.0.2
+    - 9.0.3
+    - 9.0.4
+    - 9.0.5
+    - 9.1.0
+    - 9.1.1
     - 10.0.0-pre.1
     - 10.0.0-pre.2
     - 10.0.0
+    - 10.0.1
+    - 10.0.2
+    - 10.0.3
+    - 10.0.4
+    - 10.0.5
+    - 10.0.6
+    - 10.0.7
+    - 10.1.0
+    - 11.0.0
+    - 12.0.0
     compatible:
     - 7.0.4
     - 7.0.5
     - 7.0.6
     - 7.0.7
+    - 7.1.0
     verified: 7.0.7
   dependencies:
-  - name: com.unity.mathematics
-    version: 1.1.0
-  - name: com.unity.2d.common
-    version: 6.0.3
   - name: com.unity.2d.path
     version: 5.0.2
+  - name: com.unity.2d.common
+    version: 6.0.3
+  - name: com.unity.mathematics
+    version: 1.1.0
   - name: com.unity.modules.physics2d
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.mathematics
-    version: 1.2.6
+  - name: com.unity.2d.path
+    version: 5.0.2
   - name: com.unity.2d.common
     version: 6.0.3
+  - name: com.unity.burst
+    version: 1.6.5
+  - name: com.unity.mathematics
+    version: 1.2.6
   - name: com.unity.2d.sprite
     version: 1.0.0
   - name: com.unity.modules.uielements
@@ -3634,10 +4352,6 @@ m_ResolvedPackages:
     version: 1.0.0
   - name: com.unity.modules.uielementsnative
     version: 1.0.0
-  - name: com.unity.burst
-    version: 1.6.5
-  - name: com.unity.2d.path
-    version: 5.0.2
   - name: com.unity.modules.physics2d
     version: 1.0.0
   keywords:
@@ -3730,7 +4444,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: 2D
+  category: 
   type: asset
   description: '2D Tilemap Extras is a package that contains extra scripts for use
     with 2D Tilemap features in Unity. These include custom Tiles and Brushes for
@@ -3772,42 +4486,58 @@ m_ResolvedPackages:
     - 2.2.3
     - 2.2.4
     - 2.2.5
+    - 2.2.6
+    - 2.2.7
+    - 2.2.8
     - 3.0.0
     - 3.0.1
     - 3.0.2
     - 3.0.3
     - 3.1.0
+    - 3.1.1
+    - 3.1.2
+    - 3.1.3
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     - 4.0.0-pre.3
     - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 4.1.0
+    - 4.2.1
+    - 4.3.0
+    - 4.3.1
+    - 5.0.0
     compatible:
     - 2.2.2
     - 2.2.3
     - 2.2.4
     - 2.2.5
-    verified: 2.2.5
+    - 2.2.6
+    - 2.2.7
+    - 2.2.8
+    verified: 2.2.8
   dependencies:
-  - name: com.unity.modules.tilemap
+  - name: com.unity.ugui
     version: 1.0.0
   - name: com.unity.2d.tilemap
     version: 1.0.0
-  - name: com.unity.ugui
+  - name: com.unity.modules.tilemap
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.tilemap
-    version: 1.0.0
-  - name: com.unity.modules.physics2d
-    version: 1.0.0
-  - name: com.unity.2d.tilemap
-    version: 1.0.0
   - name: com.unity.ugui
     version: 1.0.0
   - name: com.unity.modules.ui
     version: 1.0.0
   - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.2d.tilemap
+    version: 1.0.0
+  - name: com.unity.modules.tilemap
+    version: 1.0.0
+  - name: com.unity.modules.physics2d
     version: 1.0.0
   - name: com.unity.modules.jsonserialize
     version: 1.0.0
@@ -3878,6 +4608,16 @@ m_ResolvedPackages:
     - 1.7.1
     - 1.8.1
     - 1.8.2
+    - 1.9.0
+    - 1.10.1
+    - 1.11.0
+    - 1.12.0
+    - 1.12.1
+    - 1.12.2
+    - 1.12.4
+    - 1.12.5
+    - 1.13.0
+    - 1.14.0
     compatible:
     - 1.3.1
     - 1.3.2
@@ -3891,20 +4631,30 @@ m_ResolvedPackages:
     - 1.7.1
     - 1.8.1
     - 1.8.2
+    - 1.9.0
+    - 1.10.1
+    - 1.11.0
+    - 1.12.0
+    - 1.12.1
+    - 1.12.2
+    - 1.12.4
+    - 1.12.5
+    - 1.13.0
+    - 1.14.0
     verified: 1.3.2
   dependencies:
-  - name: com.unity.modules.unitywebrequest
+  - name: com.unity.modules.androidjni
     version: 1.0.0
   - name: com.unity.nuget.newtonsoft-json
     version: 3.0.2
-  - name: com.unity.modules.androidjni
+  - name: com.unity.modules.unitywebrequest
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.unitywebrequest
+  - name: com.unity.modules.androidjni
     version: 1.0.0
   - name: com.unity.nuget.newtonsoft-json
     version: 3.0.2
-  - name: com.unity.modules.androidjni
+  - name: com.unity.modules.unitywebrequest
     version: 1.0.0
   keywords: []
   registry:
@@ -3927,51 +4677,183 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.3.1
     nextVersion: 
-- packageId: com.unity.mathematics@1.2.6
+- packageId: com.unity.adaptiveperformance@5.1.0
   testable: 0
   isDirectDependency: 0
-  version: 1.2.6
+  version: 5.1.0
   source: 1
-  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.mathematics@1.2.6
-  assetPath: Packages/com.unity.mathematics
-  name: com.unity.mathematics
-  displayName: Mathematics
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.adaptiveperformance@5.1.0
+  assetPath: Packages/com.unity.adaptiveperformance
+  name: com.unity.adaptiveperformance
+  displayName: Adaptive Performance
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: assets
+  description: 'The Adaptive Performance package provides an API to get feedback
+    about the thermal and power state of mobile devices, enabling applications to
+    make performance-relevant adaptions at runtime.
+
+
+    For instruction on how
+    to use samples, please read the documentation.
+
+
+    By installing this package,
+    you agree to the terms and conditions of the Unity End User License Agreement
+    found under "View licenses" above.'
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.2.0-preview.1
+    - 1.0.0
+    - 1.0.1
+    - 1.1.0-preview.2
+    - 1.1.0-preview.3
+    - 1.1.0-preview.4
+    - 1.1.0-preview.5
+    - 1.1.0-preview.7
+    - 1.1.0
+    - 1.1.6
+    - 1.1.9
+    - 1.1.10
+    - 1.2.0
+    - 1.2.2
+    - 1.2.3
+    - 2.0.0-preview.1
+    - 2.0.0-preview.2
+    - 2.0.0-preview.4
+    - 2.0.0-preview.7
+    - 2.0.0-preview.8
+    - 2.0.0-preview.9
+    - 2.0.0-preview.10
+    - 2.0.0-preview.11
+    - 2.0.0
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.2.1
+    - 2.2.3
+    - 2.2.4
+    - 3.0.0-pre.2
+    - 3.0.0
+    - 3.0.2
+    - 3.0.3
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0-pre.3
+    - 5.0.0-pre.4
+    - 5.0.0
+    - 5.0.1
+    - 5.0.2
+    - 5.1.0
+    - 5.1.1
+    - 5.1.2
+    - 5.1.3
+    - 5.1.4
+    compatible:
+    - 3.0.2
+    - 3.0.3
+    - 4.0.0-pre.1
+    - 4.0.0
+    - 4.0.1
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0-pre.3
+    - 5.0.0-pre.4
+    - 5.0.0
+    - 5.0.1
+    - 5.0.2
+    - 5.1.0
+    - 5.1.1
+    verified: 3.0.3
+  dependencies:
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  resolvedDependencies:
+  - name: com.unity.profiling.core
+    version: 1.0.2
+  keywords:
+  - mobile
+  - adaptive
+  - performance
+  - utility
+  - utilities
+  - core
+  - samsung
+  - ap
+  - provider
+  - subsystem
+  - indexer
+  - scaler
+  - vrr
+  - boost
+  - profiles
+  - cluster
+  - clusterinfo
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 638477276390000000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.adaptiveperformance@5.1/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.adaptiveperformance.git
+    revision: 8c5e0c58d52d3657cd032cdf5455ac65d67878e8
+    path: 
+  unityLifecycle:
+    version: 3.0.2
+    nextVersion: 
+- packageId: com.unity.profiling.core@1.0.2
+  testable: 0
+  isDirectDependency: 0
+  version: 1.0.2
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.profiling.core@1.0.2
+  assetPath: Packages/com.unity.profiling.core
+  name: com.unity.profiling.core
+  displayName: Unity Profiling Core API
   author:
     name: 
     email: 
     url: 
   category: 
   type: asset
-  description: Unity's C# SIMD math library providing vector types and math functions
-    with a shader like syntax.
+  description: The Unity Profiling Core package provides an API for code instrumentation
+    markup, and for profiling statistic collection.
   status: 4
   errors: []
   versions:
     all:
-    - 0.0.12-preview.2
-    - 0.0.12-preview.5
-    - 0.0.12-preview.8
-    - 0.0.12-preview.10
-    - 0.0.12-preview.11
-    - 0.0.12-preview.13
-    - 0.0.12-preview.17
-    - 0.0.12-preview.19
-    - 0.0.12-preview.20
-    - 1.0.0-preview.1
-    - 1.0.1
-    - 1.1.0-preview.1
-    - 1.1.0
-    - 1.2.1
-    - 1.2.4
-    - 1.2.5
-    - 1.2.6
+    - 0.1.0-preview.1
+    - 0.2.0-preview.1
+    - 0.2.1-preview.1
+    - 1.0.0-pre.1
+    - 1.0.0
+    - 1.0.2
     compatible:
-    - 1.2.6
-    verified: 1.2.6
+    - 1.0.2
+    verified: 1.0.2
   dependencies: []
   resolvedDependencies: []
   keywords:
-  - unity
+  - profiler
+  - profiling
+  - api
   registry:
     id: main
     name: 
@@ -3981,139 +4863,16 @@ m_ResolvedPackages:
     capabilities: 7
   hideInEditor: 0
   isAssetStorePackage: 0
-  datePublishedTicks: 637841876140000000
+  datePublishedTicks: 637828752310000000
   documentationUrl: 
   hasRepository: 1
   repository:
     type: git
-    url: https://github.com/Unity-Technologies/Unity.Mathematics.git
-    revision: f110c8c230d253654afed153569030a587cc7557
+    url: https://github.cds.internal.unity3d.com/unity/profiler.git
+    revision: 2189ba14439d76a4083f59fae87163b4bdfd49c2
     path: 
   unityLifecycle:
-    version: 1.2.6
-    nextVersion: 
-- packageId: com.unity.2d.common@6.0.3
-  testable: 0
-  isDirectDependency: 0
-  version: 6.0.3
-  source: 1
-  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.2d.common@6.0.3
-  assetPath: Packages/com.unity.2d.common
-  name: com.unity.2d.common
-  displayName: 2D Common
-  author:
-    name: 
-    email: 
-    url: 
-  category: 2D
-  type: asset
-  description: 2D Common is a package that contains shared functionalities that are
-    used by most of the other 2D packages.
-  status: 4
-  errors: []
-  versions:
-    all:
-    - 1.0.9-preview.1
-    - 1.0.9-preview.2
-    - 1.0.10-preview
-    - 1.0.11-preview.1
-    - 1.1.0-preview.1
-    - 1.1.0-preview.2
-    - 1.2.0-preview.1
-    - 2.0.1
-    - 2.0.2
-    - 2.1.0
-    - 2.1.1
-    - 2.1.2
-    - 3.0.0
-    - 3.0.1
-    - 4.0.0
-    - 4.0.1
-    - 4.0.2
-    - 4.0.3
-    - 4.0.4
-    - 4.1.0
-    - 4.2.0
-    - 4.2.1
-    - 5.0.0-pre.1
-    - 5.0.0-pre.2
-    - 5.0.0
-    - 6.0.0-pre.2
-    - 6.0.0-pre.3
-    - 6.0.0-pre.4
-    - 6.0.0
-    - 6.0.1
-    - 6.0.2
-    - 6.0.3
-    - 6.0.4
-    - 6.0.5
-    - 6.0.6
-    - 7.0.0-pre.3
-    - 7.0.0-pre.4
-    - 7.0.0
-    - 7.0.1
-    - 7.0.2
-    - 7.0.3
-    - 8.0.0-pre.1
-    - 8.0.0-pre.2
-    - 8.0.0
-    - 8.0.1
-    - 9.0.0-pre.1
-    - 9.0.0-pre.2
-    - 9.0.0
-    compatible:
-    - 6.0.3
-    - 6.0.4
-    - 6.0.5
-    - 6.0.6
-    verified: 6.0.6
-  dependencies:
-  - name: com.unity.2d.sprite
-    version: 1.0.0
-  - name: com.unity.mathematics
-    version: 1.1.0
-  - name: com.unity.modules.uielements
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.5.1
-  resolvedDependencies:
-  - name: com.unity.2d.sprite
-    version: 1.0.0
-  - name: com.unity.mathematics
-    version: 1.2.6
-  - name: com.unity.modules.uielements
-    version: 1.0.0
-  - name: com.unity.modules.ui
-    version: 1.0.0
-  - name: com.unity.modules.imgui
-    version: 1.0.0
-  - name: com.unity.modules.jsonserialize
-    version: 1.0.0
-  - name: com.unity.modules.uielementsnative
-    version: 1.0.0
-  - name: com.unity.burst
-    version: 1.6.5
-  keywords:
-  - 2d
-  registry:
-    id: main
-    name: 
-    url: https://packages.unity.com
-    scopes: []
-    isDefault: 1
-    capabilities: 7
-  hideInEditor: 0
-  isAssetStorePackage: 0
-  datePublishedTicks: 637817447740000000
-  documentationUrl: 
-  hasRepository: 1
-  repository:
-    type: git
-    url: https://github.cds.internal.unity3d.com/unity/2d.git
-    revision: 41fd674f8e4b2265bdbc50291dced1bd86c590ee
-    path: 
-  unityLifecycle:
-    version: 6.0.3
+    version: 1.0.2
     nextVersion: 
 - packageId: com.unity.2d.path@5.0.2
   testable: 0
@@ -4128,7 +4887,7 @@ m_ResolvedPackages:
     name: 
     email: 
     url: 
-  category: 2D
+  category: 
   type: asset
   description: "2D Path provides tooling to edit shapes (polygons and B\xE9zier splines)
     in EditorWindows and the SceneView."
@@ -4184,6 +4943,220 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 5.0.2
+    nextVersion: 
+- packageId: com.unity.2d.common@6.0.3
+  testable: 0
+  isDirectDependency: 0
+  version: 6.0.3
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.2d.common@6.0.3
+  assetPath: Packages/com.unity.2d.common
+  name: com.unity.2d.common
+  displayName: 2D Common
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: 2D Common is a package that contains shared functionalities that are
+    used by most of the other 2D packages.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 1.0.9-preview.1
+    - 1.0.9-preview.2
+    - 1.0.10-preview
+    - 1.0.11-preview.1
+    - 1.1.0-preview.1
+    - 1.1.0-preview.2
+    - 1.2.0-preview.1
+    - 2.0.1
+    - 2.0.2
+    - 2.1.0
+    - 2.1.1
+    - 2.1.2
+    - 3.0.0
+    - 3.0.1
+    - 4.0.0
+    - 4.0.1
+    - 4.0.2
+    - 4.0.3
+    - 4.0.4
+    - 4.1.0
+    - 4.2.0
+    - 4.2.1
+    - 5.0.0-pre.1
+    - 5.0.0-pre.2
+    - 5.0.0
+    - 6.0.0-pre.2
+    - 6.0.0-pre.3
+    - 6.0.0-pre.4
+    - 6.0.0
+    - 6.0.1
+    - 6.0.2
+    - 6.0.3
+    - 6.0.4
+    - 6.0.5
+    - 6.0.6
+    - 6.0.7
+    - 6.0.8
+    - 6.1.0
+    - 7.0.0-pre.3
+    - 7.0.0-pre.4
+    - 7.0.0
+    - 7.0.1
+    - 7.0.2
+    - 7.0.3
+    - 8.0.0-pre.1
+    - 8.0.0-pre.2
+    - 8.0.0
+    - 8.0.1
+    - 8.0.2
+    - 8.0.3
+    - 8.0.4
+    - 8.1.0
+    - 8.1.1
+    - 9.0.0-pre.1
+    - 9.0.0-pre.2
+    - 9.0.0
+    - 9.0.1
+    - 9.0.2
+    - 9.0.3
+    - 9.0.4
+    - 9.0.5
+    - 9.0.6
+    - 9.0.7
+    - 9.1.0
+    - 10.0.0
+    - 11.0.0
+    - 11.0.1
+    compatible:
+    - 6.0.3
+    - 6.0.4
+    - 6.0.5
+    - 6.0.6
+    - 6.0.7
+    - 6.0.8
+    - 6.1.0
+    verified: 6.0.8
+  dependencies:
+  - name: com.unity.burst
+    version: 1.5.1
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.mathematics
+    version: 1.1.0
+  - name: com.unity.modules.uielements
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.burst
+    version: 1.6.5
+  - name: com.unity.mathematics
+    version: 1.2.6
+  - name: com.unity.2d.sprite
+    version: 1.0.0
+  - name: com.unity.modules.uielements
+    version: 1.0.0
+  - name: com.unity.modules.ui
+    version: 1.0.0
+  - name: com.unity.modules.imgui
+    version: 1.0.0
+  - name: com.unity.modules.jsonserialize
+    version: 1.0.0
+  - name: com.unity.modules.uielementsnative
+    version: 1.0.0
+  keywords:
+  - 2d
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 637817447740000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/2d.git
+    revision: 41fd674f8e4b2265bdbc50291dced1bd86c590ee
+    path: 
+  unityLifecycle:
+    version: 6.0.3
+    nextVersion: 
+- packageId: com.unity.mathematics@1.2.6
+  testable: 0
+  isDirectDependency: 0
+  version: 1.2.6
+  source: 1
+  resolvedPath: E:\UNIAT\Unity\MotoresGraficosIII\Parcial_1\TheLastSurvivor\Library\PackageCache\com.unity.mathematics@1.2.6
+  assetPath: Packages/com.unity.mathematics
+  name: com.unity.mathematics
+  displayName: Mathematics
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: asset
+  description: Unity's C# SIMD math library providing vector types and math functions
+    with a shader like syntax.
+  status: 4
+  errors: []
+  versions:
+    all:
+    - 0.0.12-preview.2
+    - 0.0.12-preview.5
+    - 0.0.12-preview.8
+    - 0.0.12-preview.10
+    - 0.0.12-preview.11
+    - 0.0.12-preview.13
+    - 0.0.12-preview.17
+    - 0.0.12-preview.19
+    - 0.0.12-preview.20
+    - 1.0.0-preview.1
+    - 1.0.1
+    - 1.1.0-preview.1
+    - 1.1.0
+    - 1.2.1
+    - 1.2.4
+    - 1.2.5
+    - 1.2.6
+    - 1.3.1
+    - 1.3.2
+    compatible:
+    - 1.2.6
+    - 1.3.1
+    - 1.3.2
+    verified: 1.2.6
+  dependencies: []
+  resolvedDependencies: []
+  keywords:
+  - unity
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+  hideInEditor: 0
+  isAssetStorePackage: 0
+  datePublishedTicks: 637841876140000000
+  documentationUrl: 
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.com/Unity-Technologies/Unity.Mathematics.git
+    revision: f110c8c230d253654afed153569030a587cc7557
+    path: 
+  unityLifecycle:
+    version: 1.2.6
     nextVersion: 
 - packageId: com.unity.nuget.newtonsoft-json@3.0.2
   testable: 0
@@ -4401,6 +5374,22 @@ m_ResolvedPackages:
     - 1.8.2
     - 1.8.3
     - 1.8.4
+    - 1.8.7
+    - 1.8.8
+    - 1.8.9
+    - 1.8.10
+    - 1.8.11
+    - 1.8.12
+    - 1.8.13
+    - 1.8.14
+    - 1.8.15
+    - 1.8.16
+    - 1.8.17
+    - 1.8.18
+    - 1.8.19
+    - 1.8.20
+    - 1.8.21
+    - 1.8.22
     compatible:
     - 1.6.5
     - 1.6.6
@@ -4417,6 +5406,22 @@ m_ResolvedPackages:
     - 1.8.2
     - 1.8.3
     - 1.8.4
+    - 1.8.7
+    - 1.8.8
+    - 1.8.9
+    - 1.8.10
+    - 1.8.11
+    - 1.8.12
+    - 1.8.13
+    - 1.8.14
+    - 1.8.15
+    - 1.8.16
+    - 1.8.17
+    - 1.8.18
+    - 1.8.19
+    - 1.8.20
+    - 1.8.21
+    - 1.8.22
     verified: 1.6.6
   dependencies:
   - name: com.unity.mathematics

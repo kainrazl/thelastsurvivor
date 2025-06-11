@@ -13,7 +13,7 @@ public class PlayerPoints : MonoBehaviour
     {
         currentPoints += 5;
 
-        textPoints.text = "Points: " + currentPoints;
+        textPoints.text = "Score: " + currentPoints;
 
         if(currentPoints >= maxPoints)
         {

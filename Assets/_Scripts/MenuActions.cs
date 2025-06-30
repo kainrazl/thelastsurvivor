@@ -12,4 +12,9 @@ public class MenuActions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PlaySound(AudioSource audio)
+    {
+        audio.Play();
+    }
 }

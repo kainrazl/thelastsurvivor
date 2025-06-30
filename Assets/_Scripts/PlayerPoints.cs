@@ -13,11 +13,6 @@ public class PlayerPoints : MonoBehaviour
     {
         currentPoints += 5;
 
-        textPoints.text = "Points: " + currentPoints;
-
-        if(currentPoints >= maxPoints)
-        {
-            SceneManager.LoadScene("Win");
-        }
+        textPoints.text = "Score: " + currentPoints;
     }
 }

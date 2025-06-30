@@ -7,12 +7,14 @@ public class EnemyManager : MonoBehaviour
     private float enemySpeed;
     private float localScaleX;
     private bool isFacingLeft;
+    private bool enemyDead;
 
     private Vector2 playerPosition;
     private Vector2 enemyPosition;
 
     private EnemySpawner spawner;
     private PlayerPoints playerPoints;
+    private HeartSpawner heartSpawner;
 
     private GameObject player;
     private Animator anim;
@@ -22,6 +24,7 @@ public class EnemyManager : MonoBehaviour
         enemySpeed = Random.Range(0.5f, 2.5f);
         anim = GetComponent<Animator>();
         anim.SetFloat("speed", enemySpeed);
+        enemyDead = false;
     }
 
     private void Start()
@@ -29,6 +32,7 @@ public class EnemyManager : MonoBehaviour
         spawner = GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPoints = player.GetComponent<PlayerPoints>();
+        heartSpawner = GameObject.Find("HeartSpawner").GetComponent<HeartSpawner>();
     }
 
     void Update()
@@ -39,9 +43,19 @@ public class EnemyManager : MonoBehaviour
 
     private void MoveEnemy()
     {
-        playerPosition = player.transform.position;
-        enemyPosition = Vector2.MoveTowards(transform.position, playerPosition, enemySpeed * Time.deltaTime);
-        transform.position = enemyPosition;
+        if (!enemyDead)
+        {
+            playerPosition = player.transform.position;
+            enemyPosition = Vector2.MoveTowards(transform.position, playerPosition, enemySpeed * Time.deltaTime);
+            transform.position = enemyPosition;
+        }
+        else
+        {
+            anim.SetFloat("speed", 0);
+            anim.Play("dead_zombie");
+            
+            StartCoroutine(DestroyEnemy());
+        }
     }
 
     void CheckFlip()
@@ -58,13 +72,24 @@ public class EnemyManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Bullet"))
+        if (collision.CompareTag("Bullet") && !enemyDead)
         {
-            Destroy(gameObject);
+            enemyDead = true;
+            heartSpawner.GetHeart(collision.transform.localPosition.x, collision.transform.localPosition.y);
+            
             if (spawner.enemiesCounter > 0)
                 spawner.enemiesCounter -= 1;
 
             playerPoints.UpdatePoints();
+            gameObject.GetComponent<Rigidbody2D>().simulated = false;
         }
+    }
+
+    private IEnumerator DestroyEnemy()
+    {
+        WaitForSeconds waiting = new WaitForSeconds(0.3f);
+        yield return waiting;
+        
+        Destroy(gameObject);
     }
 }

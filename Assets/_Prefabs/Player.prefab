@@ -140,8 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot: {fileID: 0}
   gameMusic: {fileID: 0}
+  gameOver: {fileID: 0}
   pauseCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
   bulletSpawner: {fileID: 0}
+  isTutorial: 0
 --- !u!114 &-245355679827988158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,6 +194,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050000012, y: 0.65414363}
-  m_Size: {x: 0.42212903, y: 1.1586851}
+  m_Offset: {x: -0.050000012, y: 0.7761554}
+  m_Size: {x: 0.42212903, y: 1.1959089}
   m_Direction: 0

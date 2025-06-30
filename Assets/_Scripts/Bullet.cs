@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private float speed = 12f;
+    private float speed = 18f;
     private Rigidbody2D rb;
     private Vector2 bulletDirection;
 
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
             rb.velocity = bulletDirection * speed;
     }
 
-    public void SetBulletDirection(Vector2 direction)//fixedupdate()
+    public void SetBulletDirection(Vector2 direction)
     {
         bulletDirection = direction;
     }
@@ -28,6 +28,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Wall") || collision.CompareTag("Enemy"))
         {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.SetActive(false);
         }
     }

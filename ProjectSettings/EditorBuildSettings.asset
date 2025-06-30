@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialMobile.unity
     guid: 418efd214f618fb4aa051607d2be966b
+  - enabled: 1
+    path: Assets/Scenes/MaxScore.unity
+    guid: 19cd5ed97de765049a82a71c55f90df9
   - enabled: 0
     path: Assets/Scenes/Tutorial.unity
     guid: e1a0e68fc8bc10d4d904a876336d5817

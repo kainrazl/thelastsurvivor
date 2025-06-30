@@ -32,6 +32,7 @@ public class BulletPool : MonoBehaviour
         {
             if (!pooledBullets[i].activeInHierarchy)
             {
+                pooledBullets[i].GetComponent<BoxCollider2D>().enabled = true;
                 return pooledBullets[i];
             }
         }

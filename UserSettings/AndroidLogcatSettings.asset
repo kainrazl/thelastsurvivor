@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "ZY224M3JQS",
         "name": "com.cerdenaresapps.lastsurvivor",
-        "processId": 17988,
+        "processId": 14649,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -12,18 +12,30 @@
             "deviceId": "emulator-5554",
             "name": "com.google.android.apps.nexuslauncher",
             "processId": 1077,
-            "exited": true
+            "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.google.android.apps.nexuslauncher",
             "processId": 1067,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.cerdenaresapps.lastsurvivor",
             "processId": 8239,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.cerdenaresapps.lastsurvivor",
+            "processId": 8663,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.cerdenaresapps.lastsurvivor",
+            "processId": 11033,
             "exited": false
         },
         {
@@ -60,6 +72,24 @@
             "deviceId": "ZY224M3JQS",
             "name": "com.cerdenaresapps.lastsurvivor",
             "processId": 17988,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY224M3JQS",
+            "name": "com.cerdenaresapps.lastsurvivor",
+            "processId": 15570,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY224M3JQS",
+            "name": "com.cerdenaresapps.lastsurvivor",
+            "processId": 16340,
+            "exited": false
+        },
+        {
+            "deviceId": "ZY224M3JQS",
+            "name": "com.cerdenaresapps.lastsurvivor",
+            "processId": 14649,
             "exited": false
         }
     ],

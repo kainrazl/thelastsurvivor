@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void SetStartHealth()
     {
-        currentHealth = 1;
+        currentHealth = 1f;
         percentage = 100;
         tmpHealtPercentage.text = percentage.ToString() + "%";
     }

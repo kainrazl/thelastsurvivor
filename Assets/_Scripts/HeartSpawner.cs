@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeartSpawner : MonoBehaviour
@@ -7,19 +6,19 @@ public class HeartSpawner : MonoBehaviour
     public int heartCount = 0;
 
     [SerializeField] private GameObject heartPrefab;
-    private int maxHearts = 4;
-    private bool canSpawn = true;
+    private int maxHearts = 2;
+    private bool canSpawn = false;
     private float timeBtwSpawn = 30f;
+    private float lastSpawn = 0;
 
     private void Update()
     {
-        if (canSpawn && heartCount < maxHearts)
-        {
-            StartCoroutine(SpawnHeart());
-        }
+        lastSpawn += Time.deltaTime;
+
+        canSpawn = heartCount < maxHearts && lastSpawn >= timeBtwSpawn;
     }
 
-    private IEnumerator SpawnHeart()
+    private IEnumerator AutomaticHeartSpawn()
     {
         canSpawn = false;
 
@@ -38,5 +37,19 @@ public class HeartSpawner : MonoBehaviour
         yield return waiting;
 
         canSpawn = true;
+    }
+
+    public void GetHeart(float positionX, float positionY)
+    {
+        if (canSpawn)
+        {
+            Vector3 position = new Vector3(positionX, positionY, 0);
+            Instantiate(heartPrefab, position, Quaternion.identity);
+            SpriteRenderer sr = heartPrefab.GetComponent<SpriteRenderer>();
+            sr.sortingLayerName = "Elements";
+            sr.sortingOrder = 1;
+            heartCount++;
+            lastSpawn = 0;
+        }
     }
 }

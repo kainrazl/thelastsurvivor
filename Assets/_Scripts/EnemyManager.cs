@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
         else
         {
             anim.SetFloat("speed", 0);
-            anim.Play("dead_zombie");
+            anim.Play("enemy_dead");
             
             StartCoroutine(DestroyEnemy());
         }

@@ -1,98 +1,13 @@
 {
     "m_SelectedDeviceId": "ZY224M3JQS",
-    "m_SelectedPackage": {
-        "deviceId": "ZY224M3JQS",
-        "name": "com.cerdenaresapps.lastsurvivor",
-        "processId": 14649,
+    "m_SelectedProcess": {
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 1077,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.google.android.apps.nexuslauncher",
-            "processId": 1067,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 8239,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 8663,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 11033,
-            "exited": false
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.motorola.launcher3",
-            "processId": 3353,
-            "exited": false
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 27470,
-            "exited": true
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 32577,
-            "exited": true
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 2917,
-            "exited": true
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 3494,
-            "exited": true
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 17988,
-            "exited": false
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 15570,
-            "exited": false
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 16340,
-            "exited": false
-        },
-        {
-            "deviceId": "ZY224M3JQS",
-            "name": "com.cerdenaresapps.lastsurvivor",
-            "processId": 14649,
-            "exited": false
-        }
-    ],
+    "m_KnownProcessesForSerialization": [],
     "m_Tags": {
         "m_Entries": [
             {
@@ -125,8 +40,11 @@
             }
         ]
     },
+    "m_ExtraWindowState": {
+        "Type": 0,
+        "Height": 0.0
+    },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 300.0,
         "MemoryWindowWidth": 170.0,
         "MemoryTypeEnabled": [
             true,
@@ -141,7 +59,7 @@
             true
         ],
         "MemoryGroup": 2,
-        "Behavior": 0
+        "AutoCapture": true
     },
     "m_FilterOptions": {
         "m_Filter": "cerdenares",
@@ -159,5 +77,28 @@
         "BitRateK": 20000,
         "DisplayIdEnabled": false,
         "DisplayId": ""
-    }
+    },
+    "m_ScreenCaptureSettings": {
+        "Mode": 0,
+        "m_LastSaveLocation": [
+            "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor",
+            "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor"
+        ]
+    },
+    "m_QueryLayoutSettings": {
+        "LastLayoutSaveLocation": "",
+        "LastScreenshotSaveLocation": ""
+    },
+    "m_InputSettings": {
+        "ShiftModifier": false,
+        "SendText": "",
+        "PosixKillSignal": 0,
+        "TargetProcess": {
+            "deviceId": "",
+            "name": "",
+            "processId": 0,
+            "exited": false
+        }
+    },
+    "m_AutoScroll": 2
 }

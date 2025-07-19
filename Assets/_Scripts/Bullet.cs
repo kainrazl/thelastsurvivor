@@ -5,23 +5,25 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private float speed = 18f;
-    private Rigidbody2D rb;
-    private Vector2 bulletDirection;
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private Vector2 enemyDirection = Vector2.zero;
+    private GameObject enemyToFollow = null;
+    private Vector2 enemyPosition = Vector2.zero;
 
     private void FixedUpdate()
     {
-        if(bulletDirection != Vector2.zero)
-            rb.velocity = bulletDirection * speed;
+        enemyPosition = GetEnemyPosition();
+
+        if (enemyPosition != Vector2.zero)
+        {
+            enemyPosition = new Vector2(enemyPosition.x, enemyPosition.y + 0.5f);
+            enemyDirection = Vector2.MoveTowards(transform.position, enemyPosition, speed * Time.deltaTime);
+            transform.position = enemyDirection;
+        }
     }
 
-    public void SetBulletDirection(Vector2 direction)
+    public void SetEnemyToFollow(GameObject enemy)
     {
-        bulletDirection = direction;
+        enemyToFollow = enemy;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,5 +33,12 @@ public class Bullet : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.SetActive(false);
         }
+    }
+
+    private Vector2 GetEnemyPosition()
+    {
+        enemyPosition = enemyToFollow.transform.position;
+
+        return enemyPosition;
     }
 }

@@ -6401,103 +6401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1958564063
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 989011910, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: textPoints
-      value: 
-      objectReference: {fileID: 1243954561}
-    - target: {fileID: 989011911, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: shoot
-      value: 
-      objectReference: {fileID: 570544284}
-    - target: {fileID: 989011911, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: gameOver
-      value: 
-      objectReference: {fileID: 413625585}
-    - target: {fileID: 989011911, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: gameMusic
-      value: 
-      objectReference: {fileID: 519420033}
-    - target: {fileID: 989011911, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: pauseCanvas
-      value: 
-      objectReference: {fileID: 6569592914033948336}
-    - target: {fileID: 989011911, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: gameOverCanvas
-      value: 
-      objectReference: {fileID: 1281804832741330356}
-    - target: {fileID: 989011912, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: heartFill
-      value: 
-      objectReference: {fileID: 1866111883}
-    - target: {fileID: 989011912, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: tmpHealtPercentage
-      value: 
-      objectReference: {fileID: 1939021231}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776027, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776028, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9120155174110776028, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 58e015c26ab41004eb58fe2c606eeb79, type: 3}
 --- !u!1 &1960853122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6633,7 +6536,6 @@ MonoBehaviour:
   - {fileID: 8049910892279858661, guid: 6c82eea81640cee4fbd0500d89564feb, type: 3}
   - {fileID: 3927628437060405935, guid: e81e143479a565f419867aecdaf9369e, type: 3}
   - {fileID: 2496866550170901877, guid: 36b8120ad78e07d4e80a7c38f4985e1b, type: 3}
-  - {fileID: 4978984784753464062, guid: 9eba19f951539c644ae5686c839c5716, type: 3}
   player: {fileID: 650457132}
   enemiesCounter: 0
   timeBtwSpawn: 5
@@ -7589,7 +7491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2267762163648248120, guid: 5ad80ed73c7e47544a8e21a8f386605f, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: PlayerAztek
       objectReference: {fileID: 0}
     - target: {fileID: 2267762163648248120, guid: 5ad80ed73c7e47544a8e21a8f386605f, type: 3}
       propertyPath: m_IsActive
@@ -8717,7 +8619,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 2127199655}
   - {fileID: 1806122921}
-  - {fileID: 1958564063}
   - {fileID: 2267762163376515598}
   - {fileID: 6569592914033948332}
   - {fileID: 1463551549}

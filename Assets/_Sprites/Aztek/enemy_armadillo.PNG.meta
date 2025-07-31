@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2e3c95263b6df0c4ebd0d58a640c2dc2
+guid: 87a051c79d0228c46baa544e92eacf3c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,9 +46,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -128,7 +128,7 @@ TextureImporter:
         serializedVersion: 2
         x: 3
         y: 5
-        width: 30
+        width: 31
         height: 22
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4052fd34162aa2146a2705bc7b4fc7d5
-      internalID: -467975620
+      spriteID: a2efc56670b745145a9b9c72e44c5854
+      internalID: -455532614
       vertices: []
       indices: 
       edges: []
@@ -149,7 +149,7 @@ TextureImporter:
         serializedVersion: 2
         x: 36
         y: 5
-        width: 31
+        width: 32
         height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -158,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d57046567797304a8596fecbebb02e8
-      internalID: -1248571972
+      spriteID: 708c0b16359de7840b0d172299f1f16c
+      internalID: -1569031455
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      enemy_armadillo_0: -467975620
-      enemy_armadillo_1: -1248571972
+      enemy_armadillo_0: -455532614
+      enemy_armadillo_1: -1569031455
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

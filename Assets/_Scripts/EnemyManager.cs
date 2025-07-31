@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator DestroyEnemy()
     {
-        WaitForSeconds waiting = new WaitForSeconds(0.3f);
+        WaitForSeconds waiting = new WaitForSeconds(0.5f);
         yield return waiting;
         
         Destroy(gameObject);

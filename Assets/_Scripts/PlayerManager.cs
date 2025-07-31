@@ -80,31 +80,9 @@ public class PlayerManager : MonoBehaviour
                 move = new Vector2(playerMove.x, playerMove.y);
                 bulletSpawner.localPosition = spawnerOriginalPosition;
 
-                if (move.x != 0)
+                if(move != Vector2.zero) 
                 {
-                    playerAnim.SetTrigger("goingLeftRight");
-
-                    if (isFacingLeft && move.x > 0)
-                    {
-                        Flip();
-                    }
-                    else if (!isFacingLeft && move.x < 0)
-                    {
-                        Flip();
-                    }
-                }
-                else if (move.y != 0)
-                {
-                    if (move.y > 0)
-                    {
-                        playerAnim.SetTrigger("goingUp");
-                        bulletSpawner.localPosition = new Vector3(0, 1, 0);
-                    }
-                    else
-                    {
-                        playerAnim.SetTrigger("goingDown");
-                        bulletSpawner.localPosition = new Vector3(0, 0, 0);
-                    }
+                    PlayerMovement();
                 }
 
                 //bulletDirection = new Vector2(move.x, move.y);
@@ -181,6 +159,47 @@ public class PlayerManager : MonoBehaviour
         playerAnim.SetBool("isIdle", move == Vector2.zero && !isPaused && !isDead);
     }
 
+    private void PlayerMovement()
+    {
+#if AZTEK
+        playerAnim.Play("aztek_walk");
+#endif
+
+        if (move.x != 0)
+        {
+#if ZOMBIES
+            playerAnim.SetTrigger("goingLeftRight");
+#endif
+
+            if (isFacingLeft && move.x > 0)
+            {
+                Flip();
+            }
+            else if (!isFacingLeft && move.x < 0)
+            {
+                Flip();
+            }
+        }
+        else if (move.y != 0)
+        {
+            if (move.y > 0)
+            {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingUp");
+#endif
+
+                bulletSpawner.localPosition = new Vector3(0, 1, 0);
+            }
+            else
+            {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingDown");
+#endif
+
+                bulletSpawner.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+    }
     public void PutPause()
     {
         if (!isDead)
@@ -230,7 +249,11 @@ public class PlayerManager : MonoBehaviour
             if (canTakeDamage)
             {
                 canTakeDamage = false;
+
+#if ZOMBIES
                 playerAnim.SetTrigger("isHurt"); //added
+#endif
+
                 ph.UpdateHealth(0.1f, true);
 
                 if (ph.currentHealth <= 0)

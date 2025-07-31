@@ -52,7 +52,7 @@ public class EnemyManager : MonoBehaviour
         else
         {
             anim.SetFloat("speed", 0);
-            anim.Play("dead_zombie");
+            anim.Play("enemy_dead");
             
             StartCoroutine(DestroyEnemy());
         }
@@ -87,7 +87,7 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator DestroyEnemy()
     {
-        WaitForSeconds waiting = new WaitForSeconds(0.3f);
+        WaitForSeconds waiting = new WaitForSeconds(0.5f);
         yield return waiting;
         
         Destroy(gameObject);

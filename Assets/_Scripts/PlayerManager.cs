@@ -16,14 +16,16 @@ public class PlayerManager : MonoBehaviour
     private bool isPaused = false;
     private bool canTakeDamage = true;
     private bool isDead = false;
+    private bool canShoot = true;
+
     private float speed = 3f;
     private float myCurrentHealth;
-
     private float spriteBlinkingTotalTimer = 0;
     private float spriteBlinkingTotalDuration = 2f;
     private bool startBlinking = false;
     private float spriteBlinkingTimer = 0;
     private float spriteBlinkingMiniDuration = 0.09f;
+    private float shootCadence = 3f;
 
     private GameActions playerAction;
     private Animator playerAnim;
@@ -78,39 +80,19 @@ public class PlayerManager : MonoBehaviour
                 move = new Vector2(playerMove.x, playerMove.y);
                 bulletSpawner.localPosition = spawnerOriginalPosition;
 
-                if (move.x != 0)
+                if(move != Vector2.zero) 
                 {
-                    playerAnim.SetTrigger("goingLeftRight");
-
-                    if (isFacingLeft && move.x > 0)
-                    {
-                        Flip();
-                    }
-                    else if (!isFacingLeft && move.x < 0)
-                    {
-                        Flip();
-                    }
-                }
-                else if (move.y != 0)
-                {
-                    if (move.y > 0)
-                    {
-                        playerAnim.SetTrigger("goingUp");
-                        bulletSpawner.localPosition = new Vector3(0, 1, 0);
-                    }
-                    else
-                    {
-                        playerAnim.SetTrigger("goingDown");
-                        bulletSpawner.localPosition = new Vector3(0, 0, 0);
-                    }
+                    PlayerMovement();
                 }
 
-                bulletDirection = new Vector2(move.x, move.y);
+                //bulletDirection = new Vector2(move.x, move.y);
 
-                if (playerAction.Player.Shoot.triggered)
-                {
-                    ShootBullet();
-                }
+                //if (playerAction.Player.Shoot.triggered)
+                //{
+                //    ShootBullet();
+                //}
+                if(canShoot)
+                    StartCoroutine(AutomaticShoot());
             }
             else
             {
@@ -177,6 +159,47 @@ public class PlayerManager : MonoBehaviour
         playerAnim.SetBool("isIdle", move == Vector2.zero && !isPaused && !isDead);
     }
 
+    private void PlayerMovement()
+    {
+#if AZTEK
+        playerAnim.Play("aztek_walk");
+#endif
+
+        if (move.x != 0)
+        {
+#if ZOMBIES
+            playerAnim.SetTrigger("goingLeftRight");
+#endif
+
+            if (isFacingLeft && move.x > 0)
+            {
+                Flip();
+            }
+            else if (!isFacingLeft && move.x < 0)
+            {
+                Flip();
+            }
+        }
+        else if (move.y != 0)
+        {
+            if (move.y > 0)
+            {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingUp");
+#endif
+
+                bulletSpawner.localPosition = new Vector3(0, 1, 0);
+            }
+            else
+            {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingDown");
+#endif
+
+                bulletSpawner.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+    }
     public void PutPause()
     {
         if (!isDead)
@@ -190,19 +213,21 @@ public class PlayerManager : MonoBehaviour
     {
         if (!isPaused && !isDead)
         {
-            GameObject bullet = BulletPool.instance.GetBullet();
+            GameObject enemy = GetClosestEnemy();
 
-            if (bullet != null)
+            if (enemy != null)
             {
-                shoot.Play();
-                bullet.transform.position = bulletSpawner.position;
-                bullet.SetActive(true);
-                shot = bullet.GetComponent<Bullet>();
+                GameObject bullet = BulletPool.instance.GetBullet();
 
-                if (bulletDirection == Vector2.zero)
-                    bulletDirection = isFacingLeft ? Vector2.left : Vector2.right;
-
-                shot.SetBulletDirection(bulletDirection.normalized);
+                if (bullet != null)
+                {
+                    shoot.Play();
+                    bullet.transform.position = bulletSpawner.position;
+                    bullet.SetActive(true);
+                    shot = bullet.GetComponent<Bullet>();
+                    //bulletDirection = isFacingLeft ? Vector2.left : Vector2.right;
+                    shot.SetEnemyToFollow(enemy);
+                }
             }
         }
     }
@@ -224,7 +249,11 @@ public class PlayerManager : MonoBehaviour
             if (canTakeDamage)
             {
                 canTakeDamage = false;
+
+#if ZOMBIES
                 playerAnim.SetTrigger("isHurt"); //added
+#endif
+
                 ph.UpdateHealth(0.1f, true);
 
                 if (ph.currentHealth <= 0)
@@ -246,17 +275,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    //private IEnumerator TakeDamage()
-    //{
-    //    SpriteBlinkingEffect();
-    //    yield return new WaitForSeconds(2);
-
-    //    canTakeDamage = true;
-    //    startBlinking = false;
-    //    gameObject.GetComponent<SpriteRenderer>().enabled = true;
-    //}
-
-    /********************************************************************/
+    private IEnumerator AutomaticShoot()
+    {
+        ShootBullet();
+        canShoot = false;
+        yield return new WaitForSeconds(shootCadence);
+        canShoot = true;
+    }
 
     private void SpriteBlinkingEffect()
     {
@@ -282,7 +307,29 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-        /********************************************************************/
+    private GameObject GetClosestEnemy()
+    {
+        GameObject enemyToShoot = null;
+        float minDistance = Mathf.Infinity;
+        float distance = 0;
+        Vector2 playerPosition = gameObject.transform.position;
+        Vector2 enemyPosition = Vector2.zero;
+        string enemyName = null;
+
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
+            enemyPosition = enemy.transform.position;
+            distance = Vector2.Distance(playerPosition, enemyPosition);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                enemyToShoot = enemy;
+                enemyName = enemy.name;
+            }
+        }
+
+        return enemyToShoot;
+    }
 
     private void OnEnable()
     {

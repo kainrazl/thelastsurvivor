@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public int enemiesCounter = 0;
 
     [SerializeField] private float timeBtwSpawn = 5f;
-    [SerializeField] private float minTimeBtwSpawn = 1f;
+    [SerializeField] private float minTimeBtwSpawn = 0.5f;
     [SerializeField] private float timeBtwIncreaseRate = 12f;
     [SerializeField] private int spawnRate = 6;
     [SerializeField] private int maxEnemies = 100;
@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
         WaitForSeconds waiting = new WaitForSeconds(timeBtwIncreaseRate);
         spawnNumber += spawnRate;
         if (timeBtwSpawn > minTimeBtwSpawn)
-            timeBtwSpawn -= 1f;
+            timeBtwSpawn -= 0.5f;
         yield return waiting;
 
         canIncrement = true;

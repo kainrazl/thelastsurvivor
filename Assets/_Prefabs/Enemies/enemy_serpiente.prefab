@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2338915971996961037}
   - component: {fileID: 7146122468917879178}
   - component: {fileID: -3930703902817010829}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: enemy_serpiente
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2671302774602382103}
   - component: {fileID: 306881283097409558}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: serpiente_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

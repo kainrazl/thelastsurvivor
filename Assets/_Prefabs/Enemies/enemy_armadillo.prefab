@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1482516715900010941}
   - component: {fileID: 5963522856846928961}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: armadillo_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8185259646492180843}
   - component: {fileID: -2789432372606087788}
   - component: {fileID: -251644822437304924}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: enemy_armadillo
   m_TagString: Enemy
   m_Icon: {fileID: 0}

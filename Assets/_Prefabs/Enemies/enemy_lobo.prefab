@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3323336632057456980}
   - component: {fileID: 3618828852937465608}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: lobo_collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: -798457808231830968}
   - component: {fileID: -454189506924218625}
   - component: {fileID: 1928972548991420078}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: enemy_lobo
   m_TagString: Enemy
   m_Icon: {fileID: 0}

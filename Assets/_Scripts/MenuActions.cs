@@ -8,6 +8,12 @@ public class MenuActions : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
+    public void RestartLevel()
+    {
+        string level = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(level);
+    }
+
     public void ExitGame()
     {
         Application.Quit();

@@ -1,8 +1,9 @@
 /Android
 /iOS
-/Library
 /Logs
 /Temp
 .vs/TheLastSurvivor/v16/.suo
 Assembly-CSharp-Editor.csproj
 Assembly-CSharp.csproj
+/PC Version
+/Library

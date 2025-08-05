@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private bool isTutorial;
 
     private bool isFacingLeft = false;
-    private bool isPaused = false;
+    public bool isPaused = false;
     private bool canTakeDamage = true;
     private bool isDead = false;
     private bool canShoot = true;
@@ -33,6 +33,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerHealth ph;    
     private Bullet shot;
     private HeartSpawner heartSpawner;
+    private GameObject playerSprite;
 
     private Vector2 move;
     private Vector2 bulletDirection;
@@ -42,10 +43,11 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         playerRB = GetComponent<Rigidbody2D>();
-        playerAnim = GetComponent<Animator>();
+        playerAnim = GetComponentInChildren<Animator>();
         playerAction = new GameActions();
         ph = GetComponent<PlayerHealth>();
         heartSpawner = GameObject.Find("HeartSpawner").GetComponent<HeartSpawner>();
+        playerSprite =  GameObject.Find("PlayerSprite");
         gameMusic.Play();
     }
 
@@ -236,10 +238,10 @@ public class PlayerManager : MonoBehaviour
     {
         isFacingLeft = !isFacingLeft;
 
-        float localScaleX = transform.localScale.x;
+        float localScaleX = playerSprite.transform.localScale.x;
         localScaleX *= -1;
 
-        transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
+        playerSprite.transform.localScale = new Vector3(localScaleX, playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -285,7 +287,7 @@ public class PlayerManager : MonoBehaviour
 
     private void SpriteBlinkingEffect()
     {
-        bool isSpriteEnabled = gameObject.GetComponent<SpriteRenderer>().enabled;
+        bool isSpriteEnabled = gameObject.GetComponentInChildren<SpriteRenderer>().enabled;
 
         spriteBlinkingTotalTimer += Time.deltaTime;
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
@@ -293,7 +295,7 @@ public class PlayerManager : MonoBehaviour
             spriteBlinkingTotalTimer = 0.0f;
             canTakeDamage = true;
             startBlinking = false;
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
             return;
         }
 
@@ -303,7 +305,7 @@ public class PlayerManager : MonoBehaviour
             spriteBlinkingTimer = 0.0f;
 
             isSpriteEnabled = !isSpriteEnabled;
-            gameObject.GetComponent<SpriteRenderer>().enabled = isSpriteEnabled;
+            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = isSpriteEnabled;
         }
     }
 

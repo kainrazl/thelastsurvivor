@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Spawners
   - Recover
+  - Experience
   layers:
   - Default
   - TransparentFX

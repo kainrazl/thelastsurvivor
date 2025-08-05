@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Aztek/Level1_CameraMan.unity
+    guid: f0ba084bba2cb024b86a68d4902d00cc
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 25f3ae40bed885b4f92ee48545fe3706
   - enabled: 1

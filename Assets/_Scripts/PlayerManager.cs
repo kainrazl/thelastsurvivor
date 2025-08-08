@@ -34,6 +34,8 @@ public class PlayerManager : MonoBehaviour
     private Bullet shot;
     private ItemSpawner itemSpawner;
     private GameObject playerSprite;
+    public GameObject attackObject;
+    private MeleeAttack meleeAttack;
 
     private Vector2 move;
     private Vector2 bulletDirection;
@@ -46,6 +48,7 @@ public class PlayerManager : MonoBehaviour
         playerAnim = GetComponentInChildren<Animator>();
         playerAction = new GameActions();
         ph = GetComponent<PlayerHealth>();
+        meleeAttack = attackObject.GetComponentInChildren<MeleeAttack>();
         itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
         playerSprite =  GameObject.Find("PlayerSprite");
         gameMusic.Play();
@@ -100,8 +103,8 @@ public class PlayerManager : MonoBehaviour
             {
                 if (!isTutorial)
                 {
-                    playerAnim.Play("player_dead");
-
+                    //playerAnim.Play("player_dead");
+                    playerAnim.SetBool("isDead", true);
                     GetComponent<Collider2D>().enabled = false;
 
                     GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>().enabled = false;
@@ -280,10 +283,22 @@ public class PlayerManager : MonoBehaviour
 
     private IEnumerator AutomaticShoot()
     {
-        ShootBullet();
+        //ShootBullet();
+        meleeAttack.Hit();
+        //StartCoroutine(Attacking());
         canShoot = false;
         yield return new WaitForSeconds(shootCadence);
         canShoot = true;
+    }
+
+    private IEnumerator Attacking()
+    {
+        //attackObject.SetActive(true);
+        meleeAttack.gameObject.SetActive(true);
+        
+        yield return new WaitForSeconds(1f);
+        //attackObject.SetActive(false);
+        meleeAttack.gameObject.SetActive(false);
     }
 
     public IEnumerator PlayerImmune()

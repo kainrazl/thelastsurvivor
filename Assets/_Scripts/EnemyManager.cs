@@ -72,17 +72,22 @@ public class EnemyManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.CompareTag("Bullet") && !enemyDead)
+        if (collision.CompareTag("Attack") && !enemyDead)
         {
-            enemyDead = true;
-            itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
-            
-            if (spawner.enemiesCounter > 0)
-                spawner.enemiesCounter -= 1;
-
-            playerPoints.UpdatePoints();
-            gameObject.GetComponent<Rigidbody2D>().simulated = false;
+            EnemyDamage(collision);
         }
+    }
+
+    public void EnemyDamage(Collider2D collision)
+    {
+        enemyDead = true;
+        itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
+
+        if (spawner.enemiesCounter > 0)
+            spawner.enemiesCounter -= 1;
+
+        playerPoints.UpdatePoints();
+        gameObject.GetComponent<Rigidbody2D>().simulated = false;
     }
 
     private IEnumerator DestroyEnemy()

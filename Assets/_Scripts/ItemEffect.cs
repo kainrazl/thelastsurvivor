@@ -54,8 +54,6 @@ public class ItemEffect : MonoBehaviour
     {
         try
         {
-            Debug.Log("Play sound " + audioSource.clip.name);
-            Debug.Log("Is ready to play " + audioSource.clip.loadState.ToString());
             //audioSource.volume = 0.3f;
             audioSource.Play();
         }

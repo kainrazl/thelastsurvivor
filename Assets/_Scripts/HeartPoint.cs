@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class HeartPoint : MonoBehaviour
 {
-    private HeartSpawner heartSpawner;
+    private ItemSpawner itemSpawner;
     private AudioSource sound;
     private PlayerHealth ph;
     private float playerCurrentHealth;
 
     private void Start()
     {
-        heartSpawner = GameObject.Find("HeartSpawner").GetComponent<HeartSpawner>();
+        itemSpawner = GameObject.Find("HeartSpawner").GetComponent<ItemSpawner>();
         sound = GameObject.Find("HeartSound").GetComponent<AudioSource>();
         ph = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
@@ -25,7 +25,7 @@ public class HeartPoint : MonoBehaviour
         {
                 sound.Play();
                 Destroy(gameObject);
-                heartSpawner.heartCount--;
+                itemSpawner.itemCount--;
         }
     }
 }

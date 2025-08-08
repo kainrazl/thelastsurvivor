@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public struct DropItem
+[System.Serializable]
+public class ItemProperties
 {
-    public GameObject prefab { get; set; }
-    public ItemType type { get; set; }
-    public ItemRarity rarity { get; set; }
-    public float value { get; set; }
+    public ItemType type;
+    public ItemRarity rarity;
+    public float value;
 }
 
 public enum ItemType

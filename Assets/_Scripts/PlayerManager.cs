@@ -32,7 +32,7 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D playerRB;
     private PlayerHealth ph;    
     private Bullet shot;
-    private HeartSpawner heartSpawner;
+    private ItemSpawner itemSpawner;
     private GameObject playerSprite;
 
     private Vector2 move;
@@ -46,7 +46,7 @@ public class PlayerManager : MonoBehaviour
         playerAnim = GetComponentInChildren<Animator>();
         playerAction = new GameActions();
         ph = GetComponent<PlayerHealth>();
-        heartSpawner = GameObject.Find("HeartSpawner").GetComponent<HeartSpawner>();
+        itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
         playerSprite =  GameObject.Find("PlayerSprite");
         gameMusic.Play();
     }
@@ -250,7 +250,8 @@ public class PlayerManager : MonoBehaviour
         {
             if (canTakeDamage)
             {
-                canTakeDamage = false;
+                //canTakeDamage = false;
+                StartCoroutine(PlayerImmune());
 
 #if ZOMBIES
                 playerAnim.SetTrigger("isHurt"); //added
@@ -273,7 +274,7 @@ public class PlayerManager : MonoBehaviour
         if (collision.CompareTag("Recover") && myCurrentHealth < 1)
         {
             ph.UpdateHealth(0.2f, false);
-            heartSpawner.heartCount--;
+            itemSpawner.itemCount--;
         }
     }
 
@@ -285,7 +286,14 @@ public class PlayerManager : MonoBehaviour
         canShoot = true;
     }
 
-    private void SpriteBlinkingEffect()
+    public IEnumerator PlayerImmune()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(3);
+        canTakeDamage = true;
+    }
+
+    public void SpriteBlinkingEffect()
     {
         bool isSpriteEnabled = gameObject.GetComponentInChildren<SpriteRenderer>().enabled;
 
@@ -293,7 +301,7 @@ public class PlayerManager : MonoBehaviour
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
         {
             spriteBlinkingTotalTimer = 0.0f;
-            canTakeDamage = true;
+            //canTakeDamage = true;
             startBlinking = false;
             gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
             return;

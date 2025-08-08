@@ -62,15 +62,15 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Bullet.cs" />
     <Compile Include="Assets\_Scripts\PlayerExp.cs" />
-    <Compile Include="Assets\_Scripts\DropItem.cs" />
+    <Compile Include="Assets\_Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\_Resources\GameActions.cs" />
     <Compile Include="Assets\ScorePlayersList.cs" />
     <Compile Include="Assets\_Scripts\ItemEffect.cs" />
+    <Compile Include="Assets\_Scripts\ItemProperties.cs" />
     <Compile Include="Assets\_Scripts\HeartPoint.cs" />
     <Compile Include="Assets\_Scripts\MenuActions.cs" />
     <Compile Include="Assets\_Scripts\ControlsFade.cs" />
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\_Scripts\HeartSpawner.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\_Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\_Scripts\BulletPool.cs" />

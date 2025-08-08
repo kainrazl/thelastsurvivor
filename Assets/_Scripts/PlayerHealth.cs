@@ -34,11 +34,10 @@ public class PlayerHealth : MonoBehaviour
             percentage = 100;
         }
         else {
-            heartFill.fillAmount = currentHealth;
-
             percentage = Mathf.RoundToInt(Mathf.Abs(currentHealth) * 100f);
         }
 
+        heartFill.fillAmount = currentHealth;
         tmpHealtPercentage.text = percentage.ToString() + "%";
     }
 }

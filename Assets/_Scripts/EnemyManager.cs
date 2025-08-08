@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
 
     private EnemySpawner spawner;
     private PlayerPoints playerPoints;
-    private HeartSpawner heartSpawner;
+    private ItemSpawner itemSpawner;
 
     private GameObject player;
     private Animator anim;
@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
         spawner = GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPoints = player.GetComponent<PlayerPoints>();
-        heartSpawner = GameObject.Find("HeartSpawner").GetComponent<HeartSpawner>();
+        itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
     }
 
     void Update()
@@ -75,7 +75,7 @@ public class EnemyManager : MonoBehaviour
         if (collision.CompareTag("Bullet") && !enemyDead)
         {
             enemyDead = true;
-            heartSpawner.GetHeart(collision.transform.localPosition.x, collision.transform.localPosition.y);
+            itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
             
             if (spawner.enemiesCounter > 0)
                 spawner.enemiesCounter -= 1;

@@ -19,6 +19,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealth(float healthPoints, bool isDamage)
     {
+        healthPoints /= 10;
+
         if (isDamage)
         {
             currentHealth -= healthPoints;
@@ -33,10 +35,8 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = 1;
             percentage = 100;
         }
-        else {
-            percentage = Mathf.RoundToInt(Mathf.Abs(currentHealth) * 100f);
-        }
 
+        percentage = Mathf.RoundToInt(Mathf.Abs(currentHealth) * 100f);
         heartFill.fillAmount = currentHealth;
         tmpHealtPercentage.text = percentage.ToString() + "%";
     }

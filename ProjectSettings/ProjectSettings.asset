@@ -182,7 +182,7 @@ PlayerSettings:
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 11
   AndroidMinSdkVersion: 22
-  AndroidTargetSdkVersion: 36
+  AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
@@ -286,7 +286,7 @@ PlayerSettings:
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 1
+  androidUseCustomKeystore: 0
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -301,7 +301,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: c7e010e12da018c499d65093efbffa14, type: 3}
+      m_Icon: {fileID: 2800000, guid: d2c3df2eeb64dba4fa1cb3606e58cf26, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

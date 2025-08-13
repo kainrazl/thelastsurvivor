@@ -5,25 +5,26 @@ public class ItemEffect : MonoBehaviour
 {
     [SerializeField] ItemProperties properties;
     private ItemSpawner itemSpawner;
-    private AudioSource audioSource;
+    private AudioClip sound;
+    private PlaySound play;
 
     private void Awake()
     {
         itemSpawner = FindAnyObjectByType<ItemSpawner>();
-        audioSource = GetComponent<AudioSource>();
+        play = FindAnyObjectByType<PlaySound>();
+        sound = properties.sound;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            play.MakeSound(sound); //To make a sound when item is touched
             GameObject player = collision.gameObject;
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             PlayerExp playerExp = player.GetComponent<PlayerExp>();
             ItemType itemType = properties.type;
             float points = properties.value;
-
-            ItemSound();
 
             switch (itemType)
             {
@@ -46,20 +47,8 @@ public class ItemEffect : MonoBehaviour
             }
 
             itemSpawner.itemCount--;
-            Destroy(gameObject);
-        }
-    }
 
-    private void ItemSound()
-    {
-        try
-        {
-            //audioSource.volume = 0.3f;
-            audioSource.Play();
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
+            Destroy(gameObject);
         }
     }
 }

@@ -7,8 +7,9 @@ public class PlayerExp : MonoBehaviour
     [SerializeField] private Image expFill;
     [SerializeField] private ParticleSystem fullExp;
     [SerializeField] private GameObject levelUpCanvas;
-    [SerializeField] private AudioSource levelUpSound;
+    [SerializeField] private AudioClip levelUpSound;
     private PlayerManager player;
+    private PlaySound play;
 
     public float totalExp;
     public float nextLevel = 0;
@@ -18,6 +19,7 @@ public class PlayerExp : MonoBehaviour
     {
         SetStartExp();
         player = GetComponent<PlayerManager>();
+        play = FindAnyObjectByType<PlaySound>();
     }
 
     public void SetStartExp()
@@ -32,8 +34,8 @@ public class PlayerExp : MonoBehaviour
 
         if (currentExp >= 1)
         {
-            levelUpSound.volume = 0.3f;
-            levelUpSound.Play();
+            play.MakeSound(levelUpSound);
+
             currentExp = 1;
             fullExp.Play();
             levelUpCanvas.SetActive(true);

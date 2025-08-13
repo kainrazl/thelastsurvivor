@@ -40,11 +40,13 @@ public class PlayerManager : MonoBehaviour
     private Vector2 move;
     private Vector2 bulletDirection;
     private Vector3 spawnerOriginalPosition;
+    private Collider2D playerCollider;
 
     // Start is called before the first frame update
     void Awake()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
         playerAnim = GetComponentInChildren<Animator>();
         playerAction = new GameActions();
         ph = GetComponent<PlayerHealth>();
@@ -105,7 +107,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     //playerAnim.Play("player_dead");
                     playerAnim.SetBool("isDead", true);
-                    GetComponent<Collider2D>().enabled = false;
+                    playerCollider.enabled = false;
 
                     GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>().enabled = false;
                     playerRB.velocity = Vector2.zero;
@@ -244,63 +246,78 @@ public class PlayerManager : MonoBehaviour
         float localScaleX = playerSprite.transform.localScale.x;
         localScaleX *= -1;
 
+#if AZTEK
+        playerCollider.offset = new Vector2(playerCollider.offset.x * (-1), playerCollider.offset.y);
+#endif
         playerSprite.transform.localScale = new Vector3(localScaleX, playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //    private void OnTriggerEnter2D(Collider2D collision)
+    //    {
+    //        if (collision.CompareTag("Enemy"))
+    //        {
+    //            if (canTakeDamage)
+    //            {
+    //                //canTakeDamage = false;
+    //                StartCoroutine(PlayerImmune());
+
+    //#if ZOMBIES
+    //                playerAnim.SetTrigger("isHurt"); //added
+    //#endif
+
+    //                ph.UpdateHealth(0.1f, true);
+
+    //                if (ph.currentHealth <= 0)
+    //                {
+    //                    gameMusic.Stop();
+    //                    gameOver.Play();
+    //                    isDead = true;
+    //                }
+    //                else {
+    //                    startBlinking = true;
+    //                }
+    //            }
+    //        }
+
+    //        if (collision.CompareTag("Recover") && myCurrentHealth < 1)
+    //        {
+    //            ph.UpdateHealth(0.2f, false);
+    //            itemSpawner.itemCount--;
+    //        }
+    //    }
+
+    public void TakeDamage(float howMuchDamage)
     {
-        if (collision.CompareTag("Enemy"))
+        if (canTakeDamage)
         {
-            if (canTakeDamage)
-            {
-                //canTakeDamage = false;
-                StartCoroutine(PlayerImmune());
+            StartCoroutine(PlayerImmune());
 
 #if ZOMBIES
-                playerAnim.SetTrigger("isHurt"); //added
+            playerAnim.SetTrigger("isHurt"); //added
 #endif
 
-                ph.UpdateHealth(0.1f, true);
+            ph.UpdateHealth(howMuchDamage, true);
 
-                if (ph.currentHealth <= 0)
-                {
-                    gameMusic.Stop();
-                    gameOver.Play();
-                    isDead = true;
-                }
-                else {
-                    startBlinking = true;
-                }
+            if (ph.currentHealth <= 0)
+            {
+                gameMusic.Stop();
+                gameOver.Play();
+                isDead = true;
+            }
+            else
+            {
+                startBlinking = true;
             }
         }
-
-        if (collision.CompareTag("Recover") && myCurrentHealth < 1)
-        {
-            ph.UpdateHealth(0.2f, false);
-            itemSpawner.itemCount--;
-        }
     }
-
     private IEnumerator AutomaticShoot()
     {
         //ShootBullet();
         meleeAttack.Hit();
-        //StartCoroutine(Attacking());
         canShoot = false;
         yield return new WaitForSeconds(shootCadence);
         canShoot = true;
     }
-
-    private IEnumerator Attacking()
-    {
-        //attackObject.SetActive(true);
-        meleeAttack.gameObject.SetActive(true);
-        
-        yield return new WaitForSeconds(1f);
-        //attackObject.SetActive(false);
-        meleeAttack.gameObject.SetActive(false);
-    }
-
     public IEnumerator PlayerImmune()
     {
         canTakeDamage = false;

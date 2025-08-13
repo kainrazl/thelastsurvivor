@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private float howManyDamage;
     private float enemySpeed;
     private float localScaleX;
     private bool isFacingLeft;
@@ -14,25 +15,27 @@ public class EnemyManager : MonoBehaviour
 
     private EnemySpawner spawner;
     private PlayerPoints playerPoints;
+    private PlayerManager playerManager;
     private ItemSpawner itemSpawner;
 
     private GameObject player;
     private Animator anim;
 
     private void Awake()
-    {
-        enemySpeed = Random.Range(0.5f, 2.5f);
+    {        
         anim = GetComponent<Animator>();
-        anim.SetFloat("speed", enemySpeed);
-        enemyDead = false;
+        spawner = GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerPoints = player.GetComponent<PlayerPoints>();
+        playerManager = player.GetComponent<PlayerManager>();
+        itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
     }
 
     private void Start()
     {
-        spawner = GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerPoints = player.GetComponent<PlayerPoints>();
-        itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
+        enemySpeed = Random.Range(0.5f, 2.5f);
+        anim.SetFloat("speed", enemySpeed);
+        enemyDead = false;
     }
 
     void Update()
@@ -71,10 +74,13 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        if (collision.CompareTag("Attack") && !enemyDead)
+        if (!enemyDead)
         {
-            EnemyDamage(collision);
+            //if (collision.CompareTag("Attack"))
+            //    EnemyDamage(collision);
+
+            if (collision.CompareTag("Player"))
+                playerManager.TakeDamage(howManyDamage);
         }
     }
 

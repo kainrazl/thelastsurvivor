@@ -246,45 +246,9 @@ public class PlayerManager : MonoBehaviour
         float localScaleX = playerSprite.transform.localScale.x;
         localScaleX *= -1;
 
-#if AZTEK
         playerCollider.offset = new Vector2(playerCollider.offset.x * (-1), playerCollider.offset.y);
-#endif
         playerSprite.transform.localScale = new Vector3(localScaleX, playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
     }
-
-    //    private void OnTriggerEnter2D(Collider2D collision)
-    //    {
-    //        if (collision.CompareTag("Enemy"))
-    //        {
-    //            if (canTakeDamage)
-    //            {
-    //                //canTakeDamage = false;
-    //                StartCoroutine(PlayerImmune());
-
-    //#if ZOMBIES
-    //                playerAnim.SetTrigger("isHurt"); //added
-    //#endif
-
-    //                ph.UpdateHealth(0.1f, true);
-
-    //                if (ph.currentHealth <= 0)
-    //                {
-    //                    gameMusic.Stop();
-    //                    gameOver.Play();
-    //                    isDead = true;
-    //                }
-    //                else {
-    //                    startBlinking = true;
-    //                }
-    //            }
-    //        }
-
-    //        if (collision.CompareTag("Recover") && myCurrentHealth < 1)
-    //        {
-    //            ph.UpdateHealth(0.2f, false);
-    //            itemSpawner.itemCount--;
-    //        }
-    //    }
 
     public void TakeDamage(float howMuchDamage)
     {

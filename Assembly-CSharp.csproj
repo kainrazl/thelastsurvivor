@@ -72,6 +72,7 @@
     <Compile Include="Assets\_Scripts\ItemProperties.cs" />
     <Compile Include="Assets\_Scripts\HeartPoint.cs" />
     <Compile Include="Assets\_Scripts\MenuActions.cs" />
+    <Compile Include="Assets\SpinRotation.cs" />
     <Compile Include="Assets\_Scripts\ControlsFade.cs" />
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />

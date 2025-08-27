@@ -41,6 +41,7 @@ public class PlayerManager : MonoBehaviour
     private Vector2 bulletDirection;
     private Vector3 spawnerOriginalPosition;
     private Collider2D playerCollider;
+    private 
 
     // Start is called before the first frame update
     void Awake()
@@ -297,7 +298,6 @@ public class PlayerManager : MonoBehaviour
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
         {
             spriteBlinkingTotalTimer = 0.0f;
-            //canTakeDamage = true;
             startBlinking = false;
             gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
             return;

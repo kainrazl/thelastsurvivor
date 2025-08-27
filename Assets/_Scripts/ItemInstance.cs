@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetItemProperties : MonoBehaviour
+public class ItemInstance :MonoBehaviour
 {
-    [SerializeField] private Item properties;
+    [SerializeField] private ItemSO properties;
     private AudioSource audioSource;
 
     private void Awake()

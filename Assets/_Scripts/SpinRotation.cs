@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class SpinRotation : MonoBehaviour
 {
-    [SerializeField] float rotationSpeed = 6;
-    [SerializeField] float radius;
-    private Transform player;
-    Vector3 currentEulerAngles;
-    float rotationAngle;
+    private float rotationSpeed = 6;
+    private float radius = 1.2f;
+    private Transform parent;
+    private int rounds = 1;
 
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+    private Vector3 currentEulerAngles;
+    private float rotationAngle;
 
     private void Start()
     {
@@ -28,6 +25,25 @@ public class SpinRotation : MonoBehaviour
         StartTranslation();
     }
 
+    public void SetRounds(int roundNumber)
+    {
+        rounds = roundNumber;
+    }
+
+    public void SetRotationSpeed(float rotationSpeed)
+    {
+        this.rotationSpeed = rotationSpeed;
+    }
+    public void SetRadius(float radius)
+    {
+        this.radius = radius;
+    }
+    public void SetParent(Transform spinOn)
+    {
+        parent = spinOn;
+        transform.position = spinOn.position;
+    }
+
     private void StartTranslation()
     {
         // Calcula la nueva posición usando trigonometría
@@ -38,11 +54,11 @@ public class SpinRotation : MonoBehaviour
         );
 
         // Actualiza la posición del objeto para que orbite alrededor del jugador
-        transform.position = (Vector2)player.position + offset;
+        transform.position = (Vector2)parent.position + offset;
 
         rotationAngle += (-270) * Time.deltaTime;
 
-        if (Mathf.Abs(rotationAngle) > 375)
+        if (Mathf.Abs(rotationAngle) > 375 * rounds)
             StartCoroutine(RestartTranslation());
     }
 
@@ -57,7 +73,7 @@ public class SpinRotation : MonoBehaviour
     IEnumerator RestartTranslation()
     {
         rotationAngle = 0;
-        transform.position = player.position;
+        transform.position = parent.position;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
         this.enabled = false;

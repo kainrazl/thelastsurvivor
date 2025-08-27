@@ -34,6 +34,7 @@ Transform:
   - {fileID: 7336176625589125875}
   - {fileID: 6313007314393880064}
   - {fileID: 2935875335861460604}
+  - {fileID: 7703587129608214488}
   m_Father: {fileID: 4106015001511105800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2642228490611791075
@@ -145,7 +146,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.27}
-  m_SizeDelta: {x: 0, y: 0.18}
+  m_SizeDelta: {x: -0.30000007, y: 0.18}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1071509782078036743
 CanvasRenderer:
@@ -211,7 +212,7 @@ Transform:
   m_GameObject: {fileID: 843831400108460969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.449, y: 0.934, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,7 +306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.12, y: 0.74}
+  m_AnchoredPosition: {x: -0.12, y: 0.24}
   m_SizeDelta: {x: 1.5, y: 1.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7321880916180759393
@@ -615,9 +616,40 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: 0.40613842}
+  m_Offset: {x: -0.12, y: 0}
   m_Size: {x: 0.3490704, y: 0.5941372}
   m_Direction: 0
+--- !u!1 &5607192007757215676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7703587129608214488}
+  m_Layer: 0
+  m_Name: Weapons
+  m_TagString: EquipedWeapons
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7703587129608214488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5607192007757215676}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1601971386208575163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8048564591753562501
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +714,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.005277455, y: 0.018471122}
+  m_Offset: {x: -0.005277455, y: -0.51}
   m_Size: {x: 0.61610425, y: 1.0897171}
   m_Direction: 0
 --- !u!1001 &3081606826800955981
@@ -703,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9032074196141741133, guid: 32f97578c4084e74b9d0aceb15b2883c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.618
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 9032074196141741133, guid: 32f97578c4084e74b9d0aceb15b2883c, type: 3}
       propertyPath: m_LocalPosition.z

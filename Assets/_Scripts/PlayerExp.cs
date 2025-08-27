@@ -10,6 +10,7 @@ public class PlayerExp : MonoBehaviour
     [SerializeField] private AudioClip levelUpSound;
     private PlayerManager player;
     private PlaySound play;
+    private UpgradeSelection upgradeSelection;
 
     public float totalExp;
     public float nextLevel = 0;
@@ -20,6 +21,7 @@ public class PlayerExp : MonoBehaviour
         SetStartExp();
         player = GetComponent<PlayerManager>();
         play = FindAnyObjectByType<PlaySound>();
+        upgradeSelection = levelUpCanvas.GetComponent<UpgradeSelection>();
     }
 
     public void SetStartExp()
@@ -39,6 +41,7 @@ public class PlayerExp : MonoBehaviour
             currentExp = 1;
             fullExp.Play();
             levelUpCanvas.SetActive(true);
+            upgradeSelection.RandomizeUpgrades();
             player.isPaused = true;
         }
 
@@ -47,10 +50,11 @@ public class PlayerExp : MonoBehaviour
 
     public void PerkSelected()
     {
-        levelUpCanvas.SetActive(false);
+        upgradeSelection.EquipUpgrade();
         player.isPaused = false;
         StartCoroutine(player.PlayerImmune());
         nextLevel += Mathf.Ceil(nextLevel * 0.2f); //Verificar qué porcentaje debería variar en cada nivel
         SetStartExp();
+        levelUpCanvas.SetActive(false);
     }
 }

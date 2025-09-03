@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31dfaba081b97b245afee0cdef39d0be, type: 3}
   m_Name: ThrowableWeapon
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1175636378, guid: c8c5c206ba8b2de4db72b99f7ee3f3d4, type: 3}
   type: 2
   damage: 6
-  attackRate: 1
+  attackRate: 2
   duration: 0
-  coolDown: 10
+  coolDown: 3
   radius: 0
   distance: 0
-  speed: 0
+  travelSpeed: 3
+  name: 
+  description: 

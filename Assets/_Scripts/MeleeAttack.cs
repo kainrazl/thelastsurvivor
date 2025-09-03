@@ -25,7 +25,11 @@ public class MeleeAttack : MonoBehaviour
         foreach (Collider2D enemy in enemyColliders)
         {
             if (enemy.CompareTag("Enemy"))
-                enemy.GetComponent<EnemyManager>().EnemyDamage(enemy);
+            {
+                float damage = GetComponentInParent<WeaponInstance>().GetProperties().damage;
+                enemy.GetComponent<EnemyManager>().EnemyDamage(enemy, damage);
+            }
+                
         }
     }
 

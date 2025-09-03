@@ -5,51 +5,53 @@ using UnityEngine;
 public class WeaponInstance : MonoBehaviour
 {
     [SerializeField] private WeaponSO properties;
-    [SerializeField] private bool isUpgrade = false;
     private WeaponType weaponType;
     private Transform player;
+    private float damage;
 
     public void Awake()
     {
         player = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
+    }
 
-        if (!isUpgrade) {
-            weaponType = properties.type;
+    private void Start()
+    {
+        damage = properties.damage;
 
-            switch (weaponType)
-            {
-                case WeaponType.Melee:
-                    break;
+        weaponType = properties.type;
 
-                case WeaponType.Throwable:
-                    break;
+        switch (weaponType)
+        {
+            case WeaponType.Melee:
+                break;
 
-                case WeaponType.Circle:
-                    TryGetComponent(out SpinRotation spin);
+            case WeaponType.Throwable:
+                break;
 
-                    if (spin != null)
-                    {
-                        spin.SetParent(player);
-                        spin.SetRadius(properties.radius);
-                        spin.SetRotationSpeed(properties.travelSpeed);
-                    }
-                    break;
+            case WeaponType.Circle:
+                TryGetComponent(out SpinAttack spin);
 
-                case WeaponType.Area:
-                    break;
+                if (spin != null)
+                {
+                    spin.SetParent(player);
+                    spin.SetRadius(properties.radius);
+                    spin.SetRotationSpeed(properties.travelSpeed);
+                }
+                break;
 
-                case WeaponType.Ranged:
-                    break;
+            case WeaponType.Area:
+                break;
 
-                default:
-                    break;
-            }
+            case WeaponType.Ranged:
+                break;
+
+            default:
+                break;
         }
     }
 
-    //public void EquipWeapon()
-    //{
-    //    transform.SetParent(player);
-    //    transform.position = player.position;
-    //}
+    public WeaponSO GetProperties()
+    {
+        return properties;
+    }
 }

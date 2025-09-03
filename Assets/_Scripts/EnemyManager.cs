@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private float howManyDamage;
+    [SerializeField] private EnemySO properties;
+    private float howMuchDamage;
     private float enemySpeed;
+    private float health;
     private float localScaleX;
     private bool isFacingLeft;
     private bool enemyDead;
@@ -33,7 +35,11 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        enemySpeed = Random.Range(0.5f, 2.5f);
+        float minSpeed = properties.minSpeed;
+        float maxSpeed = properties.maxSpeed;
+        enemySpeed = Random.Range(minSpeed, maxSpeed);
+        howMuchDamage = properties.damage;
+        health = properties.health;
         anim.SetFloat("speed", enemySpeed);
         enemyDead = false;
     }
@@ -52,13 +58,6 @@ public class EnemyManager : MonoBehaviour
             enemyPosition = Vector2.MoveTowards(transform.position, playerPosition, enemySpeed * Time.deltaTime);
             transform.position = enemyPosition;
         }
-        else
-        {
-            anim.SetFloat("speed", 0);
-            anim.Play("enemy_dead");
-            
-            StartCoroutine(DestroyEnemy());
-        }
     }
 
     void CheckFlip()
@@ -76,24 +75,31 @@ public class EnemyManager : MonoBehaviour
     {
         if (!enemyDead)
         {
-            //if (collision.CompareTag("Attack"))
-            //    EnemyDamage(collision);
-
             if (collision.CompareTag("Player"))
-                playerManager.TakeDamage(howManyDamage);
+                playerManager.TakeDamage(howMuchDamage);
         }
     }
 
-    public void EnemyDamage(Collider2D collision)
+    public void EnemyDamage(Collider2D collision, float damage)
     {
-        enemyDead = true;
-        itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
+        health -= damage;
 
-        if (spawner.enemiesCounter > 0)
-            spawner.enemiesCounter -= 1;
+        if (health <= 0 && !enemyDead) {
+            enemyDead = true;
+            itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
 
-        playerPoints.UpdatePoints();
-        gameObject.GetComponent<Rigidbody2D>().simulated = false;
+            if (spawner.enemiesCounter > 0)
+                spawner.enemiesCounter -= 1;
+
+            playerPoints.UpdatePoints();
+            gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
+            anim.SetFloat("speed", 0);
+            anim.Play("enemy_dead");
+            
+            Destroy(gameObject, 0.5f);
+            //StartCoroutine(DestroyEnemy());
+        }
     }
 
     private IEnumerator DestroyEnemy()

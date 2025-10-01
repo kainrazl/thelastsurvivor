@@ -1,16 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Tracing;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.UI;
 
 public class UpgradeSelection : MonoBehaviour
 {
-    [SerializeField] List<GameObject> upgradeOptions ;
-    [SerializeField] GameObject upgradePrefab;
+    [SerializeField] List<GameObject> upgradeOptions;
+    [SerializeField] GameObject upgradePanel;
     private List<GameObject> availableUpgrades;
     private bool canAdd = false;
     private GameObject selectedUpgrade = null;
@@ -61,21 +58,41 @@ public class UpgradeSelection : MonoBehaviour
 
         foreach (GameObject upgrade in availableUpgrades)
         {
-            GameObject selectableUpgrade = Instantiate(upgradePrefab);
+            GameObject selectableUpgrade = Instantiate(upgradePanel);
             selectableUpgrade.name = upgrade.name;
 
             for (int i = 0; i < selectableUpgrade.transform.childCount; i++)
             {
-                if (selectableUpgrade.transform.GetChild(i).TryGetComponent(out Image image))
-                {
-                    image.sprite = upgrade.GetComponent<SpriteRenderer>().sprite;
+                if (selectableUpgrade.transform.GetChild(i).name == "Visual")
+                {                    
+                    GameObject showUpgrade = Instantiate(upgrade);
+                    showUpgrade.transform.SetParent(selectableUpgrade.transform.GetChild(i).transform, false);
                 }
-
-                if (selectableUpgrade.transform.GetChild(i).TryGetComponent(out TextMeshProUGUI description))
+                else
                 {
-                    description.SetText(upgrade.name);
+                    if (selectableUpgrade.transform.GetChild(i).TryGetComponent(out TextMeshProUGUI description))
+                    {
+                        upgrade.TryGetComponent(out InGamePrefab gamePrefab);
+
+                        if (gamePrefab != null)
+                        {
+                            GameObject upgradePrefab = gamePrefab.GetPrefab();
+                            upgradePrefab.TryGetComponent(out WeaponInstance upgradeInfo);
+
+                            if (upgradeInfo != null)
+                            {
+                                description.SetText(upgradeInfo.GetProperties().name);
+                            }
+                        }
+                        else
+                        {
+                            string upgradeName = upgrade.name.Substring(upgrade.name.LastIndexOf('_') + 1).FirstCharacterToUpper();
+                            description.SetText(upgradeName);
+                        }
+                    }
                 }
             }
+
             Button button = selectableUpgrade.GetOrAddComponent<Button>();
             button.transition = Selectable.Transition.ColorTint;
             button.colors = new ColorBlock
@@ -87,24 +104,27 @@ public class UpgradeSelection : MonoBehaviour
                 colorMultiplier = 1,
                 fadeDuration = 0.1f
             };
-            button.onClick.AddListener(() => SetSelectedUpgrade(selectableUpgrade.name));
+            button.onClick.AddListener(() => SetSelectedUpgrade(upgrade));
             selectableUpgrade.transform.localScale = new Vector3(1, 1, 1);
             selectableUpgrade.transform.SetParent(gridLayout.transform, false);
         }
     }
 
-    public void SetSelectedUpgrade(string name)
+    public void SetSelectedUpgrade(GameObject upgrade)
     {
         selectedUpgrade = null;
-        foreach (GameObject upgrade in availableUpgrades)
+
+        upgrade.TryGetComponent(out InGamePrefab prefab);
+
+        if (prefab != null)
         {
-            if (upgrade.name == name)
-            {
-                selectedUpgrade = upgrade;
-            }
+            selectedUpgrade = prefab.GetPrefab();
         }
 
         Debug.Log("Selected upgrade: " + selectedUpgrade.name);
+        Transform player = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
+        GameObject equipUpgrade = Instantiate(selectedUpgrade, player);
+        equipUpgrade.transform.position = player.position;
     }
 
     public void EquipUpgrade()
@@ -114,6 +134,10 @@ public class UpgradeSelection : MonoBehaviour
             Transform player = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
             GameObject upgrade = Instantiate(selectedUpgrade, player);
             upgrade.transform.position = player.position;
+        }
+        else 
+        {
+            Debug.Log("No upgrade selected");
         }
     }
 }

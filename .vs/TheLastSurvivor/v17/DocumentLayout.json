@@ -3,36 +3,56 @@
   "WorkspaceRootPath": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\upgradeselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\upgradeselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\ingameprefab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\ingameprefab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\weaponinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\weaponinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\weaponinstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\weaponso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\weaponso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\iteminstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\iteminstance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\upgradeselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\upgradeselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\spinrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\spinrotation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\weaponeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\weaponeffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\spinattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\spinattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\throwattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\throwattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\meleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\meleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemyso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemyso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemSO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,46 +66,104 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WeaponInstance.cs",
-              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponInstance.cs",
-              "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponInstance.cs",
-              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponInstance.cs",
-              "RelativeToolTip": "Assets\\_Scripts\\WeaponInstance.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAuwDAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "InGamePrefab.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\InGamePrefab.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\InGamePrefab.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\InGamePrefab.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\InGamePrefab.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T22:50:42.565Z",
+              "WhenOpened": "2025-10-01T00:59:45.584Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "WeaponSO.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponSO.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponSO.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponSO.cs",
               "RelativeToolTip": "Assets\\_Scripts\\WeaponSO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T21:38:46.075Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T21:38:46.075Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "ItemInstance.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemInstance.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\ItemInstance.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemInstance.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\ItemInstance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-29T20:10:59.801Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ThrowAttack.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ThrowAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\ThrowAttack.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ThrowAttack.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\ThrowAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-29T23:56:00.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "PlayerExp.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerExp.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerExp.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerExp.cs",
               "RelativeToolTip": "Assets\\_Scripts\\PlayerExp.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwDkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T01:27:34.935Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T01:27:34.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EnemyManager.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemyManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemyManager.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemyManager.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\EnemyManager.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAASwCUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-29T22:11:00.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MeleeAttack.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\MeleeAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\MeleeAttack.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\MeleeAttack.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\MeleeAttack.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABwAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-29T23:07:31.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpgradeSelection.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\UpgradeSelection.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\UpgradeSelection.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\UpgradeSelection.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\UpgradeSelection.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwFEAAABuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T03:05:34.471Z"
             },
             {
               "$type": "Document",
@@ -95,40 +173,50 @@
               "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerManager.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerManager.cs",
               "RelativeToolTip": "Assets\\_Scripts\\PlayerManager.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAYwCIBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAA0MzMzMwcwI4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T01:13:42.977Z",
+              "WhenOpened": "2025-08-20T01:13:42.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeaponInstance.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponInstance.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponInstance.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponInstance.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\WeaponInstance.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T22:50:42.565Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UpgradeSelection.cs",
-              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\UpgradeSelection.cs",
-              "RelativeDocumentMoniker": "Assets\\_Scripts\\UpgradeSelection.cs",
-              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\UpgradeSelection.cs",
-              "RelativeToolTip": "Assets\\_Scripts\\UpgradeSelection.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwCEAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 11,
+              "Title": "EnemySO.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemySO.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemySO.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemySO.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\EnemySO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-26T03:05:34.471Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-29T20:11:58.815Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SpinRotation.cs",
-              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\SpinRotation.cs",
-              "RelativeDocumentMoniker": "Assets\\_Scripts\\SpinRotation.cs",
-              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\SpinRotation.cs",
-              "RelativeToolTip": "Assets\\_Scripts\\SpinRotation.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAaAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "SpinAttack.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\SpinAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\SpinAttack.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\SpinAttack.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\SpinAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T23:00:53.323Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T23:00:53.323Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemySpawner.cs",
@@ -136,24 +224,11 @@
               "RelativeToolTip": "Assets\\_Scripts\\EnemySpawner.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T22:56:47.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T22:56:47.734Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "WeaponEffect.cs",
-              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponEffect.cs",
-              "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponEffect.cs",
-              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponEffect.cs",
-              "RelativeToolTip": "Assets\\_Scripts\\WeaponEffect.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T23:23:18.793Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "ItemSO.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemSO.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\ItemSO.cs",

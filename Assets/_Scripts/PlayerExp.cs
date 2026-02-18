@@ -50,11 +50,11 @@ public class PlayerExp : MonoBehaviour
 
     public void PerkSelected()
     {
-        upgradeSelection.EquipUpgrade();
-        player.isPaused = false;
-        StartCoroutine(player.PlayerImmune());
+        //upgradeSelection.EquipUpgrade();
         nextLevel += Mathf.Ceil(nextLevel * 0.2f); //Verificar qué porcentaje debería variar en cada nivel
         SetStartExp();
-        levelUpCanvas.SetActive(false);
+        player.isPaused = false;
+
+        StartCoroutine(player.PlayerImmune());
     }
 }

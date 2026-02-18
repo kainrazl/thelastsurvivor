@@ -10,7 +10,9 @@ public class EnemyManager : MonoBehaviour
     private float health;
     private float localScaleX;
     private bool isFacingLeft;
-    private bool enemyDead;
+    private bool playerFliped;
+    public bool enemyDead;
+    public bool isCompanion = false;
 
     private Vector2 playerPosition;
     private Vector2 enemyPosition;
@@ -35,9 +37,17 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        float minSpeed = properties.minSpeed;
-        float maxSpeed = properties.maxSpeed;
-        enemySpeed = Random.Range(minSpeed, maxSpeed);
+        if (isCompanion)
+        {
+            enemySpeed = player.GetComponent<PlayerManager>().GetSpeed() - 0.3f;
+        }
+        else
+        {
+            float minSpeed = properties.minSpeed;
+            float maxSpeed = properties.maxSpeed;
+            enemySpeed = Random.Range(minSpeed, maxSpeed);
+        }
+            
         howMuchDamage = properties.damage;
         health = properties.health;
         anim.SetFloat("speed", enemySpeed);
@@ -54,7 +64,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (!enemyDead)
         {
-            playerPosition = player.transform.position;
+            playerPosition = isCompanion ? (isFacingLeft ? player.transform.position + (new Vector3(1.3f, -0.6f, 1)) : player.transform.position - (new Vector3(1.3f, 0.6f, 1))) : player.transform.position;
             enemyPosition = Vector2.MoveTowards(transform.position, playerPosition, enemySpeed * Time.deltaTime);
             transform.position = enemyPosition;
         }
@@ -63,30 +73,30 @@ public class EnemyManager : MonoBehaviour
     void CheckFlip()
     {
         isFacingLeft = transform.localScale.x < 0 ? true : false;
-        localScaleX = transform.localScale.x * -1;
 
         if ((enemyPosition.x < playerPosition.x && isFacingLeft) || (enemyPosition.x > playerPosition.x && !isFacingLeft))
         {
+            localScaleX = transform.localScale.x * -1;
             transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!enemyDead)
+        if ((!isCompanion) && (!enemyDead))
         {
             if (collision.CompareTag("Player"))
                 playerManager.TakeDamage(howMuchDamage);
         }
     }
 
-    public void EnemyDamage(Collider2D collision, float damage)
+    public void EnemyDamage(float damage)
     {
         health -= damage;
 
         if (health <= 0 && !enemyDead) {
             enemyDead = true;
-            itemSpawner.GetItem(collision.transform.localPosition.x, collision.transform.localPosition.y);
+            itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
 
             if (spawner.enemiesCounter > 0)
                 spawner.enemiesCounter -= 1;
@@ -98,15 +108,23 @@ public class EnemyManager : MonoBehaviour
             anim.Play("enemy_dead");
             
             Destroy(gameObject, 0.5f);
-            //StartCoroutine(DestroyEnemy());
+        }
+        else
+        {
+            StartCoroutine(DamageIndicator());
         }
     }
 
-    private IEnumerator DestroyEnemy()
+    private IEnumerator DamageIndicator()
     {
-        WaitForSeconds waiting = new WaitForSeconds(0.5f);
-        yield return waiting;
-        
-        Destroy(gameObject);
+        if (health > 0)
+        {
+            //GetComponent<SpriteRenderer>().color = Color.Lerp(Color.yellow, Color.green, 0.5f);//new Color(1, 0, 0.1f);
+            GetComponent<SpriteRenderer>().color = Random.ColorHSV();//new Color(1, 0, 0.1f);
+
+            yield return new WaitForSeconds(0.5f);
+
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
     }
 }

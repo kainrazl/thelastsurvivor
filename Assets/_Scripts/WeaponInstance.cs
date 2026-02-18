@@ -11,7 +11,7 @@ public class WeaponInstance : MonoBehaviour
 
     public void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Start()
@@ -43,9 +43,16 @@ public class WeaponInstance : MonoBehaviour
                 break;
 
             case WeaponType.Ranged:
-                break;
+                TryGetComponent(out ShootAttack shootAttack);
 
-            default:
+                if (shootAttack != null)
+                {
+                    shootAttack.SetPlayer(player.gameObject);
+                    shootAttack.SetBulletsToShoot(properties.attackRate);
+                    shootAttack.SetShootCadence(properties.coolDown);
+                    shootAttack.SetBulletDamage(properties.damage);
+                    shootAttack.SetBulletDistance(properties.distance);
+                }
                 break;
         }
     }

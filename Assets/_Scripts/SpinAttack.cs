@@ -13,11 +13,14 @@ public class SpinAttack : MonoBehaviour
     private float rotationAngle;
     private bool isActive = true;
     private float actualDegrees;
+    private float damage;
 
     private void Start()
     {
         rotationAngle = 0;
         originalRotationAngle = rotationAngle;
+        damage = GetComponent<WeaponInstance>().GetProperties().damage;
+        rounds = GetComponent<WeaponInstance>().GetProperties().numberOfRounds;
 
         int numberOfWeapons = FindObjectsOfType<SpinAttack>().Length;
         float angleBetweenWeapons = 360f / numberOfWeapons;
@@ -37,11 +40,14 @@ public class SpinAttack : MonoBehaviour
 
     void Update()
     {
-        currentEulerAngles += new Vector3(0, 0, -180) * Time.deltaTime * rotationSpeed;
-        transform.eulerAngles = currentEulerAngles;
+        if (!(parent.gameObject.GetComponent<PlayerManager>().isPaused) &&
+            (parent.gameObject.GetComponent<PlayerHealth>().currentHealth > 0)){
+            currentEulerAngles += new Vector3(0, 0, -180) * Time.deltaTime * rotationSpeed;
+            transform.eulerAngles = currentEulerAngles;
 
-        if (isActive)
-            StartTranslation();
+            if (isActive)
+                StartTranslation();
+        }
     }
 
     // Setters Region
@@ -69,6 +75,33 @@ public class SpinAttack : MonoBehaviour
     {
         originalRotationAngle = angle;
     }
+
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
+#endregion
+
+//Getters region
+#region
+public int GetRounds()
+{
+    return rounds;
+}
+
+public float GetRotationSpeed()
+{
+    return rotationSpeed;
+}
+public float GetRadius()
+{
+    return radius;
+}
+
+public float GetDamage()
+{
+    return damage;
+}
 #endregion
     private void StartTranslation()
     {
@@ -104,9 +137,8 @@ public class SpinAttack : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
-        {
-            float damage = GetComponent<WeaponInstance>().GetProperties().damage;
-            collision.GetComponent<EnemyManager>().EnemyDamage(collision, damage);
+        {;
+            collision.GetComponent<EnemyManager>().EnemyDamage(damage);
         }
     }
 

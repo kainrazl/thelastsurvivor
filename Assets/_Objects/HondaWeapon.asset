@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   damage: 1
-  attackRate: 0.5
-  duration: 1.5
+  attackRate: 1
+  duration: 1
   coolDown: 6
   radius: 0
-  distance: 0
+  distance: 3.9
   travelSpeed: 0
   name: Honda
   description: 

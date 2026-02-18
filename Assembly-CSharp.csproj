@@ -66,6 +66,7 @@
     <Compile Include="Assets\_Scripts\SpinAttack.cs" />
     <Compile Include="Assets\_Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\_Resources\GameActions.cs" />
+    <Compile Include="Assets\_Scripts\ShootAttack.cs" />
     <Compile Include="Assets\_Scripts\InGamePrefab.cs" />
     <Compile Include="Assets\_Scripts\WeaponInstance.cs" />
     <Compile Include="Assets\_Scripts\ItemEffect.cs" />
@@ -78,8 +79,8 @@
     <Compile Include="Assets\_Scripts\ControlsFade.cs" />
     <Compile Include="Assets\_Scripts\EnemySO.cs" />
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\_Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\_Scripts\ThrowAttack.cs" />
+    <Compile Include="Assets\_Scripts\WeaponManager.cs" />
     <Compile Include="Assets\_Scripts\ItemRarity.cs" />
     <Compile Include="Assets\_Scripts\WeaponSO.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\_Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\_Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\_Scripts\BulletPool.cs" />
+    <Compile Include="Assets\_Scripts\UpgradeType.cs" />
     <Compile Include="Assets\_Scripts\ItemInstance.cs" />
     <Compile Include="Assets\_Scripts\EnemyManager.cs" />
     <Compile Include="Assets\_Scripts\PlayerPoints.cs" />

@@ -1,41 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ThrowAttack : MonoBehaviour
 {
     private float rotationSpeed = 1.5f;
-    private float radius = 1.2f;
 
-    private Vector3 currentEulerAngles;
-    private float rotationAngle;
+    private Vector3 currentEulerAngles = Vector3.right;
+    private float radius = 1.5f;
+    private bool isSpinning = false;
+    private bool returnToPlayer = true;
+    private float rotationAngle = 0;
     private bool hasThrown = false;
-    private Vector2 startPosition;
-    private float spin = 0;
+    private GameObject player;
 
-    private void Start()
+    void Start()
     {
-        rotationAngle = 0;
-        startPosition = transform.localPosition;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        if(spin < -360)
-        {
-            spin = 0;
-            currentEulerAngles = Vector3.zero;
-        }
-        currentEulerAngles += new Vector3(0, 0, -180) * Time.deltaTime * rotationSpeed;
-        transform.eulerAngles = currentEulerAngles;
+        if ((!player.GetComponent<PlayerManager>().isPaused) && player.GetComponent<PlayerHealth>().currentHealth > 0) {
+            currentEulerAngles += rotationSpeed * Time.deltaTime * new Vector3(90, 0, 180);
+        
+            if (rotationAngle > 360)
+            {
+                rotationAngle = 0;
+                currentEulerAngles = Vector3.right;
+            }
 
-        spin = currentEulerAngles.z;
+            if (!isSpinning)
+            {
+                StartCoroutine(ActionAttack());
+            }
 
-        Debug.Log(currentEulerAngles);
+            if (returnToPlayer)
+            {
+                Vector2 playerPosition = player.transform.position;
+                transform.position = playerPosition;
+            }
 
-        if (!hasThrown)
-        {
-            StartCoroutine(ActionAttack());
+            if (!hasThrown)
+            {
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, rotationAngle - 90));
+                rotationAngle += 0.5f;
+            }
         }
     }
 
@@ -43,18 +54,19 @@ public class ThrowAttack : MonoBehaviour
     {
         this.rotationSpeed = rotationSpeed;
     }
-    public void SetRadius(float radius)
+    public void SetRadius(float radius) 
     {
         this.radius = radius;
     }
 
     public void ThrowWeapon()
     {
-        Vector2 force = new Vector2(transform.eulerAngles.x, transform.eulerAngles.y) * GetComponent<WeaponInstance>().GetProperties().travelSpeed;
+        float rad = rotationAngle * Mathf.Deg2Rad;
+        Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+        float speed = GetComponent<WeaponInstance>().GetProperties().travelSpeed;
 
-        GetComponent<Rigidbody2D>().AddForce(force, ForceMode2D.Impulse);
+        gameObject.GetComponent<Rigidbody2D>().velocity = direction * speed;
 
-        StartCoroutine(ReturnPosition());
 
     }
 
@@ -63,22 +75,37 @@ public class ThrowAttack : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             float damage = GetComponent<WeaponInstance>().GetProperties().damage;
-            collision.GetComponent<EnemyManager>().EnemyDamage(collision, damage);
+            collision.GetComponent<EnemyManager>().EnemyDamage(damage);
         }
     }
 
     IEnumerator ActionAttack()
     {
-        hasThrown = true;
-        float waitTime = GetComponent<WeaponInstance>().GetProperties().attackRate;
-        yield return new WaitForSeconds(waitTime);
-        ThrowWeapon();
-        hasThrown = false;
-    }
+        isSpinning = true;
+        TryGetComponent(out CapsuleCollider2D capsuleCollider);
 
-    IEnumerator ReturnPosition()
-    {
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.enabled = false;
+        }
+
+        float waitTime = GetComponent<WeaponInstance>().GetProperties().attackRate;
+
+        yield return new WaitForSeconds(waitTime);
+
+        if (capsuleCollider != null)
+        {
+            capsuleCollider.enabled = true;
+        }
+
+        ThrowWeapon();
+        hasThrown = true;
+        returnToPlayer = false;
+        
         yield return new WaitForSeconds(1);
-        transform.position = startPosition;
+        
+        returnToPlayer = true;
+        isSpinning = false;
+        hasThrown = false;
     }
 }

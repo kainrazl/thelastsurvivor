@@ -12,11 +12,13 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private Transform bulletSpawner;
     [SerializeField] private bool isTutorial;
 
-    private bool isFacingLeft = false;
+    public bool isFacingLeft = false;
     public bool isPaused = false;
+    public GameObject attackObject;
+    public bool isDead = false;
+    
     private bool canTakeDamage = true;
-    private bool isDead = false;
-    private bool canShoot = true;
+    private bool canAutoAttack = true;
 
     private float speed = 3f;
     private float myCurrentHealth;
@@ -34,14 +36,13 @@ public class PlayerManager : MonoBehaviour
     private Bullet shot;
     private ItemSpawner itemSpawner;
     private GameObject playerSprite;
-    public GameObject attackObject;
     private MeleeAttack meleeAttack;
 
     private Vector2 move;
     private Vector2 bulletDirection;
     private Vector3 spawnerOriginalPosition;
     private Collider2D playerCollider;
-    private 
+    private SpriteRenderer sprite;
 
     // Start is called before the first frame update
     void Awake()
@@ -54,6 +55,7 @@ public class PlayerManager : MonoBehaviour
         meleeAttack = attackObject.GetComponentInChildren<MeleeAttack>();
         itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
         playerSprite =  GameObject.Find("PlayerSprite");
+        sprite = GetComponentInChildren<SpriteRenderer>();
         gameMusic.Play();
     }
 
@@ -99,8 +101,8 @@ public class PlayerManager : MonoBehaviour
                 //{
                 //    ShootBullet();
                 //}
-                if(canShoot)
-                    StartCoroutine(AutomaticShoot());
+                if(canAutoAttack)
+                    StartCoroutine(AutoMeleeAttack());
             }
             else
             {
@@ -208,35 +210,13 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
     public void PutPause()
     {
         if (!isDead)
         {
             isPaused = !isPaused;
             pauseCanvas.SetActive(isPaused);
-        }
-    }
-
-    public void ShootBullet()
-    {
-        if (!isPaused && !isDead)
-        {
-            GameObject enemy = GetClosestEnemy();
-
-            if (enemy != null)
-            {
-                GameObject bullet = BulletPool.instance.GetBullet();
-
-                if (bullet != null)
-                {
-                    shoot.Play();
-                    bullet.transform.position = bulletSpawner.position;
-                    bullet.SetActive(true);
-                    shot = bullet.GetComponent<Bullet>();
-                    //bulletDirection = isFacingLeft ? Vector2.left : Vector2.right;
-                    shot.SetEnemyToFollow(enemy);
-                }
-            }
         }
     }
 
@@ -275,13 +255,13 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
-    private IEnumerator AutomaticShoot()
+    private IEnumerator AutoMeleeAttack()
     {
         //ShootBullet();
         meleeAttack.Hit();
-        canShoot = false;
+        canAutoAttack = false;
         yield return new WaitForSeconds(shootCadence);
-        canShoot = true;
+        canAutoAttack = true;
     }
     public IEnumerator PlayerImmune()
     {
@@ -292,14 +272,16 @@ public class PlayerManager : MonoBehaviour
 
     public void SpriteBlinkingEffect()
     {
-        bool isSpriteEnabled = gameObject.GetComponentInChildren<SpriteRenderer>().enabled;
+        bool isSpriteEnabled = sprite.enabled;
+        sprite.color = new Color(1, 0, 0.1f);//Color.red;// Lerp(Color.white, Color.blue, Mathf.PingPong(Time.time, 1));
 
         spriteBlinkingTotalTimer += Time.deltaTime;
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
         {
             spriteBlinkingTotalTimer = 0.0f;
             startBlinking = false;
-            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = true;
+            sprite.enabled = true;
+            sprite.color = Color.white;
             return;
         }
 
@@ -309,7 +291,8 @@ public class PlayerManager : MonoBehaviour
             spriteBlinkingTimer = 0.0f;
 
             isSpriteEnabled = !isSpriteEnabled;
-            gameObject.GetComponentInChildren<SpriteRenderer>().enabled = isSpriteEnabled;
+            sprite.enabled = isSpriteEnabled;
+
         }
     }
 
@@ -336,6 +319,8 @@ public class PlayerManager : MonoBehaviour
 
         return enemyToShoot;
     }
+
+    public float GetSpeed() {return speed;}
 
     private void OnEnable()
     {

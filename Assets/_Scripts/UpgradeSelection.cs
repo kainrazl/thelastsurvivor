@@ -122,9 +122,12 @@ public class UpgradeSelection : MonoBehaviour
         }
 
         Debug.Log("Selected upgrade: " + selectedUpgrade.name);
-        Transform player = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
-        GameObject equipUpgrade = Instantiate(selectedUpgrade, player);
-        equipUpgrade.transform.position = player.position;
+        Transform weapons = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
+        GameObject equipUpgrade = Instantiate(selectedUpgrade, weapons);
+        equipUpgrade.transform.position = weapons.position;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().PerkSelected();
+        gameObject.SetActive(false);
     }
 
     public void EquipUpgrade()

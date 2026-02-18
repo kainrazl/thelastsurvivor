@@ -20,5 +20,13 @@ MonoBehaviour:
   radius: 1.5
   distance: 0
   travelSpeed: 6
+  numberOfRounds: 3
   name: Axe
-  description: 
+  maxDamage: 0
+  maxAttackRate: 0
+  maxDuration: 0
+  maxCoolDown: 0
+  maxRadius: 0
+  maxDistance: 0
+  maxNumberOfRounds: 0
+  maxTravelSpeed: 0

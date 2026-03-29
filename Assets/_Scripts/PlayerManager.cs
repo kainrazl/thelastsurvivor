@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     private float spriteBlinkingTotalTimer = 0;
     private float spriteBlinkingTotalDuration = 2f;
     private bool startBlinking = false;
+    private bool isDamage = false;
     private float spriteBlinkingTimer = 0;
     private float spriteBlinkingMiniDuration = 0.09f;
     private float shootCadence = 3f;
@@ -158,55 +159,74 @@ public class PlayerManager : MonoBehaviour
             if (startBlinking)
             {
                 SpriteBlinkingEffect();
-                //canTakeDamage = false;
-                //StartCoroutine(TakeDamage());
             }
         }
     }
 
     private void LateUpdate()
     {
-        playerAnim.SetBool("isIdle", move == Vector2.zero && !isPaused && !isDead);
+        if (!isPaused && !isDead)
+        {
+            if (move != Vector2.zero)
+            {
+#if AZTEK
+                playerAnim.SetBool("isWalking", true);
+                playerAnim.SetBool("isIdle", false);
+#endif
+                if (move.x != 0)
+                {
+#if ZOMBIES
+            playerAnim.SetTrigger("goingLeftRight");
+#endif
+                }
+                else if (move.y != 0)
+                {
+                    if (move.y > 0)
+                    {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingUp");
+#endif
+                    }
+                    else
+                    {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingDown");
+#endif
+                    }
+                }
+            }
+            else
+            {
+                playerAnim.SetBool("isIdle", true);
+                playerAnim.SetBool("isWalking", false);
+            }
+        }
     }
 
     private void PlayerMovement()
     {
-#if AZTEK
-        playerAnim.Play("aztek_walk");
-#endif
-
-        if (move.x != 0)
-        {
-#if ZOMBIES
-            playerAnim.SetTrigger("goingLeftRight");
-#endif
-
-            if (isFacingLeft && move.x > 0)
+        if (move != Vector2.zero) {
+            if (move.x != 0)
             {
-                Flip();
+                if (isFacingLeft && move.x > 0)
+                {
+                    Flip();
+                }
+                else if (!isFacingLeft && move.x < 0)
+                {
+                    Flip();
+                }
             }
-            else if (!isFacingLeft && move.x < 0)
+            else if (move.y != 0)
             {
-                Flip();
-            }
-        }
-        else if (move.y != 0)
-        {
-            if (move.y > 0)
-            {
-#if ZOMBIES
-                playerAnim.SetTrigger("goingUp");
-#endif
-
-                bulletSpawner.localPosition = new Vector3(0, 1, 0);
-            }
-            else
-            {
-#if ZOMBIES
-                playerAnim.SetTrigger("goingDown");
-#endif
-
-                bulletSpawner.localPosition = new Vector3(0, 0, 0);
+                if (move.y > 0)
+                {
+                    bulletSpawner.localPosition = new Vector3(0, 1, 0);
+                }
+                else
+                {
+                    bulletSpawner.localPosition = new Vector3(0, 0, 0);
+                }
             }
         }
     }
@@ -235,6 +255,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (canTakeDamage)
         {
+            isDamage = true;
             StartCoroutine(PlayerImmune());
 
 #if ZOMBIES
@@ -266,14 +287,20 @@ public class PlayerManager : MonoBehaviour
     public IEnumerator PlayerImmune()
     {
         canTakeDamage = false;
+        if (!isDamage)
+        {
+            startBlinking = true;
+        }
+
         yield return new WaitForSeconds(3);
         canTakeDamage = true;
+        isDamage = false;
+        sprite.color = Color.white;
     }
 
     public void SpriteBlinkingEffect()
     {
         bool isSpriteEnabled = sprite.enabled;
-        sprite.color = new Color(1, 0, 0.1f);//Color.red;// Lerp(Color.white, Color.blue, Mathf.PingPong(Time.time, 1));
 
         spriteBlinkingTotalTimer += Time.deltaTime;
         if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
@@ -288,11 +315,16 @@ public class PlayerManager : MonoBehaviour
         spriteBlinkingTimer += Time.deltaTime;
         if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
         {
+            if (!isDamage)
+                sprite.color = Random.ColorHSV(0, 1, 0.5f, 0.5f, 1, 1, 1, 1);
+            else
+            {
+                sprite.color = new Color(Random.value, Random.value, 0.6f);
+                isSpriteEnabled = !isSpriteEnabled;
+                sprite.enabled = isSpriteEnabled;
+            }
+
             spriteBlinkingTimer = 0.0f;
-
-            isSpriteEnabled = !isSpriteEnabled;
-            sprite.enabled = isSpriteEnabled;
-
         }
     }
 

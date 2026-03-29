@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Resources\GameActions.cs" />
     <Compile Include="Assets\_Scripts\ShootAttack.cs" />
     <Compile Include="Assets\_Scripts\InGamePrefab.cs" />
+    <Compile Include="Assets\_Scripts\CompanionManager.cs" />
     <Compile Include="Assets\_Scripts\WeaponInstance.cs" />
     <Compile Include="Assets\_Scripts\ItemEffect.cs" />
     <Compile Include="Assets\_Scripts\WeaponType.cs" />

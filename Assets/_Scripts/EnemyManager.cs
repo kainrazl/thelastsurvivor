@@ -119,10 +119,10 @@ public class EnemyManager : MonoBehaviour
     {
         if (health > 0)
         {
-            //GetComponent<SpriteRenderer>().color = Color.Lerp(Color.yellow, Color.green, 0.5f);//new Color(1, 0, 0.1f);
-            GetComponent<SpriteRenderer>().color = Random.ColorHSV();//new Color(1, 0, 0.1f);
+            GetComponent<SpriteRenderer>().color = new Color(Random.value, Random.value, Random.value);
+            //GetComponent<SpriteRenderer>().color = Random.ColorHSV(0, 1, 0.5f, 0.5f, 1, 1, 1, 1);
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
 
             GetComponent<SpriteRenderer>().color = Color.white;
         }

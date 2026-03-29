@@ -9,27 +9,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Aztek/Level1_CameraMan.unity
     guid: f0ba084bba2cb024b86a68d4902d00cc
   - enabled: 1
+    path: Assets/Scenes/Aztek/Menu.unity
+    guid: f3f1b67169fcdb84ab12b193e48e7362
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 25f3ae40bed885b4f92ee48545fe3706
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Win.unity
     guid: dca987178dace354586d3659ff5d09e8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: c50c0247474d643498ae55d799d0ab63
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Controls.unity
     guid: 82cc9cb24b45605419c5e7d88dbe55c2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Credits.unity
     guid: 994414ca0bb09064186fbd2d30e06b4f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TutorialMobile.unity
     guid: 418efd214f618fb4aa051607d2be966b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MaxScore.unity
     guid: 19cd5ed97de765049a82a71c55f90df9
   - enabled: 0

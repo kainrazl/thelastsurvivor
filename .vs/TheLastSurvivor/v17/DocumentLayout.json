@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "CompanionManager.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\CompanionManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\CompanionManager.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\CompanionManager.cs",
               "RelativeToolTip": "Assets\\_Scripts\\CompanionManager.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAIwCYAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAswEgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-05T17:53:08.935Z",
               "EditorCaption": ""
@@ -161,7 +161,7 @@
               "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerManager.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerManager.cs",
               "RelativeToolTip": "Assets\\_Scripts\\PlayerManager.cs",
-              "ViewState": "AgIAABYBAAAAZGZmZmYFwCkBAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAOwAAAAAAAAAAAAgwPQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T21:11:07.38Z",
               "EditorCaption": ""
@@ -180,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "EnemyManager.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemyManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemyManager.cs",

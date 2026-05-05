@@ -15,6 +15,6 @@ MonoBehaviour:
   name: snake
   description: 
   health: 6
-  minSpeed: 1
-  maxSpeed: 3
-  damage: 3
+  minSpeed: 0.5
+  maxSpeed: 1
+  damage: 1.5

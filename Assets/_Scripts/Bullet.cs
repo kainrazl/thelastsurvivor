@@ -50,7 +50,7 @@ public class Bullet : MonoBehaviour
         enemyPosition = Vector2.zero;
 
         if (enemyToFollow != null){
-            enemyPosition = enemyToFollow.transform.position;
+            enemyPosition = new Vector2(enemyToFollow.transform.position.x, enemyToFollow.transform.position.y - 0.06f);
         }
         else
         {

@@ -111,6 +111,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     //playerAnim.Play("player_dead");
                     playerAnim.SetBool("isDead", true);
+                    playerAnim.SetBool("isWalking", false);
                     playerCollider.enabled = false;
 
                     GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>().enabled = false;

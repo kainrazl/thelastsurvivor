@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class CompanionManager : MonoBehaviour
@@ -12,6 +14,13 @@ public class CompanionManager : MonoBehaviour
     [SerializeField] private bool isFacingLeft = false;
     public bool companionDead;
 
+    private Ability companionAbility;
+    [SerializeField] private AbilityType activeAbilityType = AbilityType.Repel;
+    [SerializeField] private float abilityPower = 3f;
+    [SerializeField] private float abilityRadius = 3f;
+    [SerializeField] private float abilityCooldown = 12f;
+    private float lastAbilityTime = 0f;
+
     private Vector2 playerPosition;
     private Vector2 companionPosition;
 
@@ -22,13 +31,15 @@ public class CompanionManager : MonoBehaviour
     private GameObject player;
     private Animator anim;
 
-    private void Awake()
-    {        
+private void Awake()
+    {
         anim = GetComponent<Animator>();
+        companionAbility = new Ability();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPoints = player.GetComponent<PlayerPoints>();
         playerManager = player.GetComponent<PlayerManager>();
         itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
+        GetComponent<CircleCollider2D>().enabled = false; // Desactiva el collider al inicio para evitar activaciones no deseadas
     }
 
     private void Start()
@@ -37,7 +48,6 @@ public class CompanionManager : MonoBehaviour
             
         howMuchDamage = properties.damage;
         health = properties.health;
-        anim.SetFloat("speed", companionSpeed);
         companionDead = false;
     }
 
@@ -51,6 +61,10 @@ public class CompanionManager : MonoBehaviour
         {
             MoveCompanion();
         }
+
+        lastAbilityTime += Time.deltaTime;
+
+        ExecuteAbility(activeAbilityType);
     }
 
     private void MoveCompanion()
@@ -71,9 +85,27 @@ public class CompanionManager : MonoBehaviour
         transform.localScale = new Vector3(localScaleX, transform.localScale.y, transform.localScale.z);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnDrawGizmos()
     {
-        //Something
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, abilityRadius);
+    }
+    public void ExecuteAbility(AbilityType abilityType)
+    {
+        if (companionDead || lastAbilityTime < abilityCooldown) return;
+
+        companionAbility.ActivateAbility(abilityType, gameObject, abilityPower, abilityRadius);
+        lastAbilityTime = 0f;
+
+        StartCoroutine(AbilityCooldownIndicator());
+    }
+
+    public void ExecuteAbility(string abilityName)
+    {
+        if (companionDead || lastAbilityTime < abilityCooldown) return;
+
+        companionAbility.ActivateAbility(abilityName, gameObject, abilityPower, abilityRadius);
+        lastAbilityTime = 0f;
     }
 
     public void CompanionDamage(float damage)
@@ -108,5 +140,19 @@ public class CompanionManager : MonoBehaviour
 
             GetComponent<SpriteRenderer>().color = Color.white;
         }
+    }
+
+    private IEnumerator AbilityCooldownIndicator()
+    {
+        float elapsedTime = 0f;
+        
+        while (elapsedTime < abilityCooldown)
+        {
+            // Agregar una barra de cooldown o un indicador visual
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        // Cooldown terminado, actualizar el indicador visual para mostrar que la habilidad está lista
+        Debug.Log("Ability is ready again!");
     }
 }

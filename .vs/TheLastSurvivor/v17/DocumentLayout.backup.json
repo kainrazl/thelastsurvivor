@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|e:\\uniat\\unity\\motoresgraficosiii\\parcial_1\\thelastsurvivor\\assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\companionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|solutionrelative:assets\\_scripts\\playerexp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{068D42E5-58CB-5B35-16E4-96EF6D9408EE}|Assembly-CSharp.csproj|E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\assets\\_scripts\\upgradeselection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,11 +78,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "CompanionManager.cs",
+              "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\CompanionManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Scripts\\CompanionManager.cs",
+              "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\CompanionManager.cs",
+              "RelativeToolTip": "Assets\\_Scripts\\CompanionManager.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwCYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T17:53:08.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "WeaponManager.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponManager.cs",
@@ -90,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ItemInstance.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemInstance.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\ItemInstance.cs",
@@ -102,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "WeaponInstance.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponInstance.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponInstance.cs",
@@ -114,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerExp.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerExp.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerExp.cs",
@@ -126,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ThrowAttack.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ThrowAttack.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\ThrowAttack.cs",
@@ -138,20 +155,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "PlayerManager.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\PlayerManager.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\PlayerManager.cs",
               "RelativeToolTip": "Assets\\_Scripts\\PlayerManager.cs",
-              "ViewState": "AgIAABgBAAAAMjMzM7MawCkBAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAABYBAAAAZGZmZmYFwCkBAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-20T21:11:07.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MeleeAttack.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\MeleeAttack.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\MeleeAttack.cs",
@@ -163,19 +180,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "EnemyManager.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemyManager.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemyManager.cs",
               "ToolTip": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemyManager.cs",
               "RelativeToolTip": "Assets\\_Scripts\\EnemyManager.cs",
-              "ViewState": "AgIAAG0AAAAAlJmZmZnxv4EAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAlJmZmZnxv4EAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-29T22:11:00.104Z"
+              "WhenOpened": "2025-08-29T22:11:00.104Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UpgradeSelection.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\UpgradeSelection.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\UpgradeSelection.cs",
@@ -187,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SpinAttack.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\SpinAttack.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\SpinAttack.cs",
@@ -199,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "InGamePrefab.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\InGamePrefab.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\InGamePrefab.cs",
@@ -211,7 +229,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Bullet.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\Bullet.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\Bullet.cs",
@@ -223,7 +241,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "WeaponSO.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\WeaponSO.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\WeaponSO.cs",
@@ -235,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "EnemySO.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemySO.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemySO.cs",
@@ -247,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\EnemySpawner.cs",
@@ -259,7 +277,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "ItemSO.cs",
               "DocumentMoniker": "E:\\UNIAT\\Unity\\MotoresGraficosIII\\Parcial_1\\TheLastSurvivor\\Assets\\_Scripts\\ItemSO.cs",
               "RelativeDocumentMoniker": "Assets\\_Scripts\\ItemSO.cs",

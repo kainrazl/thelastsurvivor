@@ -16,5 +16,5 @@ MonoBehaviour:
   description: 
   health: 3
   minSpeed: 0.5
-  maxSpeed: 2
+  maxSpeed: 1.5
   damage: 0.5

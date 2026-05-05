@@ -14,7 +14,7 @@ scopes = {
 	"currentGroup.DA949528" = "scene"
 	"last_search.66F56946" = "pixel"
 	"OpenInspectorPreview.66F56946" = "0"
-	"currentGroup.66F56946" = "all"
+	"currentGroup.66F56946" = "menu"
 }
 providers = {
 	adb = {

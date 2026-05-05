@@ -15,6 +15,8 @@ public class CompanionManager : MonoBehaviour
     public bool companionDead;
 
     private Ability companionAbility;
+    [SerializeField] private float maxDistanceToPlayer = 3f;
+    [SerializeField] private float minDistanceToPlayer = 1f;
     [SerializeField] private AbilityType activeAbilityType = AbilityType.Repel;
     [SerializeField] private float abilityPower = 3f;
     [SerializeField] private float abilityRadius = 3f;
@@ -30,16 +32,17 @@ public class CompanionManager : MonoBehaviour
 
     private GameObject player;
     private Animator anim;
+    private Vector2 realPlayerPosition;
 
 private void Awake()
     {
         anim = GetComponent<Animator>();
         companionAbility = new Ability();
         player = GameObject.FindGameObjectWithTag("Player");
+        realPlayerPosition = player.transform.position;
         playerPoints = player.GetComponent<PlayerPoints>();
         playerManager = player.GetComponent<PlayerManager>();
         itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
-        GetComponent<CircleCollider2D>().enabled = false; // Desactiva el collider al inicio para evitar activaciones no deseadas
     }
 
     private void Start()
@@ -53,13 +56,20 @@ private void Awake()
 
     void Update()
     {
+        realPlayerPosition = player.transform.position;
         CheckFlip();
 
         Vector2 distanceToPlayer = player.transform.position - transform.position;
+        int speedMultiplier = 1;
 
-        if (distanceToPlayer.magnitude > 1.2f)
+        if (distanceToPlayer.magnitude >= maxDistanceToPlayer)
         {
-            MoveCompanion();
+            speedMultiplier = 2;
+        }
+
+        if (distanceToPlayer.magnitude > minDistanceToPlayer)
+        {
+            MoveCompanion(speedMultiplier);
         }
 
         lastAbilityTime += Time.deltaTime;
@@ -67,7 +77,7 @@ private void Awake()
         ExecuteAbility(activeAbilityType);
     }
 
-    private void MoveCompanion()
+    private void MoveCompanion(int speedMultiplier)
     {
         if (!companionDead)
         {
@@ -88,13 +98,14 @@ private void Awake()
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, abilityRadius);
+        // Gizmos.DrawWireSphere(transform.position, abilityRadius);
+        Gizmos.DrawWireSphere(realPlayerPosition, abilityRadius);
     }
     public void ExecuteAbility(AbilityType abilityType)
     {
         if (companionDead || lastAbilityTime < abilityCooldown) return;
 
-        companionAbility.ActivateAbility(abilityType, gameObject, abilityPower, abilityRadius);
+        companionAbility.ActivateAbility(abilityType, player, abilityPower, abilityRadius);
         lastAbilityTime = 0f;
 
         StartCoroutine(AbilityCooldownIndicator());
@@ -104,7 +115,7 @@ private void Awake()
     {
         if (companionDead || lastAbilityTime < abilityCooldown) return;
 
-        companionAbility.ActivateAbility(abilityName, gameObject, abilityPower, abilityRadius);
+        companionAbility.ActivateAbility(abilityName, player, abilityPower, abilityRadius);
         lastAbilityTime = 0f;
     }
 

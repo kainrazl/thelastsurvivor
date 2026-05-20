@@ -57,9 +57,6 @@ public class EnemySpawner : MonoBehaviour
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject enemyToSpawn = GetEnemyByTime();
 
-        /****************************************************/
-        Debug.Log($"Elapsed Time: {elapsedTime}, Spawned Enemy: {(enemyToSpawn != null ? enemyToSpawn.name : "None")}");
-
         if (enemyToSpawn != null)
         {
             Instantiate(enemyToSpawn, randomSpawnPoint.position, Quaternion.identity);

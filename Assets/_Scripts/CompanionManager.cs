@@ -17,7 +17,7 @@ public class CompanionManager : MonoBehaviour
     private Ability companionAbility;
     [SerializeField] private float maxDistanceToPlayer = 3f;
     [SerializeField] private float minDistanceToPlayer = 1f;
-    [SerializeField] private AbilityType activeAbilityType = AbilityType.Repel;
+    [SerializeField] private AbilityType activeAbilityType = AbilityType.Fear;
     [SerializeField] private float abilityPower = 3f;
     [SerializeField] private float abilityRadius = 3f;
     [SerializeField] private float abilityCooldown = 12f;
@@ -73,7 +73,7 @@ private void Awake()
         }
 
         lastAbilityTime += Time.deltaTime;
-
+        
         ExecuteAbility(activeAbilityType);
     }
 
@@ -98,14 +98,13 @@ private void Awake()
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        // Gizmos.DrawWireSphere(transform.position, abilityRadius);
         Gizmos.DrawWireSphere(realPlayerPosition, abilityRadius);
     }
     public void ExecuteAbility(AbilityType abilityType)
     {
         if (companionDead || lastAbilityTime < abilityCooldown) return;
 
-        companionAbility.ActivateAbility(abilityType, player, abilityPower, abilityRadius);
+        companionAbility.ActivateAbility(abilityType, player, abilityPower, abilityRadius, abilityCooldown);
         lastAbilityTime = 0f;
 
         StartCoroutine(AbilityCooldownIndicator());

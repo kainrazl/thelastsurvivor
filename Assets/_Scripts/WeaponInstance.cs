@@ -36,6 +36,8 @@ public class WeaponInstance : MonoBehaviour
                     spin.SetParent(player);
                     spin.SetRadius(properties.radius);
                     spin.SetRotationSpeed(properties.travelSpeed);
+                    spin.SetRounds(properties.numberOfRounds);
+                    spin.SetDamage(properties.damage);
                 }
                 break;
 
@@ -48,8 +50,7 @@ public class WeaponInstance : MonoBehaviour
                 if (shootAttack != null)
                 {
                     shootAttack.SetPlayer(player.gameObject);
-                    shootAttack.SetBulletsToShoot(properties.attackRate);
-                    shootAttack.SetShootCadence(properties.coolDown);
+                    shootAttack.SetShootCooldown(properties.coolDown);
                     shootAttack.SetBulletDamage(properties.damage);
                     shootAttack.SetBulletDistance(properties.distance);
                 }

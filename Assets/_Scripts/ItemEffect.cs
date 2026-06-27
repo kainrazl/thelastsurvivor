@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemEffect : MonoBehaviour
 {
-    [SerializeField] ItemProperties properties;
+    public ItemProperties properties;
     private ItemSpawner itemSpawner;
     private AudioClip sound;
     private PlaySound play;

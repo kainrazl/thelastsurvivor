@@ -1,29 +1,26 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "NewWeapon", menuName = "Survivor/Weapon")]
-public class WeaponSO : ScriptableObject
+[System.Serializable]
+public class WeaponSO
 {
-    //Active parameters
     public WeaponType type;
-    public float damage;
-    public float attackRate;
-    public float duration;
-    public float coolDown;
-    public float radius;
-    public float distance;
-    public float travelSpeed;
-    public int numberOfRounds;
-    public new string name;
-    
+    [Tooltip("Damage dealt by this weapon")] public float damage;
+    [Tooltip("Attack rate of this weapon")] public float attackRate;
+    [Tooltip("Duration of this weapon's effect")] public float duration;
+    [Tooltip("Cooldown period for this weapon")] public float coolDown;
+    [Tooltip("Radius of this weapon's area of effect")] public float radius;
+    [Tooltip("Distance this weapon can reach")] public float distance;
+    [Tooltip("Speed at which this weapon travels")] public float travelSpeed;
+    [Tooltip("Number of rounds this weapon can fire")] public int numberOfRounds;
+    [Tooltip("Name of this weapon")] public string name;
+
     //Upgrade parameters
-    public float maxDamage;
-    public float maxAttackRate;
-    public float maxDuration;
-    public float maxCoolDown;
-    public float maxRadius;
-    public float maxDistance;
-    public int maxNumberOfRounds;
-    public float maxTravelSpeed;
+    [Tooltip("Maximum damage this weapon can deal")] public float maxDamage;
+    [Tooltip("Maximum attack rate this weapon can have")] public float maxAttackRate;
+    [Tooltip("Maximum duration this weapon's effect can last")] public float maxDuration;
+    [Tooltip("Maximum cooldown period for this weapon")] public float maxCoolDown;
+    [Tooltip("Maximum radius of this weapon's area of effect")] public float maxRadius;
+    [Tooltip("Maximum distance this weapon can reach")] public float maxDistance;
+    [Tooltip("Maximum number of rounds this weapon can fire")] public int maxNumberOfRounds;
+    [Tooltip("Maximum speed at which this weapon can travel")] public float maxTravelSpeed;
 }

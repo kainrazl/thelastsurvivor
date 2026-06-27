@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class CompanionManager : MonoBehaviour
 {
-    [SerializeField] private EnemySO properties;
-    private float howMuchDamage;
     private float companionSpeed;
     private float health;
     private float localScaleX;
@@ -48,9 +46,6 @@ private void Awake()
     private void Start()
     {
         companionSpeed = player.GetComponent<PlayerManager>().GetSpeed() - 0.3f;
-            
-        howMuchDamage = properties.damage;
-        health = properties.health;
         companionDead = false;
     }
 

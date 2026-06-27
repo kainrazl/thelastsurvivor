@@ -89,7 +89,7 @@ public class ThrowAttack : MonoBehaviour
             capsuleCollider.enabled = false;
         }
 
-        float waitTime = GetComponent<WeaponInstance>().GetProperties().attackRate;
+        float waitTime = GetComponent<WeaponInstance>().GetProperties().coolDown;
 
         yield return new WaitForSeconds(waitTime);
 

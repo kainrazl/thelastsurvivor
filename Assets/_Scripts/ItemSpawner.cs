@@ -9,8 +9,8 @@ public class ItemSpawner : MonoBehaviour
 
     [SerializeField] private List<GameObject> listItems;
 
-    public int maxItems = 3;
-    public float timeBtwSpawn = 9f; //time in seconds for item to drop
+    public int maxItems = 30; //max number of items that can be spawned at a time
+    public float timeBtwSpawn = 1.5f; //time in seconds for item to drop
     private bool canSpawn = false;
     private float lastSpawn = 0;
 
@@ -20,26 +20,21 @@ public class ItemSpawner : MonoBehaviour
         canSpawn = itemCount < maxItems && (lastSpawn >= timeBtwSpawn);
     }
 
-    private IEnumerator AutomaticItemSpawn()
-    {
-        canSpawn = false;
+    // private IEnumerator AutomaticItemSpawn()
+    // {
+    //     canSpawn = false;
 
-        WaitForSeconds waiting = new WaitForSeconds(timeBtwSpawn);
+    //     WaitForSeconds waiting = new WaitForSeconds(timeBtwSpawn);
 
-        float positionX = UnityEngine.Random.Range(-7, 7);
-        float positionY = UnityEngine.Random.Range(-4, 3.6f);
-        Vector3 position = new Vector3(positionX, positionY, 0);
+    //     float positionX = UnityEngine.Random.Range(-7, 7);
+    //     float positionY = UnityEngine.Random.Range(-4, 3.6f);
+    //     // Vector3 position = new Vector3(positionX, positionY, 0);
+    //     itemCount++;
 
-        //Instantiate(heartPrefab, position, Quaternion.identity);
-        //SpriteRenderer sr = heartPrefab.GetComponent<SpriteRenderer>();
-        //sr.sortingLayerName = "Elements";
-        //sr.sortingOrder = 1;
-        itemCount++;
+    //     yield return waiting;
 
-        yield return waiting;
-
-        canSpawn = true;
-    }
+    //     canSpawn = true;
+    // }
 
     public void GetItem(float positionX, float positionY)
     {
@@ -51,7 +46,35 @@ public class ItemSpawner : MonoBehaviour
             //}
             try
             {
-                int prefabIndex = UnityEngine.Random.Range(0, listItems.Count);
+                int prefabIndex = 0;
+                
+                // Calcular el peso total basado en la rareza invertida (1/rarity)
+                float totalWeight = 0f;
+                foreach (GameObject item in listItems)
+                {
+                    ItemProperties itemProps = item.GetComponent<ItemEffect>().properties;
+                    if (itemProps != null && itemProps.rarity > 0)
+                        totalWeight += 1f / ((float)itemProps.rarity);
+                }
+
+                // Seleccionar un item basado en su peso inverso de rareza
+                float randomValue = UnityEngine.Random.Range(0f, totalWeight);
+                float currentWeight = 0f;
+
+                for (int i = 0; i < listItems.Count; i++)
+                {
+                    ItemProperties itemProps = listItems[i].GetComponent<ItemEffect>().properties;
+                    if (itemProps != null && itemProps.rarity > 0)
+                    {
+                        currentWeight += 1f / ((float)itemProps.rarity);
+                        if (randomValue <= currentWeight)
+                        {
+                            prefabIndex = i;
+                            break;
+                        }
+                    }
+                }
+
                 GameObject prefab = listItems[prefabIndex];
 
                 Vector3 position = new Vector3(positionX, positionY, 0);
@@ -64,7 +87,7 @@ public class ItemSpawner : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.Log(e.Message);
+                Debug.LogError(e.Message);
             }
         }
     }

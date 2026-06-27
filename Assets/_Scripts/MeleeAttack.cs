@@ -25,9 +25,9 @@ public class MeleeAttack : MonoBehaviour
     {
         isActive = true;
         attackAnimator.SetTrigger("attack");
-        actualPosition = player.transform.position + (player.isFacingLeft ? (new Vector3(-1.318f, 0.12f, 0)) : (new Vector3(1.318f, 0.12f, 0)));
+        actualPosition = player.transform.position + (player.isFacingLeft ? new Vector3(-1.318f, 0.12f, 0) : new Vector3(1.318f, 0.12f, 0));
         transform.parent.position = actualPosition;
-        transform.parent.localScale = (player.isFacingLeft ? (new Vector3(-1, 1, 1)) : (new Vector3(1, 1, 1)));
+        transform.parent.localScale = player.isFacingLeft ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
     }
 
     private void HitEnemies()

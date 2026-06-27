@@ -14,6 +14,7 @@ public class SpinAttack : MonoBehaviour
     private bool isActive = true;
     private float actualDegrees;
     private float damage;
+    private float cooldown;
 
     private void Start()
     {
@@ -21,6 +22,8 @@ public class SpinAttack : MonoBehaviour
         originalRotationAngle = rotationAngle;
         damage = GetComponent<WeaponInstance>().GetProperties().damage;
         rounds = GetComponent<WeaponInstance>().GetProperties().numberOfRounds;
+        cooldown = GetComponent<WeaponInstance>().GetProperties().coolDown;
+
 
         int numberOfWeapons = FindObjectsOfType<SpinAttack>().Length;
         float angleBetweenWeapons = 360f / numberOfWeapons;
@@ -40,8 +43,9 @@ public class SpinAttack : MonoBehaviour
 
     void Update()
     {
-        if (!(parent.gameObject.GetComponent<PlayerManager>().isPaused) &&
-            (parent.gameObject.GetComponent<PlayerHealth>().currentHealth > 0)){
+        if (!parent.gameObject.GetComponent<PlayerManager>().isPaused &&
+            (parent.gameObject.GetComponent<PlayerHealth>().currentHealth > 0))
+        {
             currentEulerAngles += new Vector3(0, 0, -180) * Time.deltaTime * rotationSpeed;
             transform.eulerAngles = currentEulerAngles;
 
@@ -79,6 +83,11 @@ public class SpinAttack : MonoBehaviour
     public void SetDamage(float damage)
     {
         this.damage = damage;
+    }
+
+    public void SetCooldown(float cooldown)
+    {
+        this.cooldown = cooldown;
     }
 #endregion
 
@@ -148,7 +157,7 @@ public float GetDamage()
         isActive = false;
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(cooldown);
         ResetTranslation();
     }
 

@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private AudioSource gameOver;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject gameOverCanvas;
-    [SerializeField] private Transform bulletSpawner;
+    // [SerializeField] private Transform bulletSpawner;
     [SerializeField] private bool isTutorial;
 
     public bool isFacingLeft = false;
@@ -28,7 +28,7 @@ public class PlayerManager : MonoBehaviour
     private bool isDamage = false;
     private float spriteBlinkingTimer = 0;
     private float spriteBlinkingMiniDuration = 0.09f;
-    private float shootCadence = 3f;
+    private float basicAttackCooldown;
 
     private GameActions playerAction;
     private Animator playerAnim;
@@ -54,6 +54,7 @@ public class PlayerManager : MonoBehaviour
         playerAction = new GameActions();
         ph = GetComponent<PlayerHealth>();
         meleeAttack = attackObject.GetComponentInChildren<MeleeAttack>();
+        basicAttackCooldown = attackObject.GetComponent<WeaponInstance>().GetProperties().coolDown;
         itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
         playerSprite =  GameObject.Find("PlayerSprite");
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -67,7 +68,7 @@ public class PlayerManager : MonoBehaviour
         if (isTutorial)
             ph.UpdateHealth(0.3f, true);
 
-        spawnerOriginalPosition = bulletSpawner.localPosition;
+        // spawnerOriginalPosition = bulletSpawner.localPosition;
     }
 
     // Update is called once per frame
@@ -83,13 +84,13 @@ public class PlayerManager : MonoBehaviour
         if (!isPaused)
         {
             Time.timeScale = 1f;
-            gameMusic.volume = 0.30f;
+            //gameMusic.volume = 0.30f;
 
             if (!isDead)
             {
                 Vector2 playerMove = playerAction.Player.Move.ReadValue<Vector2>();
                 move = new Vector2(playerMove.x, playerMove.y);
-                bulletSpawner.localPosition = spawnerOriginalPosition;
+                // bulletSpawner.localPosition = spawnerOriginalPosition;
 
                 if(move != Vector2.zero) 
                 {
@@ -145,7 +146,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Time.timeScale = 0f;
-            gameMusic.volume = 0.06f;
+            //gameMusic.volume = 0.06f;
         }
     }
 
@@ -218,17 +219,17 @@ public class PlayerManager : MonoBehaviour
                     Flip();
                 }
             }
-            else if (move.y != 0)
-            {
-                if (move.y > 0)
-                {
-                    bulletSpawner.localPosition = new Vector3(0, 1, 0);
-                }
-                else
-                {
-                    bulletSpawner.localPosition = new Vector3(0, 0, 0);
-                }
-            }
+            // else if (move.y != 0)
+            // {
+            //     if (move.y > 0)
+            //     {
+            //         bulletSpawner.localPosition = new Vector3(0, 1, 0);
+            //     }
+            //     else
+            //     {
+            //         bulletSpawner.localPosition = new Vector3(0, 0, 0);
+            //     }
+            // }
         }
     }
 
@@ -282,7 +283,7 @@ public class PlayerManager : MonoBehaviour
         //ShootBullet();
         meleeAttack.Hit();
         canAutoAttack = false;
-        yield return new WaitForSeconds(shootCadence);
+        yield return new WaitForSeconds(basicAttackCooldown);
         canAutoAttack = true;
     }
     public IEnumerator PlayerImmune()

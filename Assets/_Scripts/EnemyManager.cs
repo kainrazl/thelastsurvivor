@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private EnemySO properties;
+    [SerializeField] private CreatureProperties properties;
     private float howMuchDamage;
     private float enemySpeed;
     private float baseSpeed;
     private float health;
     private float localScaleX;
     private bool isFacingLeft;
-    private bool playerFliped;
     private bool isSlowed = false;
     private float slowMultiplier = 1f;
     private float slowDuration = 0f;
     public bool enemyDead;
+    public bool canTakeDamage = true;
 
     private Vector2 playerPosition;
     private Vector2 enemyPosition;
@@ -57,6 +57,11 @@ public class EnemyManager : MonoBehaviour
         UpdateSlow();
         MoveEnemy();
         CheckFlip();
+    }
+
+    public CreatureProperties GetEnemyProperties()
+    {
+        return properties;
     }
 
    private void MoveEnemy()
@@ -120,26 +125,34 @@ public class EnemyManager : MonoBehaviour
 
     public void EnemyDamage(float damage)
     {
-        health -= damage;
-
-        if (health <= 0 && !enemyDead) {
-            enemyDead = true;
-            itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
-
-            if (spawner.enemyCounter > 0)
-                spawner.enemyCounter -= 1;
-
-            playerPoints.UpdatePoints();
-            gameObject.GetComponent<Rigidbody2D>().simulated = false;
-
-            // anim.SetFloat("speed", 0);
-            anim.Play("enemy_dead");
-            
-            Destroy(gameObject, 0.5f);
-        }
-        else
+        if (canTakeDamage)
         {
-            StartCoroutine(DamageIndicator());
+            health -= damage;
+
+            if (health <= 0 && !enemyDead) {
+                enemyDead = true;
+
+                if (properties.isBoss)
+                {
+                    spawner.SetBossSpawned(false);
+                }
+
+                itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
+
+                if (spawner.enemyCounter > 0)
+                    spawner.enemyCounter -= 1;
+
+                playerPoints.UpdatePoints();
+                gameObject.GetComponent<Rigidbody2D>().simulated = false;
+
+                anim.Play("enemy_dead");
+                
+                Destroy(gameObject, 0.5f);
+            }
+            else
+            {
+                StartCoroutine(DamageIndicator());
+            }
         }
     }
 
@@ -147,11 +160,13 @@ public class EnemyManager : MonoBehaviour
     {
         if (health > 0)
         {
+            canTakeDamage = false;
             GetComponent<SpriteRenderer>().color = new Color(Random.value, Random.value, Random.value);
             
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
 
             GetComponent<SpriteRenderer>().color = Color.white;
+            canTakeDamage = true;
         }
     }
 }

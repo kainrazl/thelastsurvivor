@@ -8,7 +8,7 @@ public class ShootAttack : MonoBehaviour
     private Bullet shot;
     private bool canShoot = true;
     private AudioSource shotSound;
-    private float cadence;
+    private float cooldown;
     private float bulletsToShoot;
     private float bulletDamage;
     private float bulletDistance;
@@ -28,7 +28,7 @@ public class ShootAttack : MonoBehaviour
     {
         canShoot =  false;
         ShootEnemy();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(cooldown);
         canShoot =  true;
     }
 
@@ -85,9 +85,9 @@ public class ShootAttack : MonoBehaviour
         this.player = player;
     }
 
-    public void SetShootCadence(float cadence)
+    public void SetShootCooldown(float cooldown)
     {
-        this.cadence = cadence;
+        this.cooldown = cooldown;
     }
 
     public void SetBulletsToShoot(float bulletsToShoot)

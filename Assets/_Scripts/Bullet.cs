@@ -39,9 +39,10 @@ public class Bullet : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 enemyToFollow.GetComponent<EnemyManager>().EnemyDamage(bulletDamage);
-                gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                gameObject.SetActive(false);
             }
+
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.SetActive(false);
         }
     }
 

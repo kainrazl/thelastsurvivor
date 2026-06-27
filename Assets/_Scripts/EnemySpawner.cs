@@ -8,13 +8,13 @@ public class EnemySpawnConfig
 {
     public GameObject prefab;
     public float minTimeToAppear = 0f;  // Tiempo mínimo (en segundos)
-    public float maxTimeToAppear = Mathf.Infinity;  // Opcional: tiempo máximo
+    public float maxTimeToAppear = Mathf.Infinity;  // valor opcional: tiempo máximo
 }
 
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public EnemySpawnConfig[] enemyConfigs;  // En lugar de enemiesPrefabs
+    public EnemySpawnConfig[] enemyConfigs;  // enemiesPrefabs y tiempo de aparición
     public GameObject player;
     public int enemyCounter = 0;
 
@@ -28,10 +28,16 @@ public class EnemySpawner : MonoBehaviour
     private bool canSpawn = true;
     private bool canIncrement = true;
     private float elapsedTime = 0f;
+    private bool isBossAlreadySpawned = false;
 
     public void SetenemyCounter()
     {
         enemyCounter--;
+    }
+
+    public void SetBossSpawned(bool value)
+    {
+        isBossAlreadySpawned = value;
     }
 
     private void Update()
@@ -80,7 +86,23 @@ public class EnemySpawner : MonoBehaviour
         {
             if (elapsedTime >= config.minTimeToAppear && (config.maxTimeToAppear == 0 || elapsedTime <= config.maxTimeToAppear))
             {
-                availableEnemies.Add(config);
+                if (config.prefab.GetComponent<EnemyManager>().GetEnemyProperties().isBoss)
+                {
+                    if(!isBossAlreadySpawned)
+                    {
+                        availableEnemies.Clear(); // Limpiar la lista de enemigos disponibles
+                        isBossAlreadySpawned = true; // Marca que el jefe ya ha sido generado
+                        return config.prefab; // Instanciar boss enemy
+                    }
+                    else
+                    {
+                        continue; // Si el jefe ya ha sido generado, no agregarlo a la lista de enemigos disponibles
+                    }
+                }
+                else
+                {
+                    availableEnemies.Add(config);
+                }
             }
         }
 

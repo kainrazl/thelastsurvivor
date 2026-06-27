@@ -75,6 +75,7 @@
     <Compile Include="Assets\_Scripts\CompanionManager.cs" />
     <Compile Include="Assets\_Scripts\WeaponInstance.cs" />
     <Compile Include="Assets\_Scripts\ItemEffect.cs" />
+    <Compile Include="Assets\_Scripts\CreatureProperties.cs" />
     <Compile Include="Assets\_Scripts\WeaponType.cs" />
     <Compile Include="Assets\_Scripts\ItemProperties.cs" />
     <Compile Include="Assets\_Scripts\ItemSO.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Assets\_Scripts\HeartPoint.cs" />
     <Compile Include="Assets\_Scripts\MenuActions.cs" />
     <Compile Include="Assets\_Scripts\ControlsFade.cs" />
-    <Compile Include="Assets\_Scripts\EnemySO.cs" />
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
     <Compile Include="Assets\_Scripts\Ability.cs" />
     <Compile Include="Assets\_Scripts\ThrowAttack.cs" />

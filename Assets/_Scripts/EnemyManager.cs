@@ -54,9 +54,17 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-        UpdateSlow();
-        MoveEnemy();
-        CheckFlip();
+        if (!enemyDead)
+        {
+            if (GetComponent<Rigidbody2D>().velocity != Vector2.zero)
+            {
+                StartCoroutine(VelocityReset());
+            }
+            
+            UpdateSlow();
+            MoveEnemy();
+            CheckFlip();
+        }        
     }
 
     public CreatureProperties GetEnemyProperties()
@@ -108,6 +116,15 @@ public class EnemyManager : MonoBehaviour
         }
    }
 
+   private void OnTriggerEnter2D(Collider2D collision)
+   {
+      if (!enemyDead)
+        {
+            if (collision.CompareTag("Player"))
+                playerManager.TakeDamage(howMuchDamage);
+        }
+   }
+
     public void ApplySlow(float slowPercent, float duration)
     {
         slowPercent = Mathf.Clamp01(slowPercent);
@@ -117,7 +134,7 @@ public class EnemyManager : MonoBehaviour
         anim.speed = Mathf.Clamp01(1f - slowPercent);
     }
 
-    public IEnumerator ApplyRepeledStatus()
+    public IEnumerator VelocityReset()
     {
         yield return new WaitForSeconds(1.5f); //Espera 1.5 segundos antes de quitar el estado de repelido
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -168,5 +185,12 @@ public class EnemyManager : MonoBehaviour
             GetComponent<SpriteRenderer>().color = Color.white;
             canTakeDamage = true;
         }
+    }
+
+    public IEnumerator EnemyImmune()
+    {
+        canTakeDamage = false;
+        yield return new WaitForSeconds(3);
+        canTakeDamage = true;
     }
 }

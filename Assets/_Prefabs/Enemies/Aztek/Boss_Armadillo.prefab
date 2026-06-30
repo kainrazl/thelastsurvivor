@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -6341639959906641379}
   - component: {fileID: 6325258695601411482}
   - component: {fileID: -3767658740887417700}
+  - component: {fileID: 2992434880036084779}
   m_Layer: 3
   m_Name: Boss_Armadillo
   m_TagString: Enemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -167184165
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1121618743, guid: 9af6d6049d124c343ba3e6c2662d8113, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -188,8 +189,26 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2992434880036084779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277471736363337970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78cdb7c7059e3d43a156a853eecd9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeAbilityType: 4
+  abilityPower: 30
+  abilityRadius: 4.5
+  abilityCooldown: 12
+  abilityAnimation: {fileID: 8053670518664893828, guid: 68a4cf897142df6479cfd75f76cfabb7, type: 3}
+  creatureType: 1

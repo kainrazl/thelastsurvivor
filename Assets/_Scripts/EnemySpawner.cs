@@ -68,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyToSpawn, randomSpawnPoint.position, Quaternion.identity);
             SpriteRenderer sr = enemyToSpawn.GetComponent<SpriteRenderer>();
             sr.sortingLayerName = "Elements";
-            sr.sortingOrder = 1;
+            //sr.sortingOrder = 1;
 
             enemyCounter += 1;
         }

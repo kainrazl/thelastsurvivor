@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: -167184165
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -455532614, guid: 87a051c79d0228c46baa544e92eacf3c, type: 3}
+  m_Sprite: {fileID: 930867449, guid: 67b148b8e44e0d54aa557743dadcb3b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   properties:
     name: Armadillo
     description: 
-    health: 3
+    health: 6
     minSpeed: 0.5
     maxSpeed: 1
     damage: 0.5
@@ -238,11 +238,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.81, y: 0.81}
+  m_Size: {x: 0.62, y: 0.47}
   m_Direction: 0
 --- !u!50 &-251644822437304924
 Rigidbody2D:
@@ -266,7 +266,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1

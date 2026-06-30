@@ -51,7 +51,7 @@ public class PlayerExp : MonoBehaviour
     public void PerkSelected()
     {
         //upgradeSelection.EquipUpgrade();
-        nextLevel += Mathf.Ceil(nextLevel * 0.2f); //Verificar qué porcentaje debería variar en cada nivel
+        nextLevel += Mathf.Ceil(nextLevel * 0.1f); //Verificar quÃ© porcentaje deberÃ¡ variar en cada nivel
         SetStartExp();
         player.isPaused = false;
 

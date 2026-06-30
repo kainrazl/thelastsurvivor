@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -32,7 +33,7 @@ public class UpgradeSelection : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            index = Random.Range(0, upgradeOptions.Count);
+            index = UnityEngine.Random.Range(0, upgradeOptions.Count);
             randomOption = upgradeOptions[index];
 
             canAdd = true;
@@ -81,14 +82,15 @@ public class UpgradeSelection : MonoBehaviour
 
                             if (upgradeInfo != null)
                             {
-                                description.SetText(upgradeInfo.GetProperties().name);
+                                //description.SetText(upgradeInfo.GetProperties().name);
                             }
                         }
                         else
                         {
-                            string upgradeName = upgrade.name.Substring(upgrade.name.LastIndexOf('_') + 1).FirstCharacterToUpper();
-                            description.SetText(upgradeName);
+                            // string upgradeName = upgrade.name.Substring(upgrade.name.LastIndexOf('_') + 1).FirstCharacterToUpper();
+                            // description.SetText(upgradeName);
                         }
+                        description.SetText("");
                     }
                 }
             }
@@ -112,21 +114,57 @@ public class UpgradeSelection : MonoBehaviour
 
     public void SetSelectedUpgrade(GameObject upgrade)
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
         selectedUpgrade = null;
-
+        WeaponType weaponType;
         upgrade.TryGetComponent(out InGamePrefab prefab);
 
         if (prefab != null)
         {
+            WeaponSO properties;
+            int weaponNumber = 0;
+            int maxWeapons = 9;
             selectedUpgrade = prefab.GetPrefab();
+
+            selectedUpgrade.TryGetComponent(out WeaponInstance weaponInstance);
+
+            if (weaponInstance != null)
+            {
+                properties = weaponInstance.GetProperties();
+                maxWeapons = properties.maxWeapons;
+                weaponType = properties.type;
+
+                foreach(WeaponInstance weapon in FindObjectsOfType<WeaponInstance>())
+                {
+                    if (weapon.GetProperties().type == weaponType)
+                    {
+                        weaponNumber++;
+                    }
+                }
+
+                if (weaponNumber < maxWeapons)
+                {
+                    Transform weapons = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
+                    GameObject equipUpgrade = Instantiate(selectedUpgrade, weapons);
+                    equipUpgrade.transform.position = weapons.position;
+                }else
+                {
+                    //Debug.Log("Max number of weapons reached for this type");
+                }
+            }
+        }else
+        {
+            MeleeAttack meleeAttack = player.GetComponent<PlayerManager>().GetMeleeAttack();
+
+            Debug.Log("Melee attack found: " + meleeAttack?.name);
+
+            if (meleeAttack != null)
+            {
+                meleeAttack.SetDamage((float) Math.Round(meleeAttack.GetDamage() * 1.1f, 2));
+            }
         }
 
-        Debug.Log("Selected upgrade: " + selectedUpgrade.name);
-        Transform weapons = GameObject.FindGameObjectWithTag("EquipedWeapons").transform;
-        GameObject equipUpgrade = Instantiate(selectedUpgrade, weapons);
-        equipUpgrade.transform.position = weapons.position;
-
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerExp>().PerkSelected();
+        player.GetComponent<PlayerExp>().PerkSelected();
         gameObject.SetActive(false);
     }
 

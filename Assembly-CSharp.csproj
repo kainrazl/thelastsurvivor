@@ -71,9 +71,12 @@
     <Compile Include="Assets\_Scripts\ItemSpawner.cs" />
     <Compile Include="Assets\_Resources\GameActions.cs" />
     <Compile Include="Assets\_Scripts\ShootAttack.cs" />
+    <Compile Include="Assets\_Scripts\CompanionSelect.cs" />
     <Compile Include="Assets\_Scripts\InGamePrefab.cs" />
     <Compile Include="Assets\_Scripts\CompanionManager.cs" />
     <Compile Include="Assets\_Scripts\WeaponInstance.cs" />
+    <Compile Include="Assets\_Scripts\AbilityManager.cs" />
+    <Compile Include="Assets\_Scripts\AlebrijeSelected.cs" />
     <Compile Include="Assets\_Scripts\ItemEffect.cs" />
     <Compile Include="Assets\_Scripts\CreatureProperties.cs" />
     <Compile Include="Assets\_Scripts\WeaponType.cs" />
@@ -91,6 +94,7 @@
     <Compile Include="Assets\_Scripts\WeaponSO.cs" />
     <Compile Include="Assets\_Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\_Scripts\ItemType.cs" />
+    <Compile Include="Assets\_Scripts\InteractableElement.cs" />
     <Compile Include="Assets\_Scripts\MeleeAttack.cs" />
     <Compile Include="Assets\_Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\_Scripts\BulletPool.cs" />

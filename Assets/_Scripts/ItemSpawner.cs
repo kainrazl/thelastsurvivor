@@ -81,7 +81,7 @@ public class ItemSpawner : MonoBehaviour
                 Instantiate(prefab, position, Quaternion.identity);
                 SpriteRenderer sr = prefab.GetComponent<SpriteRenderer>();
                 sr.sortingLayerName = "Elements";
-                sr.sortingOrder = 1;
+                //sr.sortingOrder = 1;
                 itemCount++;
                 lastSpawn = 0;
             }

@@ -44,6 +44,10 @@ public class PlayerManager : MonoBehaviour
     private Vector3 spawnerOriginalPosition;
     private Collider2D playerCollider;
     private SpriteRenderer sprite;
+    private bool repelledStatus = false;
+    private Vector2 repelledDirection = Vector2.zero;
+    private float repelledForce = 0f;
+    [SerializeField] private AlebrijeSelected selectedCompanion;
 
     // Start is called before the first frame update
     void Awake()
@@ -63,12 +67,33 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
+        if (selectedCompanion != null && selectedCompanion.selectedAlebrije != null)
+        {
+            GameObject companionContainer = GameObject.Find("ActiveCompanion");
+            Instantiate(selectedCompanion.selectedAlebrije.prefab, companionContainer.transform.position, Quaternion.identity, companionContainer.transform);
+
+            Vector2 abilityPosition = transform.position;
+
+            if(selectedCompanion.selectedAlebrije.prefab.GetComponent<AbilityManager>().GetActiveAbilityType() == AbilityType.Paralyze)
+            {
+                abilityPosition = new Vector2(transform.position.x, transform.position.y + 1.58f);
+            }
+
+            GameObject abilityObject = Instantiate(selectedCompanion.selectedAlebrije.abilityPrefab, abilityPosition, Quaternion.identity, transform);
+            abilityObject.name = "CompanionAbility";
+        }
+
         ph.SetStartHealth();
 
         if (isTutorial)
             ph.UpdateHealth(0.3f, true);
 
         // spawnerOriginalPosition = bulletSpawner.localPosition;
+    }
+
+    public MeleeAttack GetMeleeAttack()
+    {
+        return meleeAttack;
     }
 
     // Update is called once per frame
@@ -105,6 +130,12 @@ public class PlayerManager : MonoBehaviour
                 //}
                 if(canAutoAttack)
                     StartCoroutine(AutoMeleeAttack());
+
+                if (repelledStatus)
+                {
+                    ApplyRepelledStatus();
+                    StartCoroutine(VelocityReset());
+                }
             }
             else
             {
@@ -330,6 +361,24 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void UpdateRepelledStatus(bool status, Vector2 direction, float forceValue)
+    {
+        repelledStatus = status;
+        repelledDirection = direction;
+        repelledForce = forceValue;
+    }
+
+    public void ApplyRepelledStatus()
+    {
+        if (!repelledStatus) return;
+
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        
+        if (rb == null) return;
+        
+        rb.AddRelativeForce(repelledDirection * repelledForce * Time.deltaTime, ForceMode2D.Force);
+    }
+
     private GameObject GetClosestEnemy()
     {
         GameObject enemyToShoot = null;
@@ -352,6 +401,13 @@ public class PlayerManager : MonoBehaviour
         }
 
         return enemyToShoot;
+    }
+
+    public IEnumerator VelocityReset()
+    {
+        yield return new WaitForSeconds(2.4f); //Espera 2.4 segundos antes de quitar el estado de repelido
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        repelledStatus = false;
     }
 
     public float GetSpeed() {return speed;}

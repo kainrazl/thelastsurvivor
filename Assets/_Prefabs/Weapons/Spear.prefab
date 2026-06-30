@@ -50,13 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   properties:
     type: 2
-    damage: 1.5
+    damage: 6
     attackRate: 0
     duration: 0
     coolDown: 6
     radius: 0
     distance: 0
-    travelSpeed: 4.5
+    travelSpeed: 6
     numberOfRounds: 0
     name: 
     maxDamage: 3
@@ -65,8 +65,9 @@ MonoBehaviour:
     maxCoolDown: 4.5
     maxRadius: 0
     maxDistance: 0
-    maxNumberOfRounds: 0
+    maxNumberOfRounds: 3
     maxTravelSpeed: 6
+    maxWeapons: 4
 --- !u!212 &8681245061121993463
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6636818538329031357}
   - component: {fileID: 4467455061034108748}
   - component: {fileID: 3393560851053841921}
+  - component: {fileID: -5615136917775363348}
   m_Layer: 0
   m_Name: ally_tecolotl
   m_TagString: Untagged
@@ -119,11 +120,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e481995a9ba3eb640a0be48f7f8f3627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFacingLeft: 0
   companionDead: 0
+  isFacingLeft: 0
   maxDistanceToPlayer: 3
   minDistanceToPlayer: 1
+--- !u!114 &-5615136917775363348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6998556171285635993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78cdb7c7059e3d43a156a853eecd9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   activeAbilityType: 2
   abilityPower: 3
-  abilityRadius: 3
-  abilityCooldown: 12
+  abilityRadius: 4.5
+  abilityCooldown: 15
+  abilityAnimation: {fileID: 0}
+  creatureType: 0
+  abilityDuration: 3

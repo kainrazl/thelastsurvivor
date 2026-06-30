@@ -23,4 +23,5 @@ public class WeaponSO
     [Tooltip("Maximum distance this weapon can reach")] public float maxDistance;
     [Tooltip("Maximum number of rounds this weapon can fire")] public int maxNumberOfRounds;
     [Tooltip("Maximum speed at which this weapon can travel")] public float maxTravelSpeed;
+    [Tooltip("Maximum number of weapons the player can equip")] public int maxWeapons;
 }

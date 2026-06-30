@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public enum AbilityType
@@ -20,228 +19,119 @@ public enum AbilityType
 
 public class Ability
 {
-    private string abilityName;
-    private AbilityType abilityType;
-    private float power;
-    private float radius;
-    private float duration;
-    
-    public Ability() { }
-
-    public Ability(string name, AbilityType type, float power, float radius, float duration)
+    public void ActivateAbility(AbilityType effectType, GameObject source, float strength = 0.5f, float radius = 3f, float cooldown = 3f, CreatureType creatureType = CreatureType.Companion, float duration = 5f)
     {
-        this.abilityName = name;
-        this.abilityType = type;
-        this.power = power;
-        this.radius = radius;
-        this.duration = duration;
-    }
-
-    public void ActivateAbility(AbilityType effectType, GameObject companion, float strength = 0.5f, float radius = 3f, float effectDuration = 3f)
-    {
-        Vector2 origin = companion.transform.position;
+        Vector2 origin = source.transform.position;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
 
         Collider2D[] hits = Physics2D.OverlapCircleAll(origin, radius);
 
-        List<GameObject> enemies = new List<GameObject>();
+        List<GameObject> targetSubjects = new List<GameObject>();
+
         foreach (Collider2D hit in hits)
         {
-            if (hit.CompareTag("Enemy"))
-                enemies.Add(hit.gameObject);
+            if (hit.CompareTag("Enemy") && creatureType == CreatureType.Companion)
+                targetSubjects.Add(hit.gameObject);
+            else if (hit.CompareTag("Player") && creatureType == CreatureType.Boss)
+                targetSubjects.Add(hit.gameObject);
         }
 
-        if (enemies.Count == 0) return;
-
-        Debug.Log($"Activating {effectType} on {enemies.Count} enemies with strength {strength}, radius {radius}, duration {effectDuration}");
+        if (targetSubjects.Count == 0) return;
 
         switch (effectType)
         {
             case AbilityType.Fear:
-                foreach (GameObject enemy in enemies)
-                    RepelEnemy(enemy, companion, strength);
+                foreach (GameObject subject in targetSubjects)
+                    ApplyRepel(subject, source, strength, creatureType);
                 break;
+            case AbilityType.Shield:
+                ApplyShield(source, creatureType);
+                break;            
             case AbilityType.Paralyze:
-                foreach (GameObject enemy in enemies)
-                    SlowEnemy(enemy, strength, effectDuration);
+                foreach (GameObject subject in targetSubjects)
+                    SlowEnemy(subject, strength, duration);
                 break;
             case AbilityType.Damage:
-                foreach (GameObject enemy in enemies)
-                    DamageEnemy(enemy, strength);
+                foreach (GameObject subject in targetSubjects)
+                    DamageEnemy(subject, strength);
                 break;
             case AbilityType.Attraction:
-                foreach (GameObject enemy in enemies)
-                    companion.GetComponent<CompanionManager>()?.StartCoroutine(AttractEnemy(enemy, companion, effectDuration));
+                foreach (GameObject subject in targetSubjects)
+                    source.GetComponent<AbilityManager>()?.StartCoroutine(AttractEnemy(subject, source, cooldown));
                 break;
             case AbilityType.Tackle:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(TackleEnemies(companion, enemies, strength, effectDuration));
+                source.GetComponent<AbilityManager>()?.StartCoroutine(TackleEnemies(source, targetSubjects, strength, cooldown));
                 break;
             case AbilityType.LaserRay:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(LaserRayAttack(companion, enemies, strength, effectDuration));
+                source.GetComponent<AbilityManager>()?.StartCoroutine(LaserRayAttack(source, targetSubjects, strength, cooldown));
                 break;
             case AbilityType.TakeAway:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(TakeAwayEnemy(companion, player, enemies, strength, effectDuration));
+                source.GetComponent<AbilityManager>()?.StartCoroutine(TakeAwayEnemy(source, player, targetSubjects, strength, cooldown));
                 break;
-        }
-
-        // switch (effectType)
-        // {
-        //     case AbilityType.Shield:
-        //         ApplyShield(companion, player, strength, effectDuration);
-        //         break;
-        //     case AbilityType.SpeedBoost:
-        //         companion.GetComponent<CompanionManager>()?.StartCoroutine(ApplySpeedBoost(companion, player, strength, effectDuration));
-        //         break;
-        //     case AbilityType.Heal:
-        //         HealPlayer(companion, player, strength);
-        //         break;
-        //     default:
-            // case AbilityType.Attraction:
-            // case AbilityType.Tackle:
-            // case AbilityType.LaserRay:
-            // case AbilityType.TakeAway:
-            // case AbilityType.Fear:
-            // case AbilityType.Paralyze:
-            // case AbilityType.Damage:
-                // ProcessEnemyAbility(effectType, companion, player, strength, radius, effectDuration);
-        //         break;
-        // }
-    }
-
-    private void ProcessEnemyAbility(AbilityType effectType, GameObject companion, GameObject player, float strength, float radius, float effectDuration)
-    {
-        Vector2 origin = companion.transform.position;
-        Collider2D[] hits = Physics2D.OverlapCircleAll(origin, radius);
-
-        List<GameObject> enemies = new List<GameObject>();
-        foreach (Collider2D hit in hits)
-        {
-            if (hit.CompareTag("Enemy"))
-                enemies.Add(hit.gameObject);
-        }
-
-        if (enemies.Count == 0) return;
-
-        switch (effectType)
-        {
-            case AbilityType.Fear:
-                foreach (GameObject enemy in enemies)
-                    RepelEnemy(enemy, companion, strength);
+            case AbilityType.SpeedBoost:
+                source.GetComponent<AbilityManager>()?.StartCoroutine(ApplySpeedBoost(source, player, strength, cooldown));
                 break;
-            case AbilityType.Paralyze:
-                foreach (GameObject enemy in enemies)
-                    SlowEnemy(enemy, strength, effectDuration);
+            case AbilityType.Heal:
+                HealPlayer(source, player, strength);
                 break;
-            case AbilityType.Damage:
-                foreach (GameObject enemy in enemies)
-                    DamageEnemy(enemy, strength);
-                break;
-            case AbilityType.Attraction:
-                foreach (GameObject enemy in enemies)
-                    companion.GetComponent<CompanionManager>()?.StartCoroutine(AttractEnemy(enemy, companion, effectDuration));
-                break;
-            case AbilityType.Tackle:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(TackleEnemies(companion, enemies, strength, effectDuration));
-                break;
-            case AbilityType.LaserRay:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(LaserRayAttack(companion, enemies, strength, effectDuration));
-                break;
-            case AbilityType.TakeAway:
-                companion.GetComponent<CompanionManager>()?.StartCoroutine(TakeAwayEnemy(companion, player, enemies, strength, effectDuration));
-                break;
-        }
-    }
-
-    public void ActivateAbility(string effectName, GameObject companion, float strength = 0.5f, float radius = 3f)
-    {
-        AbilityType effectType = ParseAbilityType(effectName);
-        ActivateAbility(effectType, companion, strength, radius);
-    }
-
-    private AbilityType ParseAbilityType(string effectName)
-    {
-        if (string.IsNullOrWhiteSpace(effectName))
-            return AbilityType.None;
-
-        switch (effectName.Trim().ToLowerInvariant())
-        {
-            case "repel":
-                return AbilityType.Fear;
-            case "slow":
-                return AbilityType.Paralyze;
-            case "damage":
-                return AbilityType.Damage;
-            case "shield":
-                return AbilityType.Shield;
-            case "attraction":
-                return AbilityType.Attraction;
-            case "speedboost":
-            case "speed":
-                return AbilityType.SpeedBoost;
-            case "tackle":
-                return AbilityType.Tackle;
-            case "laserray":
-            case "laser":
-                return AbilityType.LaserRay;
-            case "takeaway":
-            case "take":
-                return AbilityType.TakeAway;
-            case "heal":
-                return AbilityType.Heal;
             default:
-                return AbilityType.None;
+                break;
         }
     }
 
-    private void RepelEnemy(GameObject enemy, GameObject companion, float forceValue)
+    private void ApplyRepel(GameObject subject, GameObject companion, float forceValue, CreatureType creatureType)
     {
         Vector2 origin = companion.transform.position;
-
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+        Vector2 direction = ((Vector2)subject.transform.position - origin).normalized;
         
-        if (rb == null) return;
-
-        Vector2 direction = ((Vector2)enemy.transform.position - origin).normalized;
-        rb.AddRelativeForce(direction * forceValue, ForceMode2D.Impulse);
-        enemy.GetComponent<EnemyManager>()?.StartCoroutine(enemy.GetComponent<EnemyManager>().ApplyRepeledStatus());
+        if (creatureType == CreatureType.Companion)
+        {
+            Rigidbody2D rb = subject.GetComponent<Rigidbody2D>();
+            if (rb == null) return;
+            rb.AddRelativeForce(direction * forceValue, ForceMode2D.Impulse);
+        }
+        else if (creatureType == CreatureType.Boss)
+        {            
+            subject.GetComponent<PlayerManager>()?.UpdateRepelledStatus(true, direction, forceValue);
+        }        
     }
 
-    private void SlowEnemy(GameObject enemy, float slowFactor, float effectDuration)
+    private void SlowEnemy(GameObject subject, float slowFactor, float cooldown)
     {
-        EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
+        EnemyManager enemyManager = subject.GetComponent<EnemyManager>();
         if (enemyManager != null)
         {
-            enemyManager.ApplySlow(slowFactor, effectDuration);
+            enemyManager.ApplySlow(slowFactor, cooldown);
             return;
         }
 
-        Animator animator = enemy.GetComponent<Animator>();
+        Animator animator = subject.GetComponent<Animator>();
         if (animator != null)
             animator.speed = Mathf.Clamp01(animator.speed * Mathf.Max(0f, 1f - slowFactor));
 
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = subject.GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.drag = Mathf.Max(rb.drag, slowFactor * 2f);
     }
 
-    private void DamageEnemy(GameObject enemy, float damageValue)
+    private void DamageEnemy(GameObject subject, float damageValue)
     {
-        EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
+        EnemyManager enemyManager = subject.GetComponent<EnemyManager>();
         if (enemyManager != null)
             enemyManager.EnemyDamage(damageValue);
     }
 
-    private void ApplyShield(GameObject companion, GameObject player, float strength, float duration)
+    private void ApplyShield(GameObject subject, CreatureType creatureType)
     {
-        PlayerManager pm = player.GetComponent<PlayerManager>();
-        if (pm != null)
-            companion.GetComponent<CompanionManager>()?.StartCoroutine(ShieldCoroutine(pm, duration));
-    }
-
-    private IEnumerator ShieldCoroutine(PlayerManager playerManager, float duration)
-    {
-        yield return playerManager.StartCoroutine(playerManager.PlayerImmune());
+        if (creatureType == CreatureType.Companion)
+        {
+            subject.GetComponent<PlayerManager>()?.StartCoroutine(subject.GetComponent<PlayerManager>().PlayerImmune());
+        }
+        else if (creatureType == CreatureType.Boss)
+        {
+            subject.GetComponent<EnemyManager>().StartCoroutine(subject.GetComponent<EnemyManager>().EnemyImmune());
+        }
     }
 
     private IEnumerator ApplySpeedBoost(GameObject companion, GameObject player, float strength, float duration)
@@ -276,21 +166,21 @@ public class Ability
         }
     }
 
-    private IEnumerator AttractEnemy(GameObject enemy, GameObject companion, float duration)
+    private IEnumerator AttractEnemy(GameObject subject, GameObject companion, float duration)
     {
-        EnemyManager em = enemy.GetComponent<EnemyManager>();
+        EnemyManager em = subject.GetComponent<EnemyManager>();
         if (em == null) yield break;
 
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = subject.GetComponent<Rigidbody2D>();
         if (rb == null) yield break;
 
         float elapsedTime = 0f;
         Vector2 companionPos = companion.transform.position;
 
-        while (elapsedTime < duration && enemy != null)
+        while (elapsedTime < duration && subject != null)
         {
             companionPos = companion.transform.position;
-            Vector2 direction = (companionPos - (Vector2)enemy.transform.position).normalized;
+            Vector2 direction = (companionPos - (Vector2)subject.transform.position).normalized;
             rb.velocity = direction * 4f;
             elapsedTime += Time.deltaTime;
             yield return null;
@@ -300,36 +190,36 @@ public class Ability
             rb.velocity = Vector2.zero;
     }
 
-    private IEnumerator TackleEnemies(GameObject companion, List<GameObject> enemies, float strength, float duration)
+    private IEnumerator TackleEnemies(GameObject companion, List<GameObject> targetSubjects, float strength, float duration)
     {
-        if (enemies.Count == 0) yield break;
+        if (targetSubjects.Count == 0) yield break;
 
         Vector3 companionStartPos = companion.transform.position;
         Rigidbody2D companionRb = companion.GetComponent<Rigidbody2D>();
         if (companionRb == null) yield break;
 
-        foreach (GameObject enemy in enemies)
+        foreach (GameObject subject in targetSubjects)
         {
-            if (enemy == null) continue;
+            if (subject == null) continue;
 
-            Vector3 enemyPos = enemy.transform.position;
+            Vector3 enemyPos = subject.transform.position;
             Vector3 direction = (enemyPos - companionStartPos).normalized;
             float distance = Vector3.Distance(companionStartPos, enemyPos);
             float tackleSpeed = 8f;
             float tackleTime = distance / tackleSpeed;
 
             float elapsedTime = 0f;
-            while (elapsedTime < tackleTime && enemy != null)
+            while (elapsedTime < tackleTime && subject != null)
             {
                 companionRb.velocity = direction * tackleSpeed;
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
 
-            if (enemy != null)
+            if (subject != null)
             {
-                DamageEnemy(enemy, strength);
-                EnemyManager em = enemy.GetComponent<EnemyManager>();
+                DamageEnemy(subject, strength);
+                EnemyManager em = subject.GetComponent<EnemyManager>();
                 if (em != null)
                     em.EnemyDamage(strength);
             }
@@ -350,7 +240,7 @@ public class Ability
         companionRb.velocity = Vector2.zero;
     }
 
-    private IEnumerator LaserRayAttack(GameObject companion, List<GameObject> enemies, float strength, float duration)
+    private IEnumerator LaserRayAttack(GameObject companion, List<GameObject> targetSubjects, float strength, float duration)
     {
         float elapsedTime = 0f;
         float raySpawnInterval = 0.3f;
@@ -364,14 +254,14 @@ public class Ability
             if (lastRayTime >= raySpawnInterval)
             {
                 Vector2 randomDirection = Random.insideUnitCircle.normalized;
-                foreach (GameObject enemy in enemies)
+                foreach (GameObject subject in targetSubjects)
                 {
-                    if (enemy == null) continue;
+                    if (subject == null) continue;
 
-                    Vector2 toEnemy = ((Vector2)enemy.transform.position - (Vector2)companion.transform.position).normalized;
+                    Vector2 toEnemy = ((Vector2)subject.transform.position - (Vector2)companion.transform.position).normalized;
                     if (Vector2.Dot(randomDirection, toEnemy) > 0.3f)
                     {
-                        EnemyManager em = enemy.GetComponent<EnemyManager>();
+                        EnemyManager em = subject.GetComponent<EnemyManager>();
                         if (em != null)
                             em.EnemyDamage(strength * 0.3f);
                     }
@@ -383,11 +273,11 @@ public class Ability
         }
     }
 
-    private IEnumerator TakeAwayEnemy(GameObject companion, GameObject player, List<GameObject> enemies, float strength, float duration)
+    private IEnumerator TakeAwayEnemy(GameObject companion, GameObject player, List<GameObject> targetSubjects, float strength, float duration)
     {
-        if (enemies.Count == 0) yield break;
+        if (targetSubjects.Count == 0) yield break;
 
-        GameObject targetEnemy = enemies[Random.Range(0, enemies.Count)];
+        GameObject targetEnemy = targetSubjects[Random.Range(0, targetSubjects.Count)];
         if (targetEnemy == null) yield break;
 
         Vector3 companionStartPos = companion.transform.position;

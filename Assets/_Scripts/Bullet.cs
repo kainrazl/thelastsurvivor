@@ -18,8 +18,7 @@ public class Bullet : MonoBehaviour
 
         if (enemyPosition != Vector2.zero)
         {
-            //0.5f added in order to shoot at the middle of the sprite, not the gameobject pivot
-            enemyPosition = new Vector2(enemyPosition.x, enemyPosition.y + 0.5f);
+            //enemyPosition = new Vector2(enemyPosition.x, enemyPosition.y + 0.5f);
             enemyDirection = Vector2.MoveTowards(transform.position, enemyPosition, speed * Time.deltaTime * distance);
             transform.position = enemyDirection;
         }
@@ -41,7 +40,7 @@ public class Bullet : MonoBehaviour
                 enemyToFollow.GetComponent<EnemyManager>().EnemyDamage(bulletDamage);
             }
 
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            //gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.SetActive(false);
         }
     }

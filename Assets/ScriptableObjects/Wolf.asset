@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788e304a1c2606745a440e228ecdc546, type: 3}
+  m_Name: Wolf
+  m_EditorClassIdentifier: 
+  name: Wolf
+  description: 
+  prefab: {fileID: 7358421356486582502, guid: bf50ecc93e6aa994ea94742902ab4816, type: 3}
+  abilityPrefab: {fileID: 5111123817202070640, guid: d56b2c003f3fa1f46a88ee475d14f665, type: 3}

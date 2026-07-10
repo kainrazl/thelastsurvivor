@@ -36,7 +36,7 @@ public class ItemSpawner : MonoBehaviour
     //     canSpawn = true;
     // }
 
-    public void GetItem(float positionX, float positionY)
+    public void GetItem(float positionX, float positionY, GameObject bossItem)
     {
         if (canSpawn)
         {
@@ -46,36 +46,44 @@ public class ItemSpawner : MonoBehaviour
             //}
             try
             {
-                int prefabIndex = 0;
+                GameObject prefab = null;
                 
-                // Calcular el peso total basado en la rareza invertida (1/rarity)
-                float totalWeight = 0f;
-                foreach (GameObject item in listItems)
+                if (bossItem != null)
                 {
-                    ItemProperties itemProps = item.GetComponent<ItemEffect>().properties;
-                    if (itemProps != null && itemProps.rarity > 0)
-                        totalWeight += 1f / ((float)itemProps.rarity);
-                }
-
-                // Seleccionar un item basado en su peso inverso de rareza
-                float randomValue = UnityEngine.Random.Range(0f, totalWeight);
-                float currentWeight = 0f;
-
-                for (int i = 0; i < listItems.Count; i++)
+                    prefab = bossItem;
+                }else
                 {
-                    ItemProperties itemProps = listItems[i].GetComponent<ItemEffect>().properties;
-                    if (itemProps != null && itemProps.rarity > 0)
+                    int prefabIndex = 0;
+                
+                    // Calcular el peso total basado en la rareza invertida (1/rarity)
+                    float totalWeight = 0f;
+                    foreach (GameObject item in listItems)
                     {
-                        currentWeight += 1f / ((float)itemProps.rarity);
-                        if (randomValue <= currentWeight)
+                        ItemProperties itemProps = item.GetComponent<ItemEffect>().properties;
+                        if (itemProps != null && itemProps.rarity > 0)
+                            totalWeight += 1f / ((float)itemProps.rarity);
+                    }
+
+                    // Seleccionar un item basado en su peso inverso de rareza
+                    float randomValue = UnityEngine.Random.Range(0f, totalWeight);
+                    float currentWeight = 0f;
+
+                    for (int i = 0; i < listItems.Count; i++)
+                    {
+                        ItemProperties itemProps = listItems[i].GetComponent<ItemEffect>().properties;
+                        if (itemProps != null && itemProps.rarity > 0)
                         {
-                            prefabIndex = i;
-                            break;
+                            currentWeight += 1f / ((float)itemProps.rarity);
+                            if (randomValue <= currentWeight)
+                            {
+                                prefabIndex = i;
+                                break;
+                            }
                         }
                     }
-                }
 
-                GameObject prefab = listItems[prefabIndex];
+                    prefab = listItems[prefabIndex];
+                }
 
                 Vector3 position = new Vector3(positionX, positionY, 0);
                 Instantiate(prefab, position, Quaternion.identity);

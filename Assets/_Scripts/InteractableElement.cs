@@ -7,4 +7,5 @@ public class InteractableElement : ScriptableObject
     public string description;
     public GameObject prefab;
     public GameObject abilityPrefab;
+    public Sprite icon;
 }

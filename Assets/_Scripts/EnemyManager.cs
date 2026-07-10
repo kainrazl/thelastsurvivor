@@ -72,6 +72,14 @@ public class EnemyManager : MonoBehaviour
         return properties;
     }
 
+    public void SetEnemyProperties(CreatureProperties newProperties)
+    {
+        properties = newProperties;
+        howMuchDamage = properties.damage;
+        health = properties.health;
+        baseSpeed = Random.Range(properties.minSpeed, properties.maxSpeed);
+    }
+
    private void MoveEnemy()
     {
         if (!enemyDead)
@@ -148,13 +156,16 @@ public class EnemyManager : MonoBehaviour
 
             if (health <= 0 && !enemyDead) {
                 enemyDead = true;
+                GameObject bossItem = null;
 
                 if (properties.isBoss)
                 {
                     spawner.SetBossSpawned(false);
+
+                    bossItem = properties.bossItemPrefab;
                 }
 
-                itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
+                itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y, bossItem);
 
                 if (spawner.enemyCounter > 0)
                     spawner.enemyCounter -= 1;

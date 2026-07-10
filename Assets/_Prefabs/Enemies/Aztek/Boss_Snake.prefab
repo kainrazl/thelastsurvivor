@@ -129,6 +129,7 @@ MonoBehaviour:
     maxSpeed: 1.5
     damage: 3
     isBoss: 1
+    bossItemPrefab: {fileID: 9221312249726370561, guid: 1e623966454e88f4c856a89e8c9c0196, type: 3}
   enemyDead: 0
   canTakeDamage: 1
 --- !u!58 &5381747260839880580

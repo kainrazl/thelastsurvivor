@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Aztek/MainLevel.unity
-    guid: f0ba084bba2cb024b86a68d4902d00cc
-  - enabled: 1
     path: Assets/Scenes/Aztek/Menu.unity
     guid: f3f1b67169fcdb84ab12b193e48e7362
   - enabled: 1
     path: Assets/Scenes/Aztek/SelectionMenu.unity
     guid: e9cf93a84a494df42808bcc0b0ee4d7a
+  - enabled: 1
+    path: Assets/Scenes/Aztek/MainLevel.unity
+    guid: f0ba084bba2cb024b86a68d4902d00cc
   - enabled: 0
     path: Assets/Scenes/Aztek/AlebrijeSelection.unity
     guid: 82aee013835ebcc40a9e164844ad9dcf

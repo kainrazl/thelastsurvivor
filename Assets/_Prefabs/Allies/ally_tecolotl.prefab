@@ -142,4 +142,4 @@ MonoBehaviour:
   abilityCooldown: 15
   abilityAnimation: {fileID: 0}
   creatureType: 0
-  abilityDuration: 3
+  abilityDuration: 1.5

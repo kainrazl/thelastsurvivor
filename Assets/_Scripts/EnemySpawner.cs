@@ -14,7 +14,7 @@ public class EnemySpawnConfig
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public EnemySpawnConfig[] enemyConfigs;  // enemiesPrefabs y tiempo de aparición
+    public EnemySpawnConfig[] enemyConfigs; // enemiesPrefabs y tiempo de aparición
     public GameObject player;
     public int enemyCounter = 0;
 
@@ -29,6 +29,22 @@ public class EnemySpawner : MonoBehaviour
     private bool canIncrement = true;
     private float elapsedTime = 0f;
     private bool isBossAlreadySpawned = false;
+    public float maxSpawnTime;
+    private int waveCounter = 0;
+    private bool increaseEnemyProperties = false;
+
+    public void Start()
+    {
+        maxSpawnTime = 0;
+
+        foreach (EnemySpawnConfig config in enemyConfigs)
+        {
+            if (config.maxTimeToAppear > maxSpawnTime)
+            {
+                maxSpawnTime = config.maxTimeToAppear;
+            }
+        }
+    }
 
     public void SetenemyCounter()
     {
@@ -65,10 +81,13 @@ public class EnemySpawner : MonoBehaviour
 
         if (enemyToSpawn != null)
         {
-            Instantiate(enemyToSpawn, randomSpawnPoint.position, Quaternion.identity);
-            SpriteRenderer sr = enemyToSpawn.GetComponent<SpriteRenderer>();
-            sr.sortingLayerName = "Elements";
-            //sr.sortingOrder = 1;
+            GameObject newEnemy = Instantiate(enemyToSpawn, randomSpawnPoint.position, Quaternion.identity);
+            //SpriteRenderer sr = newEnemy.GetComponent<SpriteRenderer>();
+            // sr.sortingLayerName = "Elements";
+            if (increaseEnemyProperties)
+            {
+                UpdateEnemyProperties(newEnemy);
+            }
 
             enemyCounter += 1;
         }
@@ -109,7 +128,10 @@ public class EnemySpawner : MonoBehaviour
         if (availableEnemies.Count > 0)
         {
             return availableEnemies[Random.Range(0, availableEnemies.Count)].prefab;
-        }
+        }else
+            //Actualiza la configuración de los enemigos si el tiempo transcurrido supera el tiempo máximo de aparición
+            if(elapsedTime > maxSpawnTime)
+                UpdateEnemyConfigs();
 
         return null;
     }
@@ -125,5 +147,43 @@ public class EnemySpawner : MonoBehaviour
         yield return waiting;
 
         canIncrement = true;
+    }
+
+    private void UpdateEnemyConfigs()
+    {
+        float newMaxSpawnTime = 0;
+        maxSpawnTime += 30f; // Incrementa el tiempo máximo en 30 segundos por el último jefe generado
+
+        //Se actualizan los tiempos de aparición de los enemigos en la lista de configuraciones
+        foreach (EnemySpawnConfig config in enemyConfigs)
+        {
+            config.minTimeToAppear += maxSpawnTime;
+            config.maxTimeToAppear += maxSpawnTime;
+            newMaxSpawnTime = config.maxTimeToAppear;
+        }
+        maxSpawnTime = newMaxSpawnTime;
+        waveCounter++;
+        increaseEnemyProperties = true;
+    }
+
+    private void UpdateEnemyProperties(GameObject enemy)
+    {
+        //Incrementa las propiedades del enemigo en cierto porcentaje según las waves generadas
+        float healthMultiplier = 0.3f * waveCounter;
+        float damageMultiplier = 0.1f * waveCounter;
+        float minSpeedMultiplier = 0.05f * waveCounter;
+        float maxSpeedMultiplier = 0.05f * waveCounter;
+
+        enemy.TryGetComponent(out EnemyManager enemyManager);
+        if (enemyManager != null)
+        {
+            CreatureProperties updatedProperties = enemyManager.GetEnemyProperties();
+            updatedProperties.health = updatedProperties.health * (1 + healthMultiplier);
+            updatedProperties.damage = updatedProperties.damage * (1 + damageMultiplier);
+            updatedProperties.minSpeed = updatedProperties.minSpeed * (1 + minSpeedMultiplier);
+            updatedProperties.maxSpeed = updatedProperties.maxSpeed * (1 + maxSpeedMultiplier);
+
+            enemyManager.SetEnemyProperties(updatedProperties);
+        }
     }
 }

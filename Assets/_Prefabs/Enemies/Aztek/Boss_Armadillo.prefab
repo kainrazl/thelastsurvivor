@@ -130,6 +130,7 @@ MonoBehaviour:
     maxSpeed: 1
     damage: 3
     isBoss: 1
+    bossItemPrefab: {fileID: 9221312249726370561, guid: 1e623966454e88f4c856a89e8c9c0196, type: 3}
   enemyDead: 0
   canTakeDamage: 1
 --- !u!70 &6325258695601411482
@@ -212,3 +213,4 @@ MonoBehaviour:
   abilityCooldown: 12
   abilityAnimation: {fileID: 8053670518664893828, guid: 68a4cf897142df6479cfd75f76cfabb7, type: 3}
   creatureType: 1
+  abilityDuration: 5

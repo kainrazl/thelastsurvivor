@@ -12,7 +12,7 @@ public class PlaySound : MonoBehaviour
     {
         try
         {
-            audioSource.volume = 0.3f;
+            audioSource.volume = 0.1f;
             audioSource.PlayOneShot(sound);
         }
         catch (Exception e)

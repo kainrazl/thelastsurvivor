@@ -80,7 +80,7 @@ private void Awake()
 
         if (health <= 0 && !companionDead) {
             companionDead = true;
-            itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
+            // itemSpawner.GetItem(transform.localPosition.x, transform.localPosition.y);
 
             playerPoints.UpdatePoints();
             gameObject.GetComponent<Rigidbody2D>().simulated = false;

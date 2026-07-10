@@ -14,4 +14,5 @@ public class CreatureProperties
     public float maxSpeed;
     public float damage;
     public bool isBoss;
+    public GameObject bossItemPrefab;
 }

@@ -156,8 +156,6 @@ public class UpgradeSelection : MonoBehaviour
         {
             MeleeAttack meleeAttack = player.GetComponent<PlayerManager>().GetMeleeAttack();
 
-            Debug.Log("Melee attack found: " + meleeAttack?.name);
-
             if (meleeAttack != null)
             {
                 meleeAttack.SetDamage((float) Math.Round(meleeAttack.GetDamage() * 1.1f, 2));

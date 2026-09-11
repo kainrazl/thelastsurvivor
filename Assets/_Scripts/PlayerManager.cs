@@ -1,0 +1,424 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PlayerManager : MonoBehaviour
+{
+    [SerializeField] private AudioSource shoot;
+    [SerializeField] private AudioSource gameMusic;
+    [SerializeField] private AudioSource gameOver;
+    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
+    // [SerializeField] private Transform bulletSpawner;
+    [SerializeField] private bool isTutorial;
+
+    public bool isFacingLeft = false;
+    public bool isPaused = false;
+    public GameObject attackObject;
+    public bool isDead = false;
+    
+    private bool canTakeDamage = true;
+    private bool canAutoAttack = true;
+
+    private float speed = 3f;
+    private float myCurrentHealth;
+    private float spriteBlinkingTotalTimer = 0;
+    private float spriteBlinkingTotalDuration = 2f;
+    private bool startBlinking = false;
+    private bool isDamage = false;
+    private float spriteBlinkingTimer = 0;
+    private float spriteBlinkingMiniDuration = 0.09f;
+    private float basicAttackCooldown;
+
+    private GameActions playerAction;
+    private Animator playerAnim;
+    private Rigidbody2D playerRB;
+    private PlayerHealth ph;    
+    private Bullet shot;
+    private ItemSpawner itemSpawner;
+    private GameObject playerSprite;
+    private MeleeAttack meleeAttack;
+
+    private Vector2 move;
+    private Vector2 bulletDirection;
+    private Vector3 spawnerOriginalPosition;
+    private Collider2D playerCollider;
+    private SpriteRenderer sprite;
+    private bool repelledStatus = false;
+    private Vector2 repelledDirection = Vector2.zero;
+    private float repelledForce = 0f;
+    [SerializeField] private AlebrijeSelected selectedCompanion;
+
+    // Start is called before the first frame update
+    void Awake()
+    {
+        playerRB = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
+        playerAnim = GetComponentInChildren<Animator>();
+        playerAction = new GameActions();
+        ph = GetComponent<PlayerHealth>();
+        meleeAttack = attackObject.GetComponentInChildren<MeleeAttack>();
+        basicAttackCooldown = attackObject.GetComponent<WeaponInstance>().GetProperties().coolDown;
+        itemSpawner = GameObject.Find("ItemSpawner").GetComponent<ItemSpawner>();
+        playerSprite =  GameObject.Find("PlayerSprite");
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        gameMusic.Play();
+    }
+
+    private void Start()
+    {
+        if (selectedCompanion != null && selectedCompanion.selectedAlebrije != null)
+        {
+            GameObject companionContainer = GameObject.Find("ActiveCompanion");
+            Instantiate(selectedCompanion.selectedAlebrije.prefab, companionContainer.transform.position, Quaternion.identity, companionContainer.transform);
+
+            Vector2 abilityPosition = transform.position;
+
+            if(selectedCompanion.selectedAlebrije.prefab.GetComponent<AbilityManager>().GetActiveAbilityType() == AbilityType.Paralyze)
+            {
+                abilityPosition = new Vector2(transform.position.x, transform.position.y + 1.58f);
+            }
+
+            GameObject abilityObject = Instantiate(selectedCompanion.selectedAlebrije.abilityPrefab, abilityPosition, Quaternion.identity, transform);
+            abilityObject.name = "CompanionAbility";
+        }
+
+        ph.SetStartHealth();
+
+        if (isTutorial)
+            ph.UpdateHealth(0.3f, true);
+
+        // spawnerOriginalPosition = bulletSpawner.localPosition;
+    }
+
+    public MeleeAttack GetMeleeAttack()
+    {
+        return meleeAttack;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        myCurrentHealth = ph.currentHealth;
+
+        if (playerAction.Player.Pause.triggered)
+        {
+            PutPause();
+        }
+
+        if (!isPaused)
+        {
+            Time.timeScale = 1f;
+            //gameMusic.volume = 0.30f;
+
+            if (!isDead)
+            {
+                Vector2 playerMove = playerAction.Player.Move.ReadValue<Vector2>();
+                move = new Vector2(playerMove.x, playerMove.y);
+                // bulletSpawner.localPosition = spawnerOriginalPosition;
+
+                if(move != Vector2.zero) 
+                {
+                    PlayerMovement();
+                }
+
+                //bulletDirection = new Vector2(move.x, move.y);
+
+                //if (playerAction.Player.Shoot.triggered)
+                //{
+                //    ShootBullet();
+                //}
+                if(canAutoAttack)
+                    StartCoroutine(AutoMeleeAttack());
+
+                if (repelledStatus)
+                {
+                    ApplyRepelledStatus();
+                    StartCoroutine(VelocityReset());
+                }
+            }
+            else
+            {
+                if (!isTutorial)
+                {
+                    //playerAnim.Play("player_dead");
+                    playerAnim.SetBool("isDead", true);
+                    playerAnim.SetBool("isWalking", false);
+                    playerCollider.enabled = false;
+
+                    GameObject.FindGameObjectWithTag("Spawners").GetComponent<EnemySpawner>().enabled = false;
+                    playerRB.linearVelocity = Vector2.zero;
+
+                    int enemies = 0;
+
+                    foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+                    {
+                        enemies++;
+                        enemy.GetComponent<EnemyManager>().enabled = false;
+                        enemy.GetComponent<Animator>().enabled = false;
+                        enemy.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+                    }
+
+                    try
+                    {
+                        gameOverCanvas.SetActive(true);
+                    }
+                    catch (AndroidJavaException e)
+                    {
+                        Debug.Log(e.Message);
+                    }
+                }
+                else
+                {
+                    SceneManager.LoadScene("Menu");
+                }
+            }
+        }
+        else
+        {
+            Time.timeScale = 0f;
+            //gameMusic.volume = 0.06f;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (!isDead)
+        {
+            float normalizedValueX = move.normalized.x * speed;
+            float normalizedValueY = move.normalized.y * speed;
+            playerRB.linearVelocity = new Vector2(normalizedValueX, normalizedValueY);
+
+            if (startBlinking)
+            {
+                SpriteBlinkingEffect();
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (!isPaused && !isDead)
+        {
+            if (move != Vector2.zero)
+            {
+#if AZTEK
+                playerAnim.SetBool("isWalking", true);
+                playerAnim.SetBool("isIdle", false);
+#endif
+                if (move.x != 0)
+                {
+#if ZOMBIES
+            playerAnim.SetTrigger("goingLeftRight");
+#endif
+                }
+                else if (move.y != 0)
+                {
+                    if (move.y > 0)
+                    {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingUp");
+#endif
+                    }
+                    else
+                    {
+#if ZOMBIES
+                playerAnim.SetTrigger("goingDown");
+#endif
+                    }
+                }
+            }
+            else
+            {
+                playerAnim.SetBool("isIdle", true);
+                playerAnim.SetBool("isWalking", false);
+            }
+        }
+    }
+
+    private void PlayerMovement()
+    {
+        if (move != Vector2.zero) {
+            if (move.x != 0)
+            {
+                if (isFacingLeft && move.x > 0)
+                {
+                    Flip();
+                }
+                else if (!isFacingLeft && move.x < 0)
+                {
+                    Flip();
+                }
+            }
+            // else if (move.y != 0)
+            // {
+            //     if (move.y > 0)
+            //     {
+            //         bulletSpawner.localPosition = new Vector3(0, 1, 0);
+            //     }
+            //     else
+            //     {
+            //         bulletSpawner.localPosition = new Vector3(0, 0, 0);
+            //     }
+            // }
+        }
+    }
+
+    public void PutPause()
+    {
+        if (!isDead)
+        {
+            isPaused = !isPaused;
+            pauseCanvas.SetActive(isPaused);
+        }
+    }
+
+    void Flip()
+    {
+        isFacingLeft = !isFacingLeft;
+
+        float localScaleX = playerSprite.transform.localScale.x;
+        localScaleX *= -1;
+
+        playerCollider.offset = new Vector2(playerCollider.offset.x * (-1), playerCollider.offset.y);
+        playerSprite.transform.localScale = new Vector3(localScaleX, playerSprite.transform.localScale.y, playerSprite.transform.localScale.z);
+    }
+
+    public void TakeDamage(float howMuchDamage)
+    {
+        if (canTakeDamage)
+        {
+            isDamage = true;
+            StartCoroutine(PlayerImmune());
+
+#if ZOMBIES
+            playerAnim.SetTrigger("isHurt"); //added
+#endif
+
+            ph.UpdateHealth(howMuchDamage, true);
+
+            if (ph.currentHealth <= 0)
+            {
+                gameMusic.Stop();
+                gameOver.Play();
+                isDead = true;
+            }
+            else
+            {
+                startBlinking = true;
+            }
+        }
+    }
+    private IEnumerator AutoMeleeAttack()
+    {
+        //ShootBullet();
+        meleeAttack.Hit();
+        canAutoAttack = false;
+        yield return new WaitForSeconds(basicAttackCooldown);
+        canAutoAttack = true;
+    }
+    public IEnumerator PlayerImmune()
+    {
+        canTakeDamage = false;
+        if (!isDamage)
+        {
+            startBlinking = true;
+        }
+
+        yield return new WaitForSeconds(3);
+        canTakeDamage = true;
+        isDamage = false;
+        sprite.color = Color.white;
+    }
+
+    public void SpriteBlinkingEffect()
+    {
+        bool isSpriteEnabled = sprite.enabled;
+
+        spriteBlinkingTotalTimer += Time.deltaTime;
+        if (spriteBlinkingTotalTimer >= spriteBlinkingTotalDuration)
+        {
+            spriteBlinkingTotalTimer = 0.0f;
+            startBlinking = false;
+            sprite.enabled = true;
+            sprite.color = Color.white;
+            return;
+        }
+
+        spriteBlinkingTimer += Time.deltaTime;
+        if (spriteBlinkingTimer >= spriteBlinkingMiniDuration)
+        {
+            if (!isDamage)
+                sprite.color = Random.ColorHSV(0, 1, 0.5f, 0.5f, 1, 1, 1, 1);
+            else
+            {
+                sprite.color = new Color(Random.value, Random.value, 0.6f);
+                isSpriteEnabled = !isSpriteEnabled;
+                sprite.enabled = isSpriteEnabled;
+            }
+
+            spriteBlinkingTimer = 0.0f;
+        }
+    }
+
+    public void UpdateRepelledStatus(bool status, Vector2 direction, float forceValue)
+    {
+        repelledStatus = status;
+        repelledDirection = direction;
+        repelledForce = forceValue;
+    }
+
+    public void ApplyRepelledStatus()
+    {
+        if (!repelledStatus) return;
+
+        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        
+        if (rb == null) return;
+        
+        rb.AddRelativeForce(repelledDirection * repelledForce * Time.deltaTime, ForceMode2D.Force);
+    }
+
+    private GameObject GetClosestEnemy()
+    {
+        GameObject enemyToShoot = null;
+        float minDistance = Mathf.Infinity;
+        float distance = 0;
+        Vector2 playerPosition = gameObject.transform.position;
+        Vector2 enemyPosition = Vector2.zero;
+        string enemyName = null;
+
+        foreach(GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")){
+            enemyPosition = enemy.transform.position;
+            distance = Vector2.Distance(playerPosition, enemyPosition);
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                enemyToShoot = enemy;
+                enemyName = enemy.name;
+            }
+        }
+
+        return enemyToShoot;
+    }
+
+    public IEnumerator VelocityReset()
+    {
+        yield return new WaitForSeconds(2.4f); //Espera 2.4 segundos antes de quitar el estado de repelido
+        GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        repelledStatus = false;
+    }
+
+    public float GetSpeed() {return speed;}
+
+    private void OnEnable()
+    {
+        playerAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerAction.Disable();
+    }
+}

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 788e304a1c2606745a440e228ecdc546, type: 3}
+  m_Name: Owl
+  m_EditorClassIdentifier: 
+  name: Owl
+  description: 
+  prefab: {fileID: 6998556171285635993, guid: 6a8e94de183b53342977e91713f866df, type: 3}
+  abilityPrefab: {fileID: 1548200596586909241, guid: feeee448c76f42441ac3d4c805a99e16, type: 3}

@@ -25,12 +25,12 @@ public class SpinAttack : MonoBehaviour
         cooldown = GetComponent<WeaponInstance>().GetProperties().coolDown;
 
 
-        int numberOfWeapons = FindObjectsOfType<SpinAttack>().Length;
+        int numberOfWeapons = FindObjectsByType<SpinAttack>(FindObjectsSortMode.None).Length;
         float angleBetweenWeapons = 360f / numberOfWeapons;
         float modifiedAngle = 0;
 
         // Position other SpinAttack instances evenly around the player
-        foreach (SpinAttack weaponSpin in FindObjectsOfType<SpinAttack>())
+        foreach (SpinAttack weaponSpin in FindObjectsByType<SpinAttack>(FindObjectsSortMode.None))
         {
             if (weaponSpin != this)
             {

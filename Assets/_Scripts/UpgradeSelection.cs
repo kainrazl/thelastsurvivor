@@ -134,7 +134,7 @@ public class UpgradeSelection : MonoBehaviour
                 maxWeapons = properties.maxWeapons;
                 weaponType = properties.type;
 
-                foreach(WeaponInstance weapon in FindObjectsOfType<WeaponInstance>())
+                foreach(WeaponInstance weapon in FindObjectsByType<WeaponInstance>(FindObjectsSortMode.None))
                 {
                     if (weapon.GetProperties().type == weaponType)
                     {
